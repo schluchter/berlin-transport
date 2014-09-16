@@ -14,6 +14,8 @@
 		40B52A0E19C7D79A005CF010 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0D19C7D79A005CF010 /* Images.xcassets */; };
 		40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */; };
 		40B52A1D19C7D79A005CF010 /* berlin_transportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A1C19C7D79A005CF010 /* berlin_transportTests.swift */; };
+		40B52A4519C7DAEA005CF010 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B52A3E19C7D9AC005CF010 /* Nimble.framework */; };
+		40B52A4619C7DAEA005CF010 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B52A2F19C7D997005CF010 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B52A4519C7DAEA005CF010 /* Nimble.framework in Frameworks */,
+				40B52A4619C7DAEA005CF010 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
