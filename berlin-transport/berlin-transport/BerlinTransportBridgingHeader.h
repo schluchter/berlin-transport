@@ -9,8 +9,8 @@
 #ifndef berlin_transport_BerlinTransportBridgingHeader_h
 #define berlin_transport_BerlinTransportBridgingHeader_h
 
-import <Ono/Ono.h>
-import <AFNetworking/AFNetworking.h>
+#import <Ono/Ono.h>
+#import <AFNetworking/AFNetworking.h>
 
 
 #endif

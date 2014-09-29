@@ -18,6 +18,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2DFF624919DA250700AE5DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74291940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		2DFF624B19DA250700AE5DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74341940169200FFFC47;
+			remoteInfo = "Nimble-iOSTests";
+		};
+		2DFF624D19DA250700AE5DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EAD195C0D6300ED456B;
+			remoteInfo = "Nimble-OSX";
+		};
+		2DFF624F19DA250700AE5DFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EB7195C0D6300ED456B;
+			remoteInfo = "Nimble-OSXTests";
+		};
 		40B52A1719C7D79A005CF010 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 40B529F919C7D798005CF010 /* Project object */;
@@ -57,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		2DFF623C19DA201600AE5DFC /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
+		2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Vendor/Vendor/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		40B52A0119C7D798005CF010 /* berlin-transport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "berlin-transport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B52A0519C7D799005CF010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B52A0619C7D79A005CF010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +121,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DFF624319DA250700AE5DFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DFF624A19DA250700AE5DFC /* Nimble.framework */,
+				2DFF624C19DA250700AE5DFC /* NimbleTests.xctest */,
+				2DFF624E19DA250700AE5DFC /* Nimble.framework */,
+				2DFF625019DA250700AE5DFC /* Nimble-OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		40B529F819C7D798005CF010 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +177,7 @@
 		40B52A1919C7D79A005CF010 /* berlin-transportTests */ = {
 			isa = PBXGroup;
 			children = (
+				2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */,
 				40B52A2619C7D996005CF010 /* Quick.xcodeproj */,
 				40B52A1C19C7D79A005CF010 /* berlin_transportTests.swift */,
 				40B52A1A19C7D79A005CF010 /* Supporting Files */,
@@ -242,6 +283,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 2DFF624319DA250700AE5DFC /* Products */;
+					ProjectRef = 2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */;
+				},
+				{
 					ProductGroup = 40B52A2719C7D996005CF010 /* Products */;
 					ProjectRef = 40B52A2619C7D996005CF010 /* Quick.xcodeproj */;
 				},
@@ -255,6 +300,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2DFF624A19DA250700AE5DFC /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 2DFF624919DA250700AE5DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFF624C19DA250700AE5DFC /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 2DFF624B19DA250700AE5DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFF624E19DA250700AE5DFC /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 2DFF624D19DA250700AE5DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DFF625019DA250700AE5DFC /* Nimble-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Nimble-OSXTests.xctest";
+			remoteRef = 2DFF624F19DA250700AE5DFC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		40B52A2F19C7D997005CF010 /* Quick.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -471,6 +544,7 @@
 				INFOPLIST_FILE = "berlin-transport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "berlin-transport/BerlinTransportBridgingHeader.h";
 			};
 			name = Debug;
 		};
@@ -482,6 +556,7 @@
 				INFOPLIST_FILE = "berlin-transport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "berlin-transport/BerlinTransportBridgingHeader.h";
 			};
 			name = Release;
 		};
@@ -502,6 +577,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-transport.app/berlin-transport";
 			};
 			name = Debug;
@@ -519,6 +595,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-transport.app/berlin-transport";
 			};
 			name = Release;
