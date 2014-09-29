@@ -85,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DFF623C19DA201600AE5DFC /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
 		40B52A0119C7D798005CF010 /* berlin-transport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "berlin-transport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B52A0519C7D799005CF010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B52A0619C7D79A005CF010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 				40B52A0D19C7D79A005CF010 /* Images.xcassets */,
 				40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */,
 				40B52A0419C7D799005CF010 /* Supporting Files */,
+				2DFF623C19DA201600AE5DFC /* BerlinTransportBridgingHeader.h */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
