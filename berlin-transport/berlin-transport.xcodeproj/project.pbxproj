@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2DA3A17F19DB0BDB008E72FB /* BTRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */; };
+		2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645519DC3FD900BA4C00 /* BTConnection.swift */; };
+		2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645719DC4F3000BA4C00 /* BTStation.swift */; };
+		2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */; };
 		2DE1737719DB141600A8F0F6 /* VBB-IA2012-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */; };
 		2DE1737819DB141600A8F0F6 /* VBB-IA2012-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */; };
 		2DE1737919DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */; };
@@ -92,6 +95,9 @@
 
 /* Begin PBXFileReference section */
 		2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTRequestParser.swift; sourceTree = "<group>"; };
+		2DA4645519DC3FD900BA4C00 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
+		2DA4645719DC4F3000BA4C00 /* BTStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTStation.swift; sourceTree = "<group>"; };
+		2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
 		2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "VBB-IA2012-CONReq.xml"; path = "berlin-transport/VBB-IA2012-CONReq.xml"; sourceTree = SOURCE_ROOT; };
 		2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-IA2012-CONRes.xml"; sourceTree = "<group>"; };
 		2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
@@ -191,6 +197,9 @@
 				40B52A0419C7D799005CF010 /* Supporting Files */,
 				2DFF623C19DA201600AE5DFC /* BerlinTransportBridgingHeader.h */,
 				2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */,
+				2DA4645519DC3FD900BA4C00 /* BTConnection.swift */,
+				2DA4645719DC4F3000BA4C00 /* BTStation.swift */,
+				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -452,9 +461,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */,
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
+				2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
 				2DA3A17F19DB0BDB008E72FB /* BTRequestParser.swift in Sources */,
+				2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
