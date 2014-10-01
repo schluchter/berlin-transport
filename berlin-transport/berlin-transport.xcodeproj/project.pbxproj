@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DA3A17F19DB0BDB008E72FB /* BTRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */; };
+		2DA3A17F19DB0BDB008E72FB /* BTResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTResponseParser.swift */; };
 		2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645519DC3FD900BA4C00 /* BTConnection.swift */; };
 		2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645719DC4F3000BA4C00 /* BTStation.swift */; };
 		2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */; };
@@ -94,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTRequestParser.swift; sourceTree = "<group>"; };
+		2DA3A17E19DB0BDB008E72FB /* BTResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTResponseParser.swift; sourceTree = "<group>"; };
 		2DA4645519DC3FD900BA4C00 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
 		2DA4645719DC4F3000BA4C00 /* BTStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTStation.swift; sourceTree = "<group>"; };
 		2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 				40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */,
 				40B52A0419C7D799005CF010 /* Supporting Files */,
 				2DFF623C19DA201600AE5DFC /* BerlinTransportBridgingHeader.h */,
-				2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */,
+				2DA3A17E19DB0BDB008E72FB /* BTResponseParser.swift */,
 				2DA4645519DC3FD900BA4C00 /* BTConnection.swift */,
 				2DA4645719DC4F3000BA4C00 /* BTStation.swift */,
 				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
@@ -465,7 +465,7 @@
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
 				2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
-				2DA3A17F19DB0BDB008E72FB /* BTRequestParser.swift in Sources */,
+				2DA3A17F19DB0BDB008E72FB /* BTResponseParser.swift in Sources */,
 				2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  BTRequestParser.swift
+//  BTResponseParser.swift
 //  berlin-transport
 //
 //  Created by Thomas Schluchter on 9/30/14.
@@ -9,24 +9,15 @@
 import Foundation
 
 class BTResponseParser {
-    let xmlPath: NSURL?
-    let xmlData: NSData?
-    let parserError: NSError?
-    let onoError: NSError?
+    var hafasRes: ONOXMLDocument
     
     init() {
-        parserError = NSError(domain: "XML couldn't be parsed", code: 1, userInfo: nil)
-        onoError = NSError(domain: "ONO error", code: 2, userInfo: nil)
+        var parserError = NSError(domain: "XML couldn't be parsed", code: 1, userInfo: nil)
+        var onoError = NSError(domain: "ONO error", code: 2, userInfo: nil)
         
-        xmlPath = NSBundle.mainBundle().URLForResource("VBB-STD-LUAX-CONRes", withExtension: "xml")
-        xmlData = NSData(contentsOfURL: xmlPath!, options: nil, error: &parserError)
+        let xmlPath = NSBundle.mainBundle().URLForResource("VBB-STD-LUAX-CONRes", withExtension: "xml")
+        let xmlData = NSData(contentsOfURL: xmlPath!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
         
-        
-        if (xmlData != nil) {
-            let hafasRes = ONOXMLDocument(data: xmlData, error: &onoError)
-            hafasRes.rootElement.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, done) -> Void in
-                
-            })
-        }
+        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
     }
 }
