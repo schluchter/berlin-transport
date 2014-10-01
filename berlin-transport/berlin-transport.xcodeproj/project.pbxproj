@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2DA3A17F19DB0BDB008E72FB /* BTRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */; };
-		2DA3A18819DB1011008E72FB /* BTRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTRequestParser.swift */; };
 		2DE1737719DB141600A8F0F6 /* VBB-IA2012-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */; };
 		2DE1737819DB141600A8F0F6 /* VBB-IA2012-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */; };
 		2DE1737919DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */; };
@@ -463,7 +462,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DA3A18819DB1011008E72FB /* BTRequestParser.swift in Sources */,
 				40B52A1D19C7D79A005CF010 /* berlin_transportTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
