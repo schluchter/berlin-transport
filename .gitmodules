@@ -4,6 +4,3 @@
 [submodule "berlin-transport/Vendor/Nimble"]
 	path = berlin-transport/Vendor/Nimble
 	url = git@github.com:Quick/Nimble.git
-[submodule "berlin-transport/Vendor/Vendor/Nimble"]
-	path = berlin-transport/Vendor/Vendor/Nimble
-	url = git@github.com:Quick/Nimble.git
