@@ -1,5 +1,5 @@
 import Quick
-import Nimble
+//import Nimble
 
 class BTConResParserTests: QuickSpec {
     override func spec() {

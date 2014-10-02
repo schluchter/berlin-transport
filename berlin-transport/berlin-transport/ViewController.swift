@@ -13,11 +13,12 @@ import CoreLocation
 class ViewController: UIViewController, MKMapViewDelegate {
     
     private let parser = BTConResParser(fileName: "VBB-STD-LUAX-CONRes")
+    private let mapView = MKMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let mapFrame = self.view.bounds
-        let mapView = MKMapView(frame: mapFrame)
+        self.mapView.frame = mapFrame
         self.view.addSubview(mapView)
         
         let locMgr = CLLocationManager()
@@ -26,7 +27,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
         } else {
             let firstConnection = parser.getConnections()[0]
             let stationCoords = firstConnection.departureStation.coords
-            mapView.setRegion(MKCoordinateRegion(center: stationCoords!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+            
+            let placeMark = MKPlacemark(coordinate: stationCoords!, addressDictionary: nil)
+            self.mapView.addAnnotation(placeMark)
+            
+            
+            mapView.setRegion(MKCoordinateRegion(
+                center: stationCoords!,
+                span: MKCoordinateSpan(
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01)),
+                animated: true)
         }
     }
 

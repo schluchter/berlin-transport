@@ -29,7 +29,6 @@ public class BTConResParser {
     }
     
     func getConnections() -> [BTConnection] {
-        println(__FUNCTION__)
         var connections: [BTConnection] = []
         
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
@@ -61,8 +60,8 @@ public class BTConResParser {
     }
     
     private func coordinatesForStation(station: ONOXMLElement) -> CLLocationCoordinate2D {
-        let lat = Double((station["y"] as String).toInt()!) / 1000000
-        let long = Double((station["x"] as String).toInt()!) / 1000000
+        let lat = Double((station["y"] as String).toInt()!) / kBTCoordinateDegreeDivisor
+        let long = Double((station["x"] as String).toInt()!) / kBTCoordinateDegreeDivisor
         
         let coords = CLLocationCoordinate2DMake(lat, long)
         
