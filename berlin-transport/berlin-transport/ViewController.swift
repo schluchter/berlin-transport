@@ -11,6 +11,8 @@ import MapKit
 import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
+    
+    private let parser = BTConResParser(fileName: "VBB-STD-LUAX-CONRes")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +24,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         if !CLLocationManager.locationServicesEnabled() {
             println("No location services enabled")
         } else {
-            locMgr.startUpdatingLocation()
-            let coord = CLLocationCoordinate2D(latitude: 52.518338, longitude: 13.401026)
-            mapView.setRegion(MKCoordinateRegion(center: coord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+            let firstConnection = parser.getConnections()[0]
+            let stationCoords = firstConnection.departureStation.coords
+            mapView.setRegion(MKCoordinateRegion(center: stationCoords!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         }
     }
 

@@ -14,10 +14,10 @@ public class BTConResParser {
     
     init(fileURL url: NSURL?) {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
-//        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
+        //        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
         self.hafasRes = ONOXMLDocument.XMLDocumentWithData(xmlData, error: nil)
     }
-
+    
     convenience init(fileName name: String) {
         let fileURL = NSBundle.mainBundle().URLForResource(name, withExtension: "xml")
         self.init(fileURL: fileURL)
@@ -31,9 +31,9 @@ public class BTConResParser {
     func getConnections() -> [BTConnection] {
         println(__FUNCTION__)
         var connections: [BTConnection] = []
-    
+        
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
-
+            
             let connDate = NSDate()
             let travelTimeStr = element.firstChildWithXPath("//Duration/Time").stringValue()
             let travelTime = CFTimeInterval.abs(22.0 * 60.0)
@@ -45,8 +45,14 @@ public class BTConResParser {
                 date: connDate,
                 travelTime: travelTime,
                 doesConnect: doesConnect,
-                departureStation: BTStation(name: departureStation.attributes["name"]! as String, coords: self.coordinatesForStation(departureStation), services: nil),
-                arrivalStation: BTStation(name: arrivalStation.attributes["name"]! as String, coords: self.coordinatesForStation(arrivalStation), services: nil),
+                departureStation: BTStation(
+                    name: departureStation.attributes["name"]! as String,
+                    coords: self.coordinatesForStation(departureStation),
+                    services: nil),
+                arrivalStation: BTStation(
+                    name: arrivalStation.attributes["name"]! as String,
+                    coords: self.coordinatesForStation(arrivalStation),
+                    services: nil),
                 segments: nil)
             
             connections.append(connection)
@@ -55,10 +61,10 @@ public class BTConResParser {
     }
     
     private func coordinatesForStation(station: ONOXMLElement) -> CLLocationCoordinate2D {
-        let x = Double((station["x"] as String).toInt()!) / 1000000
-        let y = Double((station["y"] as String).toInt()!) / 1000000
+        let lat = Double((station["y"] as String).toInt()!) / 1000000
+        let long = Double((station["x"] as String).toInt()!) / 1000000
         
-        let coords = CLLocationCoordinate2DMake(x, y)
+        let coords = CLLocationCoordinate2DMake(lat, long)
         
         return coords
     }
