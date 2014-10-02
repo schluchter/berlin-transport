@@ -1,5 +1,5 @@
 //
-//  BTResponseParser.swift
+//  BTConResParser.swift
 //  berlin-transport
 //
 //  Created by Thomas Schluchter on 9/30/14.
@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-public class BTResponseParser {
+public class BTConResParser {
     var hafasRes: ONOXMLDocument
     
     init(fileURL url: NSURL?) {
