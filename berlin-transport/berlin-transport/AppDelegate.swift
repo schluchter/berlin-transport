@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         println(__FUNCTION__)
         // Override point for customization after application launch.
-        let parser = BTResponseParser()
-        parser.getConnections()
         return true
     }
 

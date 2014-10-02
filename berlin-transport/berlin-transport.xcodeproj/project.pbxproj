@@ -23,7 +23,6 @@
 		40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0A19C7D79A005CF010 /* Main.storyboard */; };
 		40B52A0E19C7D79A005CF010 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0D19C7D79A005CF010 /* Images.xcassets */; };
 		40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */; };
-		40B52A1D19C7D79A005CF010 /* berlin_transportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A1C19C7D79A005CF010 /* berlin_transportTests.swift */; };
 		40B52A4619C7DAEA005CF010 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B52A2F19C7D997005CF010 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,7 +114,6 @@
 		40B52A1019C7D79A005CF010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		40B52A1619C7D79A005CF010 /* berlin-transportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "berlin-transportTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B52A1B19C7D79A005CF010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40B52A1C19C7D79A005CF010 /* berlin_transportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = berlin_transportTests.swift; sourceTree = "<group>"; };
 		40B52A2619C7D996005CF010 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Vendor/Quick/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8CA34185FE7541FE93FF26B1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A294E7BAC842499FBCB33638 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +215,6 @@
 			children = (
 				2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */,
 				40B52A2619C7D996005CF010 /* Quick.xcodeproj */,
-				40B52A1C19C7D79A005CF010 /* berlin_transportTests.swift */,
 				40B52A1A19C7D79A005CF010 /* Supporting Files */,
 			);
 			path = "berlin-transportTests";
@@ -474,7 +471,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B52A1D19C7D79A005CF010 /* berlin_transportTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

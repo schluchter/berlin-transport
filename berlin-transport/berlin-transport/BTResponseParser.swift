@@ -12,14 +12,19 @@ import MapKit
 public class BTResponseParser {
     var hafasRes: ONOXMLDocument
     
-    init() {
-        var parserError = NSError(domain: "XML couldn't be parsed", code: 1, userInfo: nil)
-        var onoError = NSError(domain: "ONO error", code: 2, userInfo: nil)
-        
-        let xmlPath = NSBundle.mainBundle().URLForResource("VBB-STD-LUAX-CONRes", withExtension: "xml")
-        let xmlData = NSData(contentsOfURL: xmlPath!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
-        
+    init(fileURL url: NSURL?) {
+        let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
         self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
+    }
+
+    convenience init(fileName name: String) {
+        let fileURL = NSBundle.mainBundle().URLForResource(name, withExtension: "xml")
+        self.init(fileURL: fileURL)
+    }
+    
+    convenience init() {
+        let fileURL = NSBundle.mainBundle().URLForResource("VBB-STD-LUAX-CONRes", withExtension: "xml")
+        self.init(fileURL: fileURL)
     }
     
     func getConnections() -> [BTConnection] {
