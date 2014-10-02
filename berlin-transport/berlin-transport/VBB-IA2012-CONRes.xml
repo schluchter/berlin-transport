@@ -8,7 +8,7 @@
                     <Date>20110311</Date>
                     <Departure>
                         <BasicStop type="NORMAL">
-                            <Station externalId="009056104#86" externalStationNr="009056104" name="U Båülowstr. (Berlin)" type="WGS84" x="13362447" y="52497659"/>
+                            <Station externalId="009056104#86" externalStationNr="009056104" name="U BÂ¸lowstr. (Berlin)" type="WGS84" x="13362447" y="52497659"/>
                             <Dep getIn="YES">
                                 <Time>00d11:03:00</Time>
                                 <Platform>
@@ -52,7 +52,7 @@
                     <Date>20110311</Date>
                     <Departure>
                         <BasicStop type="NORMAL">
-                            <Station externalId="009056104#86" externalStationNr="009056104" name="U Båülowstr. (Berlin)" type="WGS84" x="13362447" y="52497659"/>
+                            <Station externalId="009056104#86" externalStationNr="009056104" name="U BÂ¸lowstr. (Berlin)" type="WGS84" x="13362447" y="52497659"/>
                             <Dep getIn="YES">
                                 <Time>00d11:08:00</Time>
                                 <Platform>
@@ -96,7 +96,7 @@
                     <Date>20110311</Date>
                     <Departure>
                         <BasicStop type="NORMAL">
-                            <Station externalId="009056104#86" externalStationNr="009056104" name="U Båülowstr. (Berlin)" type="WGS84" x="13362447" y="52497659"/>
+                            <Station externalId="009056104#86" externalStationNr="009056104" name="U BÂ¸lowstr. (Berlin)" type="WGS84" x="13362447" y="52497659"/>
                             <Dep getIn="YES">
                                 <Time>00d11:13:00</Time>
                                 <Platform>

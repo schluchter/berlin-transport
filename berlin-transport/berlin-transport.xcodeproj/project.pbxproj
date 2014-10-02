@@ -98,10 +98,10 @@
 		2DA4645519DC3FD900BA4C00 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
 		2DA4645719DC4F3000BA4C00 /* BTStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTStation.swift; sourceTree = "<group>"; };
 		2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
-		2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "VBB-IA2012-CONReq.xml"; path = "berlin-transport/VBB-IA2012-CONReq.xml"; sourceTree = SOURCE_ROOT; };
-		2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-IA2012-CONRes.xml"; sourceTree = "<group>"; };
-		2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
-		2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONRes.xml"; sourceTree = "<group>"; };
+		2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; name = "VBB-IA2012-CONReq.xml"; path = "berlin-transport/VBB-IA2012-CONReq.xml"; sourceTree = SOURCE_ROOT; };
+		2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-IA2012-CONRes.xml"; sourceTree = "<group>"; };
+		2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
+		2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONRes.xml"; sourceTree = "<group>"; };
 		2DFF623C19DA201600AE5DFC /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
 		2DFF624219DA250700AE5DFC /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Vendor/Vendor/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2DFF625119DA28AA00AE5DFC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };

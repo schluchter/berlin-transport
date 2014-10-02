@@ -5,6 +5,9 @@
       location = "group:location/berlin.gpx">
    </FileRef>
    <FileRef
+      location = "group:BTPlayground.playground">
+   </FileRef>
+   <FileRef
       location = "group:berlin-transport.xcodeproj">
    </FileRef>
    <FileRef

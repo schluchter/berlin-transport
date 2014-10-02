@@ -22,7 +22,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
         if !CLLocationManager.locationServicesEnabled() {
             println("No location services enabled")
         } else {
-            println(CLLocationManager.authorizationStatus())
             locMgr.startUpdatingLocation()
             let coord = CLLocationCoordinate2D(latitude: 52.518338, longitude: 13.401026)
             mapView.setRegion(MKCoordinateRegion(center: coord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)

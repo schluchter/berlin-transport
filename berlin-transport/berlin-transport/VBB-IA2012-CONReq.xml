@@ -3,7 +3,7 @@
 <ConReq>
   <RFlags b="0" f="1" ></RFlags>
   <Start>
-    <Station externalId="9056104"/>  <!-- Bülowstr.: 9056104-->
+    <Station externalId="9056104"/>  <!-- B¸lowstr.: 9056104-->
     <Prod  bike="0" sleeper="0" couchette="0"/>
   </Start>
   <Dest>

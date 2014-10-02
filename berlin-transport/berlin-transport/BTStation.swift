@@ -11,6 +11,6 @@ import CoreLocation
 
 struct BTStation {
     let name: String
-    let coords: CLLocationCoordinate2D
-    let services: [BTServiceDescription]
+    let coords: CLLocationCoordinate2D?
+    let services: [BTServiceDescription]?
 }

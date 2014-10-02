@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreFoundation
 
 struct BTConnectionSegment {
     let order: UInt
@@ -17,10 +18,10 @@ struct BTConnectionSegment {
 }
 
 struct BTConnection {
-    let date: NSDate
-    let travelTime: UInt
-    let doesConnect: Bool
-    let departureStation: BTStation
-    let arrivalStation: BTStation
-    let segments: [BTConnectionSegment]
+    var date: NSDate
+    var travelTime: CFTimeInterval
+    var doesConnect: Bool
+    var departureStation: BTStation
+    var arrivalStation: BTStation
+    var segments: [BTConnectionSegment]?
 }
