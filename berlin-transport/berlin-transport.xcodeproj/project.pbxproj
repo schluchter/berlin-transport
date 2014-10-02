@@ -98,6 +98,8 @@
 		2D1AC74119DD7D2A005C5E65 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Quick/Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		2D1AC74319DD7D49005C5E65 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Quick/Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		2D1AC74619DD7EBF005C5E65 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Quick/Externals/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		2D1AC74919DD8315005C5E65 /* berlin-transportTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "berlin-transportTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
 		2D3BC38419DD796D0006AFC4 /* berlin-transportTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "berlin-transportTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D3BC38519DD796D0006AFC4 /* BTConResParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParserTests.swift; sourceTree = "<group>"; };
 		2DA3A17E19DB0BDB008E72FB /* BTConResParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParser.swift; sourceTree = "<group>"; };
@@ -173,6 +175,8 @@
 		40B529F819C7D798005CF010 = {
 			isa = PBXGroup;
 			children = (
+				2D1AC74919DD8315005C5E65 /* berlin-transportTests-Bridging-Header.h */,
+				2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */,
 				40B52A0319C7D798005CF010 /* berlin-transport */,
 				40B52A1919C7D79A005CF010 /* berlin-transportTests */,
 				40B52A0219C7D798005CF010 /* Products */,
@@ -624,6 +628,7 @@
 		40B52A2419C7D79A005CF010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -644,12 +649,14 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "berlin-transportTests/berlin-transportTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-transport.app/berlin-transport";
+				USER_HEADER_SEARCH_PATHS = "~/Documents/Development/berlin-transport/berlin-transport/Vendor/**";
 			};
 			name = Debug;
 		};
 		40B52A2519C7D79A005CF010 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -665,6 +672,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "berlin-transportTests/berlin-transportTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-transport.app/berlin-transport";
+				USER_HEADER_SEARCH_PATHS = "~/Documents/Development/berlin-transport/berlin-transport/Vendor/**";
 			};
 			name = Release;
 		};
