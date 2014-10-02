@@ -14,7 +14,8 @@ public class BTConResParser {
     
     init(fileURL url: NSURL?) {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
-        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
+//        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
+        self.hafasRes = ONOXMLDocument.XMLDocumentWithData(xmlData, error: nil)
     }
 
     convenience init(fileName name: String) {

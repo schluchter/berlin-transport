@@ -642,7 +642,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "berlin-transportTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = BerlinTransportTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-transport.app/berlin-transport";
 				USER_HEADER_SEARCH_PATHS = "~/Documents/Development/berlin-transport/berlin-transport/Vendor/**";
@@ -666,7 +666,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "berlin-transportTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = BerlinTransportTestsBridgingHeader.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-transport.app/berlin-transport";
 				USER_HEADER_SEARCH_PATHS = "~/Documents/Development/berlin-transport/berlin-transport/Vendor/**";
 			};
