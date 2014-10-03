@@ -1,6 +1,0 @@
-[submodule "berlin-transport/Vendor/Quick"]
-	path = berlin-transport/Vendor/Quick
-	url = git@github.com:Quick/Quick.git
-[submodule "berlin-transport/Vendor/Nimble"]
-	path = berlin-transport/Vendor/Nimble
-	url = git@github.com:Quick/Nimble.git

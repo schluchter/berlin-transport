@@ -11,10 +11,10 @@ import MapKit
 
 public class BTConResParser {
     var hafasRes: ONOXMLDocument
+    public var connections: [BTConnection] = []
     
     init(fileURL url: NSURL?) {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
-        //        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
         self.hafasRes = ONOXMLDocument.XMLDocumentWithData(xmlData, error: nil)
     }
     
@@ -23,13 +23,12 @@ public class BTConResParser {
         self.init(fileURL: fileURL)
     }
     
-    convenience init() {
+    public convenience init() {
         let fileURL = NSBundle.mainBundle().URLForResource("VBB-STD-LUAX-CONRes", withExtension: "xml")
         self.init(fileURL: fileURL)
     }
     
     func getConnections() -> [BTConnection] {
-        var connections: [BTConnection] = []
         
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
             
@@ -54,7 +53,7 @@ public class BTConResParser {
                     services: nil),
                 segments: nil)
             
-            connections.append(connection)
+            self.connections.append(connection)
         })
         return connections
     }

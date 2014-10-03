@@ -8,4 +8,5 @@
 
 import Foundation
 
-var kBTCoordinateDegreeDivisor: Double { get { return 1000000.0 }}
+public let kBTCoordinateDegreeDivisor: Double = 1000000.0
+

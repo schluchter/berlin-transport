@@ -17,7 +17,7 @@ struct BTConnectionSegment {
     let duration: UInt
 }
 
-struct BTConnection {
+public struct BTConnection {
     var date: NSDate
     var travelTime: CFTimeInterval
     var doesConnect: Bool
