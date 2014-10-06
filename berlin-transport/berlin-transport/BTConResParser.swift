@@ -11,7 +11,7 @@ import MapKit
 
 public class BTConResParser {
     var hafasRes: ONOXMLDocument
-    public var connections: [BTConnection] = []
+    var connections: [BTConnection] = []
     
     init(fileURL url: NSURL?) {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
@@ -28,13 +28,12 @@ public class BTConResParser {
         self.init(fileURL: fileURL)
     }
     
-    func getConnections() -> [BTConnection] {
+    public func getConnections() -> [BTConnection] {
         
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
             
             let connDate = NSDate()
-            let travelTimeStr = element.firstChildWithXPath("//Duration/Time").stringValue()
-            let travelTime = CFTimeInterval.abs(22.0 * 60.0)
+            let travelTime = self.timeIntervalForElementWithXPath("//Duration/Time")
             let doesConnect = element.firstChildWithXPath("//Transfers").numberValue().boolValue
             let departureStation: ONOXMLElement = element.firstChildWithXPath("//Departure//Station")
             let arrivalStation: ONOXMLElement = element.firstChildWithXPath("//Arrival//Station")
@@ -65,5 +64,9 @@ public class BTConResParser {
         let coords = CLLocationCoordinate2DMake(lat, long)
         
         return coords
+    }
+    
+    private func timeIntervalForElementWithXPath(expression: String) -> NSTimeInterval {
+        return NSTimeInterval()
     }
 }

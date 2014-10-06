@@ -11,7 +11,7 @@ import CoreFoundation
 
 struct BTConnectionSegment {
     let order: UInt
-    let travelTime: UInt
+    let travelTime: NSTimeInterval
     let getOn: BTStation
     let getOff: BTStation
     let duration: UInt
@@ -19,7 +19,7 @@ struct BTConnectionSegment {
 
 public struct BTConnection {
     var date: NSDate
-    var travelTime: CFTimeInterval
+    public var travelTime: NSTimeInterval
     var doesConnect: Bool
     var departureStation: BTStation
     var arrivalStation: BTStation
