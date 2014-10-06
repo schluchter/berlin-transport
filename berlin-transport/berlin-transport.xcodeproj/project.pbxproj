@@ -19,6 +19,7 @@
 		2DE1737819DB141600A8F0F6 /* VBB-IA2012-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */; };
 		2DE1737919DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */; };
 		2DE1737A19DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */; };
+		2DED15B819E3480700A6F193 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DED15B719E3480700A6F193 /* Keys.plist */; };
 		2DFF625219DA28AA00AE5DFC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF625119DA28AA00AE5DFC /* CoreLocation.framework */; };
 		2DFF625419DA28B400AE5DFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF625319DA28B400AE5DFC /* MapKit.framework */; };
 		40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A0619C7D79A005CF010 /* AppDelegate.swift */; };
@@ -111,6 +112,7 @@
 		2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-IA2012-CONRes.xml"; sourceTree = "<group>"; };
 		2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
 		2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONRes.xml"; sourceTree = "<group>"; };
+		2DED15B719E3480700A6F193 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2DFF625119DA28AA00AE5DFC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2DFF625319DA28B400AE5DFC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		40B52A0119C7D798005CF010 /* berlin-transport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "berlin-transport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 		40B529F819C7D798005CF010 = {
 			isa = PBXGroup;
 			children = (
+				2DED15B719E3480700A6F193 /* Keys.plist */,
 				2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */,
 				40B52A0319C7D798005CF010 /* berlin-transport */,
 				40B52A1919C7D79A005CF010 /* berlin-transportTests */,
@@ -419,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DED15B819E3480700A6F193 /* Keys.plist in Resources */,
 				40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */,
 				2DE1737A19DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml in Resources */,
 				40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */,
