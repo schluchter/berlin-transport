@@ -9,4 +9,4 @@
 import Foundation
 
 public let kBTCoordinateDegreeDivisor: Double = 1000000.0
-
+public let kBTHafasServerURL: String = "http://demo.hafas.de/bin/pub/vbb/extxml.exe"
