@@ -10,7 +10,6 @@
 		2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */; };
 		2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29D6C419DDC67800A1101D /* BTConstants.swift */; };
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
-		2D3B18C219E4E27C00491423 /* BTArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3B18C119E4E27C00491423 /* BTArrayExtensions.swift */; };
 		2D51074719DEE909002AA6FC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D51074019DEE8AE002AA6FC /* Nimble.framework */; };
 		2D51074819DEE909002AA6FC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D51073119DEE892002AA6FC /* Quick.framework */; };
 		2D51074A19DEE9F8002AA6FC /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */; };
@@ -104,7 +103,6 @@
 		2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Antwort_ID_ASCI.xml; sourceTree = "<group>"; };
 		2D29D6C419DDC67800A1101D /* BTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
 		2D3B18B719E4AF9000491423 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		2D3B18C119E4E27C00491423 /* BTArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTArrayExtensions.swift; sourceTree = "<group>"; };
 		2D51072319DE061D002AA6FC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D51072819DEE892002AA6FC /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = "../../../../../Downloads/Quick-master/Quick/Quick.xcodeproj"; sourceTree = "<group>"; };
 		2D51073819DEE8AD002AA6FC /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = "../../../../../Downloads/Nimble-master/Nimble.xcodeproj"; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				2DA4645719DC4F3000BA4C00 /* BTStation.swift */,
 				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
 				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
-				2D3B18C119E4E27C00491423 /* BTArrayExtensions.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -496,7 +493,6 @@
 				2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */,
 				2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */,
 				2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */,
-				2D3B18C219E4E27C00491423 /* BTArrayExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
