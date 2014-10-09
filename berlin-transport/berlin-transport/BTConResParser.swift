@@ -24,7 +24,7 @@ public class BTConResParser {
     }
     
     public convenience init() {
-        let fileURL = NSBundle.mainBundle().URLForResource("VBB-STD-LUAX-CONRes", withExtension: "xml")
+        let fileURL = NSBundle.mainBundle().URLForResource("Antwort_ID_ASCI", withExtension: "xml")
         self.init(fileURL: fileURL)
     }
     
@@ -33,15 +33,15 @@ public class BTConResParser {
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
             
             let connDate = NSDate()
-            let travelTime = self.timeIntervalForElementWithXPath("//Duration/Time")
-            let doesConnect = element.firstChildWithXPath("//Transfers").numberValue().boolValue
+            let travelTime = self.timeIntervalForElement(element.firstChildWithXPath("//Duration/Time"))
+            let transfers = element.firstChildWithXPath("//Transfers").numberValue()
             let departureStation: ONOXMLElement = element.firstChildWithXPath("//Departure//Station")
             let arrivalStation: ONOXMLElement = element.firstChildWithXPath("//Arrival//Station")
             
             let connection = BTConnection(
                 date: connDate,
                 travelTime: travelTime,
-                doesConnect: doesConnect,
+                numberOfTransfers: transfers,
                 departureStation: BTStation(
                     name: departureStation.attributes["name"]! as String,
                     coords: self.coordinatesForStation(departureStation),
@@ -60,13 +60,18 @@ public class BTConResParser {
     private func coordinatesForStation(station: ONOXMLElement) -> CLLocationCoordinate2D {
         let lat = Double((station["y"] as String).toInt()!) / kBTCoordinateDegreeDivisor
         let long = Double((station["x"] as String).toInt()!) / kBTCoordinateDegreeDivisor
-        
         let coords = CLLocationCoordinate2DMake(lat, long)
         
         return coords
     }
     
-    private func timeIntervalForElementWithXPath(expression: String) -> NSTimeInterval {
-        return NSTimeInterval()
+    private func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
+        let timeString = element.stringValue()
+        var components = timeString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "d:"))
+        let seconds: Int = (components.removeLast() as String).toInt()!
+        let minutes: Int = (components.removeLast() as String).toInt()!
+        let hours: Int = (components.removeLast() as String).toInt()!
+        
+        return Double(seconds + minutes*60 + hours*3600)
     }
 }
