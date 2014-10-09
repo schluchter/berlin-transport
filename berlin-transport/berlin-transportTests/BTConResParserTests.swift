@@ -9,7 +9,7 @@ class BTConResParserTests: QuickSpec {
                 let conns = BTConResParser().getConnections()
                 let connection = conns.first!
                 it("it should return an NSTimeInterval for the travel time", {
-                    expect(connection.travelTime).to(beAnInstanceOf(NSTimeInterval))
+                    expect(connection.travelTime).to(equal(32*60))
                 })
             })
         })
