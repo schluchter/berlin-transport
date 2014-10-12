@@ -11,7 +11,13 @@ import MapKit
 
 public class BTConResParser {
     var hafasRes: ONOXMLDocument
-    var connections: [BTConnection] = []
+    var connections: [BTConnection<BTPoint>] = []
+    
+    
+    public convenience init() {
+        let fileURL = NSBundle.mainBundle().URLForResource("Antwort_ID_ASCI", withExtension: "xml")
+        self.init(fileURL: fileURL)
+    }
     
     init(fileURL url: NSURL?) {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
@@ -22,34 +28,25 @@ public class BTConResParser {
         let fileURL = NSBundle.mainBundle().URLForResource(name, withExtension: "xml")
         self.init(fileURL: fileURL)
     }
-    
-    public convenience init() {
-        let fileURL = NSBundle.mainBundle().URLForResource("Antwort_ID_ASCI", withExtension: "xml")
-        self.init(fileURL: fileURL)
-    }
-    
-    public func getConnections() -> [BTConnection] {
+
+
+    public func getConnections() -> [BTConnection<BTPoint>] {
         
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
             
-            let connDate = NSDate()
+            let startDate = NSDate() //TODO: Replace with implementation
+            let endDate = NSDate() //TODO: Replace with implementation
             let travelTime = self.timeIntervalForElement(element.firstChildWithXPath("//Duration/Time"))
             let transfers = element.firstChildWithXPath("//Transfers").numberValue()
             let departureStation: ONOXMLElement = element.firstChildWithXPath("//Departure//Station")
             let arrivalStation: ONOXMLElement = element.firstChildWithXPath("//Arrival//Station")
             
-            let connection = BTConnection(
-                date: connDate,
+            let connection = BTConnection<BTPoint>(startDate: startDate,
+                endDate: endDate,
                 travelTime: travelTime,
                 numberOfTransfers: transfers,
-                departureStation: BTStation(
-                    name: departureStation.attributes["name"]! as String,
-                    coords: self.coordinatesForStation(departureStation),
-                    services: nil),
-                arrivalStation: BTStation(
-                    name: arrivalStation.attributes["name"]! as String,
-                    coords: self.coordinatesForStation(arrivalStation),
-                    services: nil),
+                start: self.pointFromElement(element),
+                end: self.pointFromElement(element),
                 segments: nil)
             
             self.connections.append(connection)
@@ -65,6 +62,12 @@ public class BTConResParser {
         return coords
     }
     
+    private func pointFromElement(_: ONOXMLElement) -> BTPoint {
+        return BTStation(coordinate: CLLocationCoordinate2DMake(10, 10),
+            displayName: "S Scheisshaufen",
+            services: nil)
+    }
+    
     private func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
         let timeString = element.stringValue()
         var components = timeString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "d:"))
@@ -73,5 +76,45 @@ public class BTConResParser {
         let hours: Int = (components.removeLast() as String).toInt()!
         
         return Double(seconds + minutes*60 + hours*3600)
+    }
+    
+    private func dateTimeFromElement(element: ONOXMLElement) -> NSDate {
+        return NSDate()
+    }
+    
+    private func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {
+        let earlierDiff = self.timeIntervalForElement(earlierDate)
+        let laterDiff = self.timeIntervalForElement(laterDate)
+        return laterDiff - earlierDiff
+    }
+    
+    private func segmentsForJourney(journey: ONOXMLElement) -> [BTConnectionSegment<BTPoint>] {
+        var segments: [BTConnectionSegment<BTPoint>] = []
+        
+        journey.enumerateElementsWithXPath("//ConSection/") { (element, idx, stop) -> Void in
+            var segment: BTConnectionSegment<BTPoint>
+            
+            let arrivalEl = element.firstChildWithTag("Arrival")
+            let departureEl = element.firstChildWithTag("Departure")
+            let segmentTypeEl = element.firstChildWithXPath("Journey|Walk|Transfer|GisRoute")
+
+            switch segmentTypeEl.tag {
+            case "Journey":
+                let startTime = departureEl.firstChildWithXPath("//Time")
+                let endTime = arrivalEl.firstChildWithXPath("//Time")
+                let duration = self.timeIntervalBetween(startTime, endTime)
+            case "Walk":
+                println("Walk")
+            case "Transfer":
+                println("Transfer")
+            case "GisRoute":
+                println("GisRoute")
+            default:
+                println("Found something else")
+            }
+            //            segments.append(segment)
+        }
+        
+        return segments
     }
 }

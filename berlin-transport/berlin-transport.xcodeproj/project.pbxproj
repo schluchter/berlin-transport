@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */; };
+		2D222A8119E798A400B63D56 /* BTPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D222A8019E798A400B63D56 /* BTPoint.swift */; };
 		2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29D6C419DDC67800A1101D /* BTConstants.swift */; };
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
 		2D51074719DEE909002AA6FC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D51074019DEE8AE002AA6FC /* Nimble.framework */; };
@@ -101,6 +102,7 @@
 		082AB5B6B55064179C52E15E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
 		2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Antwort_ID_ASCI.xml; sourceTree = "<group>"; };
+		2D222A8019E798A400B63D56 /* BTPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPoint.swift; sourceTree = "<group>"; };
 		2D29D6C419DDC67800A1101D /* BTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
 		2D3B18B719E4AF9000491423 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D51072319DE061D002AA6FC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				40B52A0419C7D799005CF010 /* Supporting Files */,
 				2DA3A17E19DB0BDB008E72FB /* BTConResParser.swift */,
 				2DA4645519DC3FD900BA4C00 /* BTConnection.swift */,
+				2D222A8019E798A400B63D56 /* BTPoint.swift */,
 				2DA4645719DC4F3000BA4C00 /* BTStation.swift */,
 				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
 				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
@@ -486,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D222A8119E798A400B63D56 /* BTPoint.swift in Sources */,
 				2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */,
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
 				2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */,

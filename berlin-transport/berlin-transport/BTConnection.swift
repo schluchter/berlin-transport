@@ -7,22 +7,37 @@
 //
 
 import Foundation
-import CoreFoundation
+import CoreLocation
 
-struct BTConnectionSegment {
-    let order: UInt
-    let travelTime: NSTimeInterval
-    let getOn: BTStation
-    let getOff: BTStation
-    let duration: UInt
-    let service: BTServiceDescription
+struct BTConnectionSegment<T: BTPoint> {
+    let duration: NSTimeInterval
+    let start: T
+    let end: T
+//    let mode: Mode
+//    
+//    enum Mode {
+//        case Journey(BTJourney)
+//        case Walk(BTWalk)
+//        case Transfer
+//        case GisRoute
+//        
+//        struct BTJourney {
+//            let service: BTServiceDescription
+//            let passList: [BTStation]?
+//        }
+//        
+//        struct BTWalk {
+//            let length: NSTimeInterval
+//        }
+//    }
 }
 
-public struct BTConnection {
-    var date: NSDate
+public struct BTConnection<T: BTPoint> {
+    var startDate: NSDate
+    var endDate: NSDate
     public var travelTime: NSTimeInterval
     var numberOfTransfers: UInt
-    var departureStation: BTStation
-    var arrivalStation: BTStation
-    var segments: [BTConnectionSegment]?
+    var start: T
+    var end: T
+    var segments: [BTConnectionSegment<T>]?
 }

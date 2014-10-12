@@ -12,7 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
-    private let parser = BTConResParser(fileName: "Antwort_ID_ASCI")
+    private let parser = BTConResParser(fileName: "")
     private let mapView = MKMapView()
 
     override func viewDidLoad() {
@@ -25,19 +25,19 @@ class ViewController: UIViewController, MKMapViewDelegate {
         if !CLLocationManager.locationServicesEnabled() {
             println("No location services enabled")
         } else {
-            let firstConnection = parser.getConnections()[0]
-            let stationCoords = firstConnection.departureStation.coords
-            
-            let placeMark = MKPlacemark(coordinate: stationCoords!, addressDictionary: nil)
-            self.mapView.addAnnotation(placeMark)
-            
-            
-            mapView.setRegion(MKCoordinateRegion(
-                center: stationCoords!,
-                span: MKCoordinateSpan(
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01)),
-                animated: true)
+//            let firstConnection = parser.getConnections()[0]
+//            let stationCoords = firstConnection.end.coordinate
+//            
+//            let placeMark = MKPlacemark(coordinate: stationCoords, addressDictionary: nil)
+//            self.mapView.addAnnotation(placeMark)
+//            
+//            
+//            mapView.setRegion(MKCoordinateRegion(
+//                center: stationCoords,
+//                span: MKCoordinateSpan(
+//                    latitudeDelta: 0.01,
+//                    longitudeDelta: 0.01)),
+//                animated: true)
         }
     }
 
