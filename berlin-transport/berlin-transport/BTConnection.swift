@@ -9,22 +9,49 @@
 import Foundation
 import CoreLocation
 
-struct BTConnectionSegment {
+protocol BTConnectionSegment {
+    var start: BTPoint { get }
+    var end: BTPoint { get }
+    var duration: NSTimeInterval {get}
+}
+
+public struct BTJourney: BTConnectionSegment {
+    let start: BTPoint
+    let end: BTPoint
+    let duration: NSTimeInterval
+    let line: BTServiceDescription
+    
+}
+
+public struct BTWalk: BTConnectionSegment {
     typealias Meters = UInt
     
     let start: BTPoint
     let end: BTPoint
-    let mode: Mode
-
-    let duration: NSTimeInterval?
+    let duration: NSTimeInterval
     let distance: Meters?
+}
+
+public struct BTGisRoute: BTConnectionSegment {
+    let start: BTPoint
+    let end: BTPoint
+    let duration: NSTimeInterval
+    let trafficType: IndividualTrafficType
     
-    enum Mode {
-        case Journey
-        case Walk
-        case Transfer
-        case GisRoute    
+    enum IndividualTrafficType {
+        case Foot
+        case Bike
+        case Car
+        case Taxi
     }
+    
+}
+
+public struct BTTransfer: BTConnectionSegment {
+    let start: BTPoint
+    let end: BTPoint
+    let duration: NSTimeInterval
+    
 }
 
 public struct BTConnection {

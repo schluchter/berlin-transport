@@ -18,7 +18,7 @@ struct BTStation: BTPoint {
     let coordinate: CLLocationCoordinate2D
     let displayName: String
     let externalId: String
-    let externalStationNr: UInt
+    let externalStationNr: String
     let services: [BTServiceDescription]?
 }
 
