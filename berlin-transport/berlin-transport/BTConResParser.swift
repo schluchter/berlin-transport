@@ -50,20 +50,20 @@ public class BTConResParser {
                 println("Well shit.")
             }
             
-            //            let connection = BTConnection(startDate: startDate,
-            //                endDate: endDate,
-            //                travelTime: travelTime,
-            //                numberOfTransfers: transfers,
-            //                start: self.pointFromElement(departureStation)!,
-            //                end: self.pointFromElement(arrivalStation)!,
-            //                segments: nil)
-            //
-            //            self.connections.append(connection)
+            let connection = BTConnection(startDate: startDate,
+                endDate: endDate,
+                travelTime: travelTime,
+                numberOfTransfers: transfers,
+                start: self.pointFromElement(departureStation)!,
+                end: self.pointFromElement(arrivalStation)!,
+                segments: nil)
+            
+            self.connections.append(connection)
         })
         return connections
     }
     
-    private func coordinatesForStation(station: ONOXMLElement) -> CLLocationCoordinate2D {
+    func coordinatesForStation(station: ONOXMLElement) -> CLLocationCoordinate2D {
         println(__FUNCTION__)
         let lat = Double((station["y"] as String).toInt()!) / kBTCoordinateDegreeDivisor
         let long = Double((station["x"] as String).toInt()!) / kBTCoordinateDegreeDivisor
@@ -72,7 +72,7 @@ public class BTConResParser {
         return coords
     }
     
-    private func pointFromElement(element: ONOXMLElement) -> BTPoint? {
+    func pointFromElement(element: ONOXMLElement) -> BTPoint? {
         println(__FUNCTION__)
         var point: BTPoint?
         let coordinate = self.coordinatesForStation(element)
@@ -96,7 +96,7 @@ public class BTConResParser {
         return point
     }
     
-    private func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
+    func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
         println(__FUNCTION__)
         let timeString = element.stringValue()
         var components = timeString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "d:"))
@@ -112,20 +112,20 @@ public class BTConResParser {
         }
     }
     
-    private func dateTimeFromElement(element: ONOXMLElement?) -> NSDate {
+    func dateTimeFromElement(element: ONOXMLElement?) -> NSDate {
         println(__FUNCTION__)
         let date: NSDate = NSDate()
         return date
     }
     
-    private func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {
+    func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {
         println(__FUNCTION__)
         let earlierDiff = self.timeIntervalForElement(earlierDate)
         let laterDiff = self.timeIntervalForElement(laterDate)
         return laterDiff - earlierDiff
     }
     
-    private func segmentsForJourney(journey: ONOXMLElement) -> [BTConnectionSegment] {
+    func segmentsForJourney(journey: ONOXMLElement) -> [BTConnectionSegment] {
         println(__FUNCTION__)
         var segments: [BTConnectionSegment] = []
         

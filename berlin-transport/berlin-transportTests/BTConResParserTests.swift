@@ -13,6 +13,5 @@ class BTConResParserTests: QuickSpec {
                 })
             })
         })
-
     }
 }
