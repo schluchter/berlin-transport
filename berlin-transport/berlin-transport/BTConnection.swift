@@ -9,36 +9,36 @@
 import Foundation
 import CoreLocation
 
-protocol BTConnectionSegment {
+public protocol BTConnectionSegment {
     var start: BTPoint { get }
     var end: BTPoint { get }
     var duration: NSTimeInterval {get}
 }
 
 public struct BTJourney: BTConnectionSegment {
-    let start: BTPoint
-    let end: BTPoint
-    let duration: NSTimeInterval
-    let line: BTServiceDescription
+    public let start: BTPoint
+    public let end: BTPoint
+    public let duration: NSTimeInterval
+    public let line: BTServiceDescription
     
 }
 
 public struct BTWalk: BTConnectionSegment {
-    typealias Meters = UInt
+    public typealias Meters = UInt
     
-    let start: BTPoint
-    let end: BTPoint
-    let duration: NSTimeInterval
-    let distance: Meters?
+    public let start: BTPoint
+    public let end: BTPoint
+    public let duration: NSTimeInterval
+    public let distance: Meters?
 }
 
 public struct BTGisRoute: BTConnectionSegment {
-    let start: BTPoint
-    let end: BTPoint
-    let duration: NSTimeInterval
-    let trafficType: IndividualTrafficType
+    public let start: BTPoint
+    public let end: BTPoint
+    public let duration: NSTimeInterval
+    public let trafficType: IndividualTrafficType
     
-    enum IndividualTrafficType {
+    public enum IndividualTrafficType {
         case Foot
         case Bike
         case Car
@@ -48,18 +48,18 @@ public struct BTGisRoute: BTConnectionSegment {
 }
 
 public struct BTTransfer: BTConnectionSegment {
-    let start: BTPoint
-    let end: BTPoint
-    let duration: NSTimeInterval
+    public let start: BTPoint
+    public let end: BTPoint
+    public let duration: NSTimeInterval
     
 }
 
 public struct BTConnection {
-    var startDate: NSDate
-    var endDate: NSDate
+    public var startDate: NSDate
+    public var endDate: NSDate
     public var travelTime: NSTimeInterval
-    var numberOfTransfers: UInt
-    var start: BTPoint
-    var end: BTPoint
-    var segments: [BTConnectionSegment]?
+    public var numberOfTransfers: UInt
+    public var start: BTPoint
+    public var end: BTPoint
+    public var segments: [BTConnectionSegment]?
 }

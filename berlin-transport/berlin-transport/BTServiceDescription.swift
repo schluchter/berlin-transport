@@ -18,7 +18,7 @@ enum ServiceType {
     case SBahn
 }
 
-struct BTServiceDescription {
+public struct BTServiceDescription {
     let serviceId: (serviceType: ServiceType, name: String)
     let serviceTerminus: String?
 }
