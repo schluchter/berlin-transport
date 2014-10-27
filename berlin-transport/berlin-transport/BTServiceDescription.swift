@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ServiceType {
+public enum ServiceType {
     case Bus
     case MetroBus
     case ExpressBus
