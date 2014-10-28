@@ -37,12 +37,12 @@ public class BTConResParser {
             let segmentListEl = element.firstChildWithTag("ConSectionList")
             
             let connectionBaseDate = self.dateTimeFromElement(overViewEl.firstChildWithTag("Date"))!
-            let startDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath("//Departure//Time"), baseDate: connectionBaseDate)
-            let endDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath("//Arrival//Time"), baseDate: connectionBaseDate)
-            let travelTime = self.timeIntervalForElement(element.firstChildWithXPath("//Duration/Time"))
+            let startDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Departure//Time"), baseDate: connectionBaseDate)
+            let endDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Arrival//Time"), baseDate: connectionBaseDate)
+            let travelTime = self.timeIntervalForElement(element.firstChildWithXPath(".//Duration/Time"))
             let transfers = element.firstChildWithXPath("//Transfers").numberValue().unsignedLongValue
-            let departureStation: ONOXMLElement = overViewEl.firstChildWithXPath("//Departure//Station")
-            let arrivalStation: ONOXMLElement = overViewEl.firstChildWithXPath("//Arrival//Station")
+            let departureStation: ONOXMLElement = overViewEl.firstChildWithXPath(".//Departure//Station")
+            let arrivalStation: ONOXMLElement = overViewEl.firstChildWithXPath(".//Arrival//Station")
             
             let connection = BTConnection(startDate: startDate,
                 endDate: endDate,
@@ -81,7 +81,8 @@ public class BTConResParser {
     func pointFromElement(element: ONOXMLElement) -> BTPoint? {
         println(__FUNCTION__)
         var point: BTPoint?
-        let displayName: String = toString(element.attributes["name"])
+        let displayName: String = element.attributes["name"] as String
+        
         if let coordinate = self.coordinatesForStation(element) {
             switch element.tag {
             case "Address":
@@ -93,8 +94,8 @@ public class BTConResParser {
             case "Station":
                 point = BTStation(coordinate: coordinate,
                     displayName: displayName,
-                    externalId: toString(element["externalId"]),
-                    externalStationNr: toString(element["externalStationNr"]),
+                    externalId: element["externalId"] as String,
+                    externalStationNr: element["externalStationNr"] as String,
                     services: nil)
             default: ()
             println("Element with tag \(element.tag) is not a recognized point")
@@ -155,9 +156,10 @@ public class BTConResParser {
     
     func serviceDescriptionFromElement(element: ONOXMLElement) -> BTServiceDescription {
         println(__FUNCTION__)
-        let terminus = element.firstChildWithXPath(".//Attribute[@type=\"DIRECTION\"]/AttributeVariant[@type=\"NORMAL\"]/Text").stringValue()
-        let serviceType = element.firstChildWithXPath(".//Attribute[@type=\"CATEGORY\"]/AttributeVariant[@type=\"NORMAL\"]/Text").stringValue()
-        return BTServiceDescription(serviceId: (.UBahn, name: "7"), serviceTerminus: "Krumme Lanke")
+        let terminus = element.firstChildWithXPath(".//Attribute[@type=\"DIRECTION\"]/AttributeVariant[@type=\"NORMAL\"]//Text").stringValue()
+        let serviceType = element.firstChildWithXPath(".//Attribute[@type=\"CATEGORY\"]/AttributeVariant[@type=\"NORMAL\"]//Text").stringValue()
+        let serviceName = element.firstChildWithXPath(".//Attribute[@type=\"NUMBER\"]/AttributeVariant[@type=\"NORMAL\"]/Text").stringValue()
+        return BTServiceDescription(serviceId: (.Bus, name: serviceName), serviceTerminus: terminus)
     }
     
     func segmentsForJourney(journey: ONOXMLElement) -> [BTConnectionSegment] {

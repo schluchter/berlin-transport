@@ -11,7 +11,7 @@ class BTConResParserTests: QuickSpec {
                     expect(conns.count).to(equal(7))
                 }
                 it("should have the correct date for the connection") {
-
+                    
                 }
             })
         })
@@ -26,12 +26,17 @@ class BTConResParserTests: QuickSpec {
             }
             
             context("and within it, the first segment") {
-                let segment = connection.segments?.first!
+                let segment = connection.segments?.first! as BTJourney
                 
                 it("should have the correct values set") {
-                    expect(segment?.duration).to(equal(4*60))
-//                    expect(segment?.start.displayName).to(contain("Frankfurt (Oder), Bahnhof"))
-//                    expect(segment?.end.displayName).to(contain("Frankfurt (Oder), Brunnenplatz"))
+                    expect(segment.duration).to(equal(4*60))
+                    expect(segment.start.displayName).to(equal("Frankfurt (Oder), Bahnhof"))
+                    expect(segment.end.displayName).to(equal("Frankfurt (Oder), Brunnenplatz"))
+                    expect(segment.line.serviceTerminus).to(equal("Frankfurt (Oder), Spitzkrug Nord"))
+                    
+
+                    expect(segment.line.serviceId.name).to(equal("981"))
+                    expect(segment.line.serviceId.serviceType).to(equal(ServiceType.Bus))
                 }
                 
             }

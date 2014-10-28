@@ -19,6 +19,6 @@ public enum ServiceType {
 }
 
 public struct BTServiceDescription {
-    let serviceId: (serviceType: ServiceType, name: String)
-    let serviceTerminus: String?
+    public let serviceId: (serviceType: ServiceType, name: String)
+    public let serviceTerminus: String?
 }

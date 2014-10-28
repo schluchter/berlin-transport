@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let parser = BTConResParser(fileName: "Antwort_ID_ASCI")
-        let connections = parser.getConnections()
+//        let parser = BTConResParser(fileName: "Antwort_ID_ASCI")
+//        let connections = parser.getConnections()
         return true
     }
 

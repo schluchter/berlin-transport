@@ -10,6 +10,7 @@
 		2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */; };
 		2D222A8119E798A400B63D56 /* BTPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D222A8019E798A400B63D56 /* BTPoint.swift */; };
 		2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29D6C419DDC67800A1101D /* BTConstants.swift */; };
+		2D36F4AB19FF243600081515 /* BTMapUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36F4AA19FF243600081515 /* BTMapUtilities.swift */; };
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
 		2D51074A19DEE9F8002AA6FC /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */; };
 		2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTConResParser.swift */; };
@@ -104,6 +105,7 @@
 		2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Antwort_ID_ASCI.xml; sourceTree = "<group>"; };
 		2D222A8019E798A400B63D56 /* BTPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPoint.swift; sourceTree = "<group>"; };
 		2D29D6C419DDC67800A1101D /* BTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
+		2D36F4AA19FF243600081515 /* BTMapUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTMapUtilities.swift; sourceTree = "<group>"; };
 		2D3B18B719E4AF9000491423 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D4B89D919FDF94700D5103D /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = "../../../../../Downloads/Quick-master/Quick.xcodeproj"; sourceTree = "<group>"; };
 		2D4B89E919FDF99E00D5103D /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = "../../../../../Downloads/Nimble-master/Nimble.xcodeproj"; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				2DA4645719DC4F3000BA4C00 /* BTStation.swift */,
 				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
 				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
+				2D36F4AA19FF243600081515 /* BTMapUtilities.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D222A8119E798A400B63D56 /* BTPoint.swift in Sources */,
+				2D36F4AB19FF243600081515 /* BTMapUtilities.swift in Sources */,
 				2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */,
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
 				2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */,
