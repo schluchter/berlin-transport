@@ -26,14 +26,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
             println("No location services enabled")
         } else {
             let firstConnection = parser.getConnections()[0]
-            let stationCoords = firstConnection.end.coordinate
+            let startCoords = firstConnection.start.coordinate
+            let endCoords = firstConnection.end.coordinate
             
-            let placeMark = MKPlacemark(coordinate: stationCoords, addressDictionary: nil)
-            self.mapView.addAnnotation(placeMark)
             
+            let startPlaceMark = MKPlacemark(coordinate: startCoords, addressDictionary: nil)
+            let endPlaceMark = MKPlacemark(coordinate: endCoords, addressDictionary: nil)
+            self.mapView.addAnnotation(startPlaceMark)
+            self.mapView.addAnnotation(endPlaceMark)
             
             mapView.setRegion(MKCoordinateRegion(
-                center: stationCoords,
+                center: BTMapUtils.centerBetweenPoints(startPlaceMark.coordinate, endPlaceMark.coordinate),
                 span: MKCoordinateSpan(
                     latitudeDelta: 0.01,
                     longitudeDelta: 0.01)),
