@@ -162,61 +162,67 @@ public class BTConResParser {
         return BTServiceDescription(serviceId: (.Bus, name: serviceName), serviceTerminus: terminus)
     }
     
-    func segmentsForJourney(journey: ONOXMLElement) -> [BTConnectionSegment] {
+    func segmentsForJourney(el: ONOXMLElement?) -> [BTConnectionSegment]? {
         println(__FUNCTION__)
         var segments: [BTConnectionSegment] = []
         
-        journey.enumerateElementsWithXPath(".//ConSection") { (element, idx, stop) -> Void in
-            var segment: BTConnectionSegment?
-            
-            let arrivalEl = element.firstChildWithTag("Arrival")
-            let departureEl = element.firstChildWithTag("Departure")
-            let segmentTypeEl = element.firstChildWithXPath("Journey|Walk|Transfer|GisRoute")
-            
-            let startTime = departureEl.firstChildWithXPath(".//Time")
-            let endTime = arrivalEl.firstChildWithXPath(".//Time")
-            let duration = self.timeIntervalBetween(startTime, endTime)
-            
-            
-            switch segmentTypeEl.tag {
-            case "Journey":
-                println("Journey")
-                segment = BTJourney(start: self.pointFromElement(departureEl.firstChildWithXPath(".//Station"))!,
-                    end: self.pointFromElement(arrivalEl.firstChildWithXPath(".//Station"))!,
-                    duration: duration,
-                    line: self.serviceDescriptionFromElement(element.firstChildWithTag("Journey")))
+        if let journey = el {
+            journey.enumerateElementsWithXPath(".//ConSection") { (element, idx, stop) -> Void in
+                var segment: BTConnectionSegment?
+                
+                let arrivalEl = element.firstChildWithTag("Arrival")
+                let departureEl = element.firstChildWithTag("Departure")
+                let segmentTypeEl = element.firstChildWithXPath("Journey|Walk|Transfer|GisRoute")
+                
+                let startTime = departureEl.firstChildWithXPath(".//Time")
+                let endTime = arrivalEl.firstChildWithXPath(".//Time")
+                let duration = self.timeIntervalBetween(startTime, endTime)
                 
                 
-            case "Walk":
-                println("Walk")
-                segment = BTWalk(start: self.pointFromElement(departureEl)!,
-                    end: self.pointFromElement(arrivalEl)!,
-                    duration: duration,
-                    distance: 200)
-                
-                
-            case "Transfer":
-                println("Transfer")
-                segment = BTTransfer(start: self.pointFromElement(departureEl)!,
-                    end: self.pointFromElement(arrivalEl)!,
-                    duration: duration)
-                
-                
-            case "GisRoute":
-                println("GisRoute")
-                segment = BTGisRoute(start: self.pointFromElement(departureEl.firstChildWithXPath(".//Station"))!,
-                    end: self.pointFromElement(arrivalEl.firstChildWithXPath(".//Station"))!,
-                    duration: duration,
-                    trafficType: BTGisRoute.IndividualTrafficType.Car)
-                
-                
-            default:
-                segment = nil
-                let exception = NSException(name: "BTNoValidSegmentTypeFoundInConnection", reason: nil, userInfo: nil)
-                exception.raise()
+                switch segmentTypeEl.tag {
+                case "Journey":
+                    println("Journey")
+                    segment = BTJourney(start: self.pointFromElement(departureEl.firstChildWithXPath(".//Station"))!,
+                        end: self.pointFromElement(arrivalEl.firstChildWithXPath(".//Station"))!,
+                        duration: duration,
+                        line: self.serviceDescriptionFromElement(element.firstChildWithTag("Journey")))
+                    
+                    
+                case "Walk":
+                    println("Walk")
+                    segment = BTWalk(start: self.pointFromElement(departureEl)!,
+                        end: self.pointFromElement(arrivalEl)!,
+                        duration: duration,
+                        distance: 200)
+                    
+                    
+                case "Transfer":
+                    println("Transfer")
+                    segment = BTTransfer(start: self.pointFromElement(departureEl)!,
+                        end: self.pointFromElement(arrivalEl)!,
+                        duration: duration)
+                    
+                    
+                case "GisRoute":
+                    println("GisRoute")
+                    segment = BTGisRoute(start: self.pointFromElement(departureEl.firstChildWithXPath(".//Station"))!,
+                        end: self.pointFromElement(arrivalEl.firstChildWithXPath(".//Station"))!,
+                        duration: duration,
+                        trafficType: BTGisRoute.IndividualTrafficType.Car)
+                    
+                    
+                default:
+                    segment = nil
+                    let exception = NSException(name: "BTNoValidSegmentTypeFoundInConnection", reason: nil, userInfo: nil)
+                    exception.raise()
+                }
+                segments.append(segment!)
             }
-            segments.append(segment!)
+            return segments
+
+            
+        } else {
+            return nil
         }
-        return segments
     }
 }

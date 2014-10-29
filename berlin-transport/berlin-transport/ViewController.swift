@@ -35,12 +35,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
             self.mapView.addAnnotation(startPlaceMark)
             self.mapView.addAnnotation(endPlaceMark)
             
-            mapView.setRegion(MKCoordinateRegion(
-                center: BTMapUtils.centerBetweenPoints(startPlaceMark.coordinate, endPlaceMark.coordinate),
-                span: MKCoordinateSpan(
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01)),
-                animated: true)
+            mapView.centerCoordinate =  BTMapUtils.centerBetweenPoints(startPlaceMark.coordinate, endPlaceMark.coordinate)
+            mapView.showAnnotations(mapView.annotations, animated: true)
         }
     }
 

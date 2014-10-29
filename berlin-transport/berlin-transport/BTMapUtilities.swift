@@ -13,27 +13,11 @@ import CoreLocation
 public class BTMapUtils {
     public class func centerBetweenPoints(one: CLLocationCoordinate2D, _ two: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
         
-        func addDeltaToSmallerValue(delta: CLLocationDegrees, one: CLLocationDegrees, two: CLLocationDegrees) -> CLLocationDegrees {
-            if one < two {
-                return one + delta
-            } else {
-                return two + delta
-            }
-        }
+        let latitudeDelta = abs(one.latitude - two.latitude) / 2.0
+        let longitudeDelta = abs(one.longitude - two.longitude) / 2.0
         
-        func positiveDelta(one: CLLocationDegrees, two: CLLocationDegrees) -> CLLocationDegrees {
-            if one > two {
-                return (one - two) / 2.0
-            } else {
-                return (two - one) / 2.0
-            }
-        }
-
-        let latitudeDelta = positiveDelta(one.latitude, two.latitude)
-        let longitudeDelta = positiveDelta(one.longitude, two.longitude)
-        
-        let latNew = addDeltaToSmallerValue(latitudeDelta, one.latitude, two.latitude)
-        let longNew = addDeltaToSmallerValue(longitudeDelta, one.longitude, two.longitude)
+        let latNew = latitudeDelta + min(one.latitude, two.latitude)
+        let longNew = longitudeDelta + min(one.longitude, two.longitude)
         
         return CLLocationCoordinate2DMake(latNew, longNew)
     }
