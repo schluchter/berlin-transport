@@ -19,8 +19,8 @@
 		2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */; };
 		2DD79B1419FDFA8100A2B247 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4B89E219FDF94700D5103D /* Quick.framework */; };
 		2DD79B1919FDFA8B00A2B247 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4B89F119FDF99F00D5103D /* Nimble.framework */; };
-		2DE1737719DB141600A8F0F6 /* VBB-IA2012-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */; };
-		2DE1737819DB141600A8F0F6 /* VBB-IA2012-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */; };
+		2DDD42931A01B32A00683FA4 /* apertomove-CONCoordRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */; };
+		2DDD42941A01B32A00683FA4 /* apertomove-CONCoordReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD42921A01B32A00683FA4 /* apertomove-CONCoordReq.xml */; };
 		2DE1737919DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */; };
 		2DE1737A19DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */; };
 		2DED15B819E3480700A6F193 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DED15B719E3480700A6F193 /* Keys.plist */; };
@@ -115,8 +115,8 @@
 		2DA4645519DC3FD900BA4C00 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
 		2DA4645719DC4F3000BA4C00 /* BTStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTStation.swift; sourceTree = "<group>"; };
 		2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
-		2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; name = "VBB-IA2012-CONReq.xml"; path = "berlin-transport/VBB-IA2012-CONReq.xml"; sourceTree = SOURCE_ROOT; };
-		2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-IA2012-CONRes.xml"; sourceTree = "<group>"; };
+		2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordRes.xml"; sourceTree = "<group>"; };
+		2DDD42921A01B32A00683FA4 /* apertomove-CONCoordReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordReq.xml"; sourceTree = "<group>"; };
 		2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
 		2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONRes.xml"; sourceTree = "<group>"; };
 		2DED15B719E3480700A6F193 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
@@ -182,9 +182,9 @@
 		2DE1736A19DB13B000A8F0F6 /* XML Files */ = {
 			isa = PBXGroup;
 			children = (
+				2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */,
+				2DDD42921A01B32A00683FA4 /* apertomove-CONCoordReq.xml */,
 				2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */,
-				2DE1737319DB141600A8F0F6 /* VBB-IA2012-CONReq.xml */,
-				2DE1737419DB141600A8F0F6 /* VBB-IA2012-CONRes.xml */,
 				2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */,
 				2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */,
 			);
@@ -434,14 +434,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DED15B819E3480700A6F193 /* Keys.plist in Resources */,
+				2DDD42931A01B32A00683FA4 /* apertomove-CONCoordRes.xml in Resources */,
 				40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */,
+				2DDD42941A01B32A00683FA4 /* apertomove-CONCoordReq.xml in Resources */,
 				2DE1737A19DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml in Resources */,
 				40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */,
 				40B52A0E19C7D79A005CF010 /* Images.xcassets in Resources */,
-				2DE1737819DB141600A8F0F6 /* VBB-IA2012-CONRes.xml in Resources */,
 				2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */,
 				2DE1737919DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml in Resources */,
-				2DE1737719DB141600A8F0F6 /* VBB-IA2012-CONReq.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

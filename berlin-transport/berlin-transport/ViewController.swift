@@ -12,7 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
-    private let parser = BTConResParser(fileName: "Antwort_ID_ASCI")
+    private let parser = BTConResParser(fileName: "VBB-STD-LUAX-CONRes")
     private let mapView = MKMapView()
 
     override func viewDidLoad() {
@@ -29,9 +29,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let startCoords = firstConnection.start.coordinate
             let endCoords = firstConnection.end.coordinate
             
-            
             let startPlaceMark = MKPlacemark(coordinate: startCoords, addressDictionary: nil)
             let endPlaceMark = MKPlacemark(coordinate: endCoords, addressDictionary: nil)
+            
             self.mapView.addAnnotation(startPlaceMark)
             self.mapView.addAnnotation(endPlaceMark)
             
