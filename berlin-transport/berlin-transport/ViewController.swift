@@ -12,7 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
-    private let parser = BTConResParser(fileName: "VBB-STD-LUAX-CONRes")
+    private let parser = BTConResParser(fileName: "apertomove-CONCoordRes")
     private let mapView = MKMapView()
 
     override func viewDidLoad() {

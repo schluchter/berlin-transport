@@ -13,11 +13,6 @@ public class BTConResParser {
     var hafasRes: ONOXMLDocument
     var connections: [BTConnection] = []
     
-    public convenience init() {
-        let fileURL = NSBundle.mainBundle().URLForResource("Antwort_ID_ASCI", withExtension: "xml")
-        self.init(fileURL: fileURL)
-    }
-    
     public init(fileURL url: NSURL?) {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
         self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
@@ -41,15 +36,15 @@ public class BTConResParser {
             let endDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Arrival//Time"), baseDate: connectionBaseDate)
             let travelTime = self.timeIntervalForElement(element.firstChildWithXPath(".//Duration/Time"))
             let transfers = element.firstChildWithXPath("//Transfers").numberValue().unsignedLongValue
-            let departureStation: ONOXMLElement = overViewEl.firstChildWithXPath(".//Departure//Station")
-            let arrivalStation: ONOXMLElement = overViewEl.firstChildWithXPath(".//Arrival//Station")
+            let departurePoint: ONOXMLElement = overViewEl.firstChildWithXPath(".//Departure")
+            let arrivalPoint: ONOXMLElement = overViewEl.firstChildWithXPath(".//Arrival")
             
             let connection = BTConnection(startDate: startDate,
                 endDate: endDate,
                 travelTime: travelTime,
                 numberOfTransfers: transfers,
-                start: self.pointFromElement(departureStation)!,
-                end: self.pointFromElement(arrivalStation)!,
+                start: self.pointFromElement(departurePoint)!,
+                end: self.pointFromElement(arrivalPoint)!,
                 segments: self.segmentsForJourney(segmentListEl))
             
             self.connections.append(connection)
@@ -57,33 +52,34 @@ public class BTConResParser {
         return connections
     }
     
-    func coordinatesForStation(station: ONOXMLElement) -> CLLocationCoordinate2D? {
+    func coordinatesForPoint(var point: ONOXMLElement) -> CLLocationCoordinate2D? {
         println(__FUNCTION__)
         var lat: Double, long: Double
         
-        func numberForAttribute(attr: String, inElement element: ONOXMLElement) -> Double {
+        func numberForAttribute(attr: String, inElement element: ONOXMLElement) -> CLLocationDegrees {
             return Double((element[attr] as String).toInt()!) / kBTCoordinateDegreeDivisor
         }
         
-        if station.tag != "Station" {
+        switch point.tag {
+        case "Station", "Point", "Address":
+            ()
             
-            let realStation = station.firstChildWithXPath(".//Station")
-            lat = numberForAttribute("y", inElement: realStation)
-            long = numberForAttribute("x", inElement: realStation)
-        } else {
-            lat = numberForAttribute("y", inElement: station)
-            long = numberForAttribute("x", inElement: station)
+        default:
+            point = point.firstChildWithXPath("Station|Address|Poi|.//Station|.//Address|.//Poi")
         }
         
+        lat = numberForAttribute("y", inElement: point)
+        long = numberForAttribute("x", inElement: point)
         return CLLocationCoordinate2DMake(lat, long)
     }
     
-    func pointFromElement(element: ONOXMLElement) -> BTPoint? {
+    func pointFromElement(var element: ONOXMLElement) -> BTPoint? {
         println(__FUNCTION__)
         var point: BTPoint?
-        let displayName: String = element.attributes["name"] as String
+        element = element.firstChildWithXPath("Station|Address|Poi|.//Station|.//Address|.//Poi")
+        let displayName = element["name"] as String
         
-        if let coordinate = self.coordinatesForStation(element) {
+        if let coordinate = self.coordinatesForPoint(element) {
             switch element.tag {
             case "Address":
                 point = BTAddress(coordinate: coordinate,
@@ -100,6 +96,7 @@ public class BTConResParser {
             default: ()
             println("Element with tag \(element.tag) is not a recognized point")
             }
+
             return point
             
         } else {
@@ -172,18 +169,17 @@ public class BTConResParser {
                 
                 let arrivalEl = element.firstChildWithTag("Arrival")
                 let departureEl = element.firstChildWithTag("Departure")
-                let segmentTypeEl = element.firstChildWithXPath("Journey|Walk|Transfer|GisRoute")
+                let segmentTypeEl = element.firstChildWithXPath(".//Journey|.//Walk|.//Transfer|.//GisRoute")
                 
                 let startTime = departureEl.firstChildWithXPath(".//Time")
                 let endTime = arrivalEl.firstChildWithXPath(".//Time")
                 let duration = self.timeIntervalBetween(startTime, endTime)
                 
-                
                 switch segmentTypeEl.tag {
                 case "Journey":
                     println("Journey")
-                    segment = BTJourney(start: self.pointFromElement(departureEl.firstChildWithXPath(".//Station"))!,
-                        end: self.pointFromElement(arrivalEl.firstChildWithXPath(".//Station"))!,
+                    segment = BTJourney(start: self.pointFromElement(departureEl)!,
+                        end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
                         line: self.serviceDescriptionFromElement(element.firstChildWithTag("Journey")))
                     
@@ -204,9 +200,8 @@ public class BTConResParser {
                     
                     
                 case "GisRoute":
-                    println("GisRoute")
-                    segment = BTGisRoute(start: self.pointFromElement(departureEl.firstChildWithXPath(".//Station"))!,
-                        end: self.pointFromElement(arrivalEl.firstChildWithXPath(".//Station"))!,
+                    segment = BTGisRoute(start: self.pointFromElement(departureEl)!,
+                        end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
                         trafficType: BTGisRoute.IndividualTrafficType.Car)
                     
@@ -219,7 +214,7 @@ public class BTConResParser {
                 segments.append(segment!)
             }
             return segments
-
+            
             
         } else {
             return nil
