@@ -14,8 +14,15 @@ public class BTConResParser {
     var connections: [BTConnection] = []
     
     public init(fileURL url: NSURL?) {
+        let error = NSErrorPointer()
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
-        self.hafasRes = ONOXMLDocument(data: xmlData, error: nil)
+        
+        self.hafasRes = ONOXMLDocument(data: xmlData, error: error)
+
+        // Configure date formatter
+        self.hafasRes.dateFormatter.dateFormat = "yyyyMMdd"
+        self.hafasRes.dateFormatter.calendar = NSCalendar.currentCalendar()
+        self.hafasRes.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
     }
     
     public convenience init(fileName name: String) {
@@ -25,13 +32,12 @@ public class BTConResParser {
     
     
     public func getConnections() -> [BTConnection] {
-        println(__FUNCTION__)
         self.hafasRes.enumerateElementsWithXPath("//Connection", usingBlock: { (element, idx, stop) -> Void in
             
             let overViewEl = element.firstChildWithTag("Overview")
             let segmentListEl = element.firstChildWithTag("ConSectionList")
             
-            let connectionBaseDate = self.dateTimeFromElement(overViewEl.firstChildWithTag("Date"))!
+            let connectionBaseDate = overViewEl.firstChildWithTag("Date").dateValue()
             let startDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Departure//Time"), baseDate: connectionBaseDate)
             let endDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Arrival//Time"), baseDate: connectionBaseDate)
             let travelTime = self.timeIntervalForElement(element.firstChildWithXPath(".//Duration/Time"))
@@ -57,7 +63,7 @@ public class BTConResParser {
         var lat: Double, long: Double
         
         func numberForAttribute(attr: String, inElement element: ONOXMLElement) -> CLLocationDegrees {
-            return Double((element[attr] as String).toInt()!) / kBTCoordinateDegreeDivisor
+            return CLLocationDegrees((element[attr] as String).toInt()!) / kBTCoordinateDegreeDivisor
         }
         
         switch point.tag {
@@ -104,6 +110,18 @@ public class BTConResParser {
             return nil
         }
     }
+ 
+    func dateTimeFromElement(element: ONOXMLElement, baseDate: NSDate) -> NSDate {
+        let interval = self.timeIntervalForElement(element)
+        return baseDate.dateByAddingTimeInterval(interval)
+    }
+    
+    func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {
+        println(__FUNCTION__)
+        let earlierDiff = self.timeIntervalForElement(earlierDate)
+        let laterDiff = self.timeIntervalForElement(laterDate)
+        return abs(laterDiff - earlierDiff)
+    }
     
     func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
         println(__FUNCTION__)
@@ -115,42 +133,12 @@ public class BTConResParser {
         let minutes: Int = (components.removeLast() as String).toInt()!
         let hours: Int = (components.removeLast() as String).toInt()!
         
-        total = hours*3600 + minutes*60 + seconds
+        total = hours * kBTSecondsPerHour + minutes * kBTSecondsPerMinute + seconds
         
         if let days: Int = (components.removeLast() as String).toInt()? {
-            total += days*86400
+            total += days * kBTSecondsPerDay
         }
         return NSTimeInterval(total)
-    }
-    
-    func dateTimeFromElement(element: ONOXMLElement?) -> NSDate? {
-        if let str = element?.stringValue() {
-            let year    = str.substringWithRange(Range<String.Index>(start: str.startIndex, end: advance(str.startIndex, 4))).toInt()!
-            let month   = str.substringWithRange(Range<String.Index>(start: advance(str.startIndex ,4), end: advance(str.startIndex, 6))).toInt()!
-            let day     = str.substringWithRange(Range<String.Index>(start: advance(str.startIndex ,6), end: str.endIndex)).toInt()!
-            
-            let dc = NSDateComponents()
-            dc.day = day
-            dc.month = month
-            dc.year = year
-            
-            let cal = NSCalendar(identifier: "gregorian")!
-            return cal.dateFromComponents(dc)
-        } else {
-            return nil
-        }
-    }
-    
-    func dateTimeFromElement(element: ONOXMLElement, baseDate: NSDate) -> NSDate {
-        let interval = self.timeIntervalForElement(element)
-        return baseDate.dateByAddingTimeInterval(interval)
-    }
-    
-    func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {
-        println(__FUNCTION__)
-        let earlierDiff = self.timeIntervalForElement(earlierDate)
-        let laterDiff = self.timeIntervalForElement(laterDate)
-        return laterDiff - earlierDiff
     }
     
     func serviceDescriptionFromElement(element: ONOXMLElement) -> BTServiceDescription {

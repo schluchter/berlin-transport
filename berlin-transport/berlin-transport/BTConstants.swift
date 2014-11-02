@@ -10,3 +10,11 @@ import Foundation
 
 public let kBTCoordinateDegreeDivisor: Double = 1000000.0
 public let kBTHafasServerURL: String = "http://demo.hafas.de/bin/pub/vbb/extxml.exe"
+
+// Date and Time-related constants
+public let kBTHoursPerDay = 24
+public let kBTMinutesPerHour = 60
+public let kBTSecondsPerMinute = 60
+
+public let kBTSecondsPerHour = kBTMinutesPerHour * kBTSecondsPerMinute
+public let kBTSecondsPerDay = kBTHoursPerDay * kBTMinutesPerHour * kBTSecondsPerMinute

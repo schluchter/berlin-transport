@@ -9,17 +9,17 @@
 import Foundation
 
 public class BTConReqBuilder {
-    class func requestDataFromDate(date: NSDate) -> (String, String) {
-        
-        let dayFormat = NSDateFormatter.dateFormatFromTemplate("yMd", options: 0, locale: nil)
-        let timeFormate = NSDateFormatter.dateFormatFromTemplate("HH:mm", options: 0, locale: nil)
+    
+    public class func requestDataFromDate(date: NSDate) -> (String, String) {
+        let dayFormat = "yyyyMMdd"
+        let timeFormat = "HH':'mm"
         let formatter = NSDateFormatter()
         formatter.calendar = NSCalendar.currentCalendar()
 
         formatter.dateFormat = dayFormat
         let day: String = formatter.stringFromDate(date)
         
-        formatter.dateFormat = timeFormate
+        formatter.dateFormat = timeFormat
         let time: String = formatter.stringFromDate(date)
         
         return(day, time)
