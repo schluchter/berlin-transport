@@ -8,17 +8,18 @@
 
 import Foundation
 
-public enum ServiceType {
-    case Bus
-    case MetroBus
-    case ExpressBus
-    case Tram
-    case MetroTram
-    case UBahn
-    case SBahn
-}
-
 public struct BTServiceDescription {
     public let serviceId: (serviceType: ServiceType, name: String)
     public let serviceTerminus: String?
+    
+    public enum ServiceType {
+        case Bus
+        case MetroBus
+        case ExpressBus
+        case Tram
+        case MetroTram
+        case UBahn
+        case SBahn
+        case Unknown
+    }
 }

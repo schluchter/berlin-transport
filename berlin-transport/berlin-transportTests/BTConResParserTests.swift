@@ -36,7 +36,7 @@ class BTConResParserTests: QuickSpec {
                     
 
                     expect(segment.line.serviceId.name).to(equal("981"))
-                    expect(segment.line.serviceId.serviceType).to(equal(ServiceType.Bus))
+                    expect(segment.line.serviceId.serviceType).to(equal(BTServiceDescription.ServiceType.Bus))
                 }
                 
             }

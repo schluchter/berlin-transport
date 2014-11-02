@@ -96,7 +96,7 @@ public class BTConResParser {
             default: ()
             println("Element with tag \(element.tag) is not a recognized point")
             }
-
+            
             return point
             
         } else {
@@ -156,7 +156,52 @@ public class BTConResParser {
         let terminus = element.firstChildWithXPath(".//Attribute[@type=\"DIRECTION\"]/AttributeVariant[@type=\"NORMAL\"]//Text").stringValue()
         let serviceType = element.firstChildWithXPath(".//Attribute[@type=\"CATEGORY\"]/AttributeVariant[@type=\"NORMAL\"]//Text").stringValue()
         let serviceName = element.firstChildWithXPath(".//Attribute[@type=\"NUMBER\"]/AttributeVariant[@type=\"NORMAL\"]/Text").stringValue()
-        return BTServiceDescription(serviceId: (.Bus, name: serviceName), serviceTerminus: terminus)
+        return BTServiceDescription(serviceId: (self.serviceTypeFromCategoryDescriptor(serviceType), name: serviceName), serviceTerminus: terminus)
+    }
+    
+    func trafficTypeFromGisRoute(gisRouteEl: ONOXMLElement) -> BTGisRoute.IndividualTrafficType {
+        let type = gisRouteEl["type"] as String
+        switch type {
+        case "BIKE":
+            return .Bike
+        case "FOOT":
+            return .Foot
+        case "CAR":
+            return .Car
+        case "TAXI":
+            return .Taxi
+        default:
+            return .Car
+            
+        }
+    }
+    
+    func serviceTypeFromCategoryDescriptor(var desc: String) -> BTServiceDescription.ServiceType {
+        desc = desc.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        switch desc {
+        case "U-Bahn", "U":
+            return .UBahn
+        case "S-Bahn", "S":
+            return .SBahn
+        case "MetroTram", "M":
+            return .MetroTram
+        case "X", "ExpressBus":
+            return .ExpressBus
+        case "Bus":
+            return .Bus
+        case "MetroBus", "Metrobus", "M":
+            return .MetroBus
+        default:
+            return .Unknown
+        }
+    }
+    
+    func distanceFromElement(element: ONOXMLElement) -> Meters? {
+        if let distance = element.firstChildWithXPath(".//Distance").numberValue() as? Meters {
+            return distance
+        } else {
+            return nil
+        }
     }
     
     func segmentsForJourney(el: ONOXMLElement?) -> [BTConnectionSegment]? {
@@ -168,8 +213,8 @@ public class BTConResParser {
                 var segment: BTConnectionSegment?
                 
                 let arrivalEl = element.firstChildWithTag("Arrival")
-                let departureEl = element.firstChildWithTag("Departure")
                 let segmentTypeEl = element.firstChildWithXPath(".//Journey|.//Walk|.//Transfer|.//GisRoute")
+                let departureEl = element.firstChildWithTag("Departure")
                 
                 let startTime = departureEl.firstChildWithXPath(".//Time")
                 let endTime = arrivalEl.firstChildWithXPath(".//Time")
@@ -189,7 +234,7 @@ public class BTConResParser {
                     segment = BTWalk(start: self.pointFromElement(departureEl)!,
                         end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
-                        distance: 200)
+                        distance: self.distanceFromElement(segmentTypeEl))
                     
                     
                 case "Transfer":
@@ -203,7 +248,8 @@ public class BTConResParser {
                     segment = BTGisRoute(start: self.pointFromElement(departureEl)!,
                         end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
-                        trafficType: BTGisRoute.IndividualTrafficType.Car)
+                        distance: nil,
+                        trafficType: self.trafficTypeFromGisRoute(segmentTypeEl))
                     
                     
                 default:
