@@ -108,17 +108,19 @@ public class BTConResParser {
     func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
         println(__FUNCTION__)
         let timeString = element.stringValue()
+        var total = 0
         var components = timeString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "d:"))
+        
         let seconds: Int = (components.removeLast() as String).toInt()!
         let minutes: Int = (components.removeLast() as String).toInt()!
         let hours: Int = (components.removeLast() as String).toInt()!
+        
+        total = hours*3600 + minutes*60 + seconds
+        
         if let days: Int = (components.removeLast() as String).toInt()? {
-            var total = days*86400 + hours*3600 + minutes*60 + seconds
-            return NSTimeInterval(total)
-        } else {
-            var total = hours*3600 + minutes*60 + seconds
-            return NSTimeInterval(total)
+            total += days*86400
         }
+        return NSTimeInterval(total)
     }
     
     func dateTimeFromElement(element: ONOXMLElement?) -> NSDate? {
