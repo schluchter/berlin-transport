@@ -21,6 +21,7 @@
 		2DD79B1919FDFA8B00A2B247 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4B89F119FDF99F00D5103D /* Nimble.framework */; };
 		2DDD42931A01B32A00683FA4 /* apertomove-CONCoordRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */; };
 		2DDD42941A01B32A00683FA4 /* apertomove-CONCoordReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD42921A01B32A00683FA4 /* apertomove-CONCoordReq.xml */; };
+		2DDD42961A05CB0700683FA4 /* BTConReqBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */; };
 		2DE1737919DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */; };
 		2DE1737A19DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */; };
 		2DED15B819E3480700A6F193 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DED15B719E3480700A6F193 /* Keys.plist */; };
@@ -117,6 +118,7 @@
 		2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
 		2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordRes.xml"; sourceTree = "<group>"; };
 		2DDD42921A01B32A00683FA4 /* apertomove-CONCoordReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordReq.xml"; sourceTree = "<group>"; };
+		2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConReqBuilder.swift; sourceTree = "<group>"; };
 		2DE1737519DB141600A8F0F6 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
 		2DE1737619DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONRes.xml"; sourceTree = "<group>"; };
 		2DED15B719E3480700A6F193 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
 				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
 				2D36F4AA19FF243600081515 /* BTMapUtilities.swift */,
+				2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
 				2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */,
+				2DDD42961A05CB0700683FA4 /* BTConReqBuilder.swift in Sources */,
 				2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */,
 				2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */,
 			);
