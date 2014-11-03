@@ -29,13 +29,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let startCoords = firstConnection.start.coordinate
             let endCoords = firstConnection.end.coordinate
             
-            let startPlaceMark = MKPlacemark(coordinate: startCoords, addressDictionary: nil)
-            let endPlaceMark = MKPlacemark(coordinate: endCoords, addressDictionary: nil)
+            for segment in firstConnection.segments! {
+                let startMark = MKPlacemark(coordinate: segment.start.coordinate, addressDictionary: nil)
+                let endMark = MKPlacemark(coordinate: segment.end.coordinate, addressDictionary: nil)
+                self.mapView.addAnnotation(startMark)
+                self.mapView.addAnnotation(endMark)
+                
+                // Add passList if it's a journey
+                if let journey = segment as? BTJourney {
+                    for station in journey.passList! {
+                        let passMark = MKPlacemark(coordinate: station.coordinate, addressDictionary: nil)
+                        self.mapView.addAnnotation(passMark)
+                    }
+                }
+            }
             
-            self.mapView.addAnnotation(startPlaceMark)
-            self.mapView.addAnnotation(endPlaceMark)
-            
-            mapView.centerCoordinate =  BTMapUtils.centerBetweenPoints(startPlaceMark.coordinate, endPlaceMark.coordinate)
             mapView.showAnnotations(mapView.annotations, animated: true)
         }
     }

@@ -22,6 +22,7 @@ public struct BTJourney: BTConnectionSegment {
     public let end: BTPoint
     public let duration: NSTimeInterval?
     public let line: BTServiceDescription
+    public let passList: [BTStation]?
     
 }
 

@@ -18,7 +18,7 @@ public class BTConResParser {
         let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
         
         self.hafasRes = ONOXMLDocument(data: xmlData, error: error)
-
+        
         // Configure date formatter
         self.hafasRes.dateFormatter.dateFormat = "yyyyMMdd"
         self.hafasRes.dateFormatter.calendar = NSCalendar.currentCalendar()
@@ -110,7 +110,7 @@ public class BTConResParser {
             return nil
         }
     }
- 
+    
     func dateTimeFromElement(element: ONOXMLElement, baseDate: NSDate) -> NSDate {
         let interval = self.timeIntervalForElement(element)
         return baseDate.dateByAddingTimeInterval(interval)
@@ -194,12 +194,25 @@ public class BTConResParser {
         }
     }
     
+    func passListFromElement(element: ONOXMLElement?) -> [BTStation]? {
+        if element != nil {
+            var passList: [BTStation] = []
+            element!.enumerateElementsWithXPath(".//BasicStop", usingBlock: { (el, idx, stop) -> Void in
+                let station = self.pointFromElement(el) as BTStation
+                passList.append(station)
+            })
+            return passList
+        } else {
+            return nil
+        }
+    }
+    
     func segmentsForJourney(el: ONOXMLElement?) -> [BTConnectionSegment]? {
         println(__FUNCTION__)
         var segments: [BTConnectionSegment] = []
         
-        if let journey = el {
-            journey.enumerateElementsWithXPath(".//ConSection") { (element, idx, stop) -> Void in
+        if let conSectionList = el {
+            conSectionList.enumerateElementsWithXPath("ConSection") { (element, idx, stop) -> Void in
                 var segment: BTConnectionSegment?
                 
                 let arrivalEl = element.firstChildWithTag("Arrival")
@@ -213,19 +226,19 @@ public class BTConResParser {
                 switch segmentTypeEl.tag {
                 case "Journey":
                     println("Journey")
+                    let passList = segmentTypeEl.firstChildWithXPath(".//PassList")
                     segment = BTJourney(start: self.pointFromElement(departureEl)!,
                         end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
-                        line: self.serviceDescriptionFromElement(element.firstChildWithTag("Journey")))
-                    
-                    
+                        line: self.serviceDescriptionFromElement(element.firstChildWithTag("Journey")),
+                        passList: self.passListFromElement(passList))
+
                 case "Walk":
                     println("Walk")
                     segment = BTWalk(start: self.pointFromElement(departureEl)!,
                         end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
                         distance: self.distanceFromElement(segmentTypeEl))
-                    
                     
                 case "Transfer":
                     println("Transfer")

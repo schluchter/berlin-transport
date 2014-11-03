@@ -10,9 +10,9 @@ import Foundation
 
 public class BTConReqBuilder {
     
-    public class func requestDataFromDate(date: NSDate) -> (String, String) {
+    public class func requestDataFromDate(date: NSDate) -> (day: String, time: String) {
         let dayFormat = "yyyyMMdd"
-        let timeFormat = "HH':'mm"
+        let timeFormat = "HH':'mm':'ss"
         let formatter = NSDateFormatter()
         formatter.calendar = NSCalendar.currentCalendar()
 

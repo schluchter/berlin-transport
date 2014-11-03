@@ -22,11 +22,11 @@ class BTConReqBuilderTests: QuickSpec {
                 let output = BTConReqBuilder.requestDataFromDate(date!)
                 
                 it("should print the correct date string") {
-                    expect(output.0).to(equal("19800101"))
+                    expect(output.day).to(equal("19800101"))
                 }
                 
                 it("should print the correct time string") {
-                    expect(output.1).to(equal("11:15"))
+                    expect(output.time).to(equal("11:15:30"))
                 }
             }
         }
