@@ -8,26 +8,45 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
-public protocol BTPoint {
+public protocol BTPoint: MKAnnotation {
     var coordinate: CLLocationCoordinate2D { get }
-    var displayName: String { get }
+    var title: String { get }
 }
 
-struct BTStation: BTPoint {
-    let coordinate: CLLocationCoordinate2D
-    let displayName: String
-    let externalId: String
-    let externalStationNr: String
-    let services: [BTServiceDescription]?
+public class BTStation: NSObject, BTPoint {
+    public let coordinate: CLLocationCoordinate2D
+    public let title: String
+    public let externalId: String
+    public let externalStationNr: String
+    public let services: [BTServiceDescription]?
+    
+    public init(coordinate: CLLocationCoordinate2D, title: String, externalId: String, externalStationNr: String, services: [BTServiceDescription]?) {
+        self.coordinate = coordinate
+        self.title = title
+        self.externalId = externalId
+        self.externalStationNr = externalStationNr
+        self.services = services
+    }
 }
 
-struct BTPointOfInterest: BTPoint {
-    let coordinate: CLLocationCoordinate2D
-    let displayName: String
+public class BTPointOfInterest: NSObject, BTPoint {
+    public let coordinate: CLLocationCoordinate2D
+    public let title: String
+    
+    public init(coordinate: CLLocationCoordinate2D, title: String) {
+        self.coordinate = coordinate
+        self.title = title
+    }
 }
 
-struct BTAddress: BTPoint {
-    let coordinate: CLLocationCoordinate2D
-    let displayName: String
+public class BTAddress: NSObject, BTPoint {
+    public let coordinate: CLLocationCoordinate2D
+    public let title: String
+    
+    public init(coordinate: CLLocationCoordinate2D, title: String) {
+        self.coordinate = coordinate
+        self.title = title
+    }
 }

@@ -88,14 +88,12 @@ public class BTConResParser {
         if let coordinate = self.coordinatesForPoint(element) {
             switch element.tag {
             case "Address":
-                point = BTAddress(coordinate: coordinate,
-                    displayName: displayName)
+                point = BTAddress(coordinate: coordinate, title: displayName)
             case "Poi":
-                point = BTPointOfInterest(coordinate: coordinate,
-                    displayName: displayName)
+                point = BTPointOfInterest(coordinate: coordinate, title: displayName)
             case "Station":
                 point = BTStation(coordinate: coordinate,
-                    displayName: displayName,
+                    title: displayName,
                     externalId: element["externalId"] as String,
                     externalStationNr: element["externalStationNr"] as String,
                     services: nil)

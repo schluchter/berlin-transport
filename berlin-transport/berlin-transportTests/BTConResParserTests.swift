@@ -35,8 +35,8 @@ class BTConResParserTests: QuickSpec {
                 
                 it("should have the correct values set") {
                     expect(segment.duration).to(equal(4*60))
-                    expect(segment.start.displayName).to(equal("Frankfurt (Oder), Bahnhof"))
-                    expect(segment.end.displayName).to(equal("Frankfurt (Oder), Brunnenplatz"))
+                    expect(segment.start.title).to(equal("Frankfurt (Oder), Bahnhof"))
+                    expect(segment.end.title).to(equal("Frankfurt (Oder), Brunnenplatz"))
                     expect(segment.line.serviceTerminus).to(equal("Frankfurt (Oder), Spitzkrug Nord"))
 
                     expect(segment.line.serviceId.name).to(equal("981"))
