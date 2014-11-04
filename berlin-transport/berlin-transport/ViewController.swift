@@ -17,6 +17,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.delegate = self
         let mapFrame = self.view.bounds
         self.mapView.frame = mapFrame
         self.view.addSubview(mapView)
@@ -37,14 +38,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 
                 // Add passList if it's a journey
                 if let journey = segment as? BTJourney {
+                    var points: [CLLocationCoordinate2D] = []
                     for station in journey.passList! {
                         let passMark = MKPlacemark(coordinate: station.coordinate, addressDictionary: nil)
+                        points.append(passMark.coordinate)
                         self.mapView.addAnnotation(passMark)
                     }
+                    let line = MKPolyline(coordinates: &points, count: points.count)
+                    self.mapView.addOverlay(line)
                 }
             }
-            
-            mapView.showAnnotations(mapView.annotations, animated: true)
+            self.mapView.showAnnotations(mapView.annotations, animated: true)
         }
     }
 
@@ -53,11 +57,32 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:- MKMapViewDelegate methods
+    
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
         println(__FUNCTION__)
         mapView.setCenterCoordinate(mapView.userLocation.location.coordinate, animated: true)
     }
 
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        println(__FUNCTION__)
+        if overlay is MKPolyline {
+            var polyLineRenderer = MKPolylineRenderer(overlay: overlay)
+            polyLineRenderer.fillColor = UIColor.brownColor()
+            polyLineRenderer.strokeColor = kBTPrimaryBgColor
+            polyLineRenderer.lineWidth = 5.0
+            return polyLineRenderer
+        }
+        return nil
+    }
+    
+    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
+        println(__FUNCTION__)
+    }
+    
+    func mapView(mapView: MKMapView!, didAddOverlayRenderers renderers: [AnyObject]!) {
+        println(__FUNCTION__)
+    }
 
 }
 
