@@ -68,21 +68,30 @@ class ViewController: UIViewController, MKMapViewDelegate {
         println(__FUNCTION__)
         if overlay is MKPolyline {
             var polyLineRenderer = MKPolylineRenderer(overlay: overlay)
-            println("\(kBTColorU3)")
-            polyLineRenderer.strokeColor = kBTColorPrimaryBg
+            polyLineRenderer.strokeColor = kBTColorU3
             polyLineRenderer.lineWidth = 5.0
             return polyLineRenderer
         }
         return nil
     }
     
-    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         println(__FUNCTION__)
+        var point = UIImage(named: "BTMapPoint")!
+
+        let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "BTPoint")
+        view.image = point
+        view.tintColor = UIColor.whiteColor()
+        
+        return view
+    }
+    
+    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
+        // Implement later
     }
     
     func mapView(mapView: MKMapView!, didAddOverlayRenderers renderers: [AnyObject]!) {
-        println(__FUNCTION__)
+        // Implement later
     }
-
 }
 
