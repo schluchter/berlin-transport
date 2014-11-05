@@ -14,6 +14,7 @@
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
 		2D51074A19DEE9F8002AA6FC /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */; };
 		2D8D0EFB1A068E2E006C4F63 /* BTConReqBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0EFA1A068E2E006C4F63 /* BTConReqBuilderTests.swift */; };
+		2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */; };
 		2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3A17E19DB0BDB008E72FB /* BTConResParser.swift */; };
 		2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645519DC3FD900BA4C00 /* BTConnection.swift */; };
 		2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645719DC4F3000BA4C00 /* BTStation.swift */; };
@@ -114,6 +115,7 @@
 		2D51072319DE061D002AA6FC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParserTests.swift; sourceTree = "<group>"; };
 		2D8D0EFA1A068E2E006C4F63 /* BTConReqBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BTConReqBuilderTests.swift; path = ../BTConReqBuilderTests.swift; sourceTree = "<group>"; };
+		2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2DA3A17E19DB0BDB008E72FB /* BTConResParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParser.swift; sourceTree = "<group>"; };
 		2DA4645519DC3FD900BA4C00 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
 		2DA4645719DC4F3000BA4C00 /* BTStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTStation.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
 				2D36F4AA19FF243600081515 /* BTMapUtilities.swift */,
 				2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */,
+				2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */,
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
 				2DA4645819DC4F3000BA4C00 /* BTStation.swift in Sources */,
+				2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
 				2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */,
 				2DDD42961A05CB0700683FA4 /* BTConReqBuilder.swift in Sources */,

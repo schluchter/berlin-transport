@@ -68,8 +68,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         println(__FUNCTION__)
         if overlay is MKPolyline {
             var polyLineRenderer = MKPolylineRenderer(overlay: overlay)
-            polyLineRenderer.fillColor = UIColor.brownColor()
-            polyLineRenderer.strokeColor = kBTPrimaryBgColor
+            println("\(kBTColorU3)")
+            polyLineRenderer.strokeColor = kBTColorPrimaryBg
             polyLineRenderer.lineWidth = 5.0
             return polyLineRenderer
         }
