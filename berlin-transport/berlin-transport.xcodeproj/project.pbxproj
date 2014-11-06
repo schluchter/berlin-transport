@@ -21,6 +21,7 @@
 		2DA4645619DC3FD900BA4C00 /* BTConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645519DC3FD900BA4C00 /* BTConnection.swift */; };
 		2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */; };
 		2DB9E9271A0B047E00862A1E /* SampleResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DB9E9261A0B047E00862A1E /* SampleResponse.xml */; };
+		2DB9E92A1A0B12C300862A1E /* BTHafasRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB9E9291A0B12C300862A1E /* BTHafasRequestHandler.swift */; };
 		2DD79B1419FDFA8100A2B247 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4B89E219FDF94700D5103D /* Quick.framework */; };
 		2DD79B1919FDFA8B00A2B247 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4B89F119FDF99F00D5103D /* Nimble.framework */; };
 		2DDD42931A01B32A00683FA4 /* apertomove-CONCoordRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */; };
@@ -124,6 +125,7 @@
 		2DA4645519DC3FD900BA4C00 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
 		2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
 		2DB9E9261A0B047E00862A1E /* SampleResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SampleResponse.xml; sourceTree = "<group>"; };
+		2DB9E9291A0B12C300862A1E /* BTHafasRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHafasRequestHandler.swift; sourceTree = "<group>"; };
 		2DDD42911A01B32A00683FA4 /* apertomove-CONCoordRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordRes.xml"; sourceTree = "<group>"; };
 		2DDD42921A01B32A00683FA4 /* apertomove-CONCoordReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordReq.xml"; sourceTree = "<group>"; };
 		2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConReqBuilder.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
 				2D36F4AA19FF243600081515 /* BTMapUtilities.swift */,
 				2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */,
+				2DB9E9291A0B12C300862A1E /* BTHafasRequestHandler.swift */,
 				2DB9E9281A0B112800862A1E /* Extensions */,
 			);
 			path = "berlin-transport";
@@ -523,6 +526,7 @@
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
 				2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
+				2DB9E92A1A0B12C300862A1E /* BTHafasRequestHandler.swift in Sources */,
 				2D8D0F071A0AD1E0006C4F63 /* BTConnectionPolyLine.swift in Sources */,
 				2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */,
 				2DDD42961A05CB0700683FA4 /* BTConReqBuilder.swift in Sources */,
