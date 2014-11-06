@@ -184,8 +184,11 @@ public class BTConResParser {
     }
     
     func distanceFromElement(element: ONOXMLElement) -> Meters? {
-        if let distance = element.firstChildWithXPath(".//Distance").numberValue() as? Meters {
-            return distance
+        var value: Meters
+        if let length = element.attributes["length"] as? Meters {
+            return length
+        } else if let distanceEl = element.firstChildWithTag("Distance") {
+            return distanceEl.numberValue().unsignedLongValue
         } else {
             return nil
         }
@@ -248,7 +251,7 @@ public class BTConResParser {
                     segment = BTGisRoute(start: self.pointFromElement(departureEl)!,
                         end: self.pointFromElement(arrivalEl)!,
                         duration: duration,
-                        distance: nil,
+                        distance: self.distanceFromElement(segmentTypeEl),
                         trafficType: self.trafficTypeFromGisRoute(segmentTypeEl))
                     
                     

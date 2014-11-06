@@ -19,7 +19,7 @@ class BTConReqBuilderTests: QuickSpec {
                 let date = calendar.dateFromComponents(comps)
                 println(date)
                 
-                let output = BTConReqBuilder.requestDataFromDate(date!)
+                let output = BTRequestBuilder.requestDataFromDate(date!)
                 
                 it("should print the correct date string") {
                     expect(output.day).to(equal("19800101"))

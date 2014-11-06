@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-//        let parser = BTConResParser(fileName: "Antwort_ID_ASCI")
-//        let connections = parser.getConnections()
+        let start = (CLLocationCoordinate2DMake(52.2142342, 13.28972873), "Start")
+        let end = (CLLocationCoordinate2DMake(52.2423421, 13.82923424), "End")
+        let req = BTConReq(date: NSDate(), start: start, end: end)
+        BTRequestBuilder.conReq(req)
         return true
     }
 

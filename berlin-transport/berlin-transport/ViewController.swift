@@ -12,9 +12,9 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
-    private let parser = BTConResParser(fileName: "apertomove-CONCoordRes")
+    private let parser = BTConResParser(fileName: "SampleResponse")
     private let mapView = MKMapView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
@@ -35,23 +35,27 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 let endMark = MKPlacemark(coordinate: segment.end.coordinate, addressDictionary: nil)
                 self.mapView.addAnnotation(startMark)
                 self.mapView.addAnnotation(endMark)
+
                 
+                var points: [CLLocationCoordinate2D] = []
                 // Add passList if it's a journey
                 if let journey = segment as? BTJourney {
-                    var points: [CLLocationCoordinate2D] = []
                     for station in journey.passList! {
                         let passMark = MKPlacemark(coordinate: station.coordinate, addressDictionary: nil)
                         points.append(passMark.coordinate)
                         self.mapView.addAnnotation(passMark)
                     }
-                    let line = MKPolyline(coordinates: &points, count: points.count)
-                    self.mapView.addOverlay(line)
+                } else if (segment is BTWalk) || (segment is BTGisRoute) {
+                    points.append(segment.start.coordinate)
+                    points.append(segment.end.coordinate)
                 }
+                let line = MKPolyline(coordinates: &points, count: points.count)
+                self.mapView.addOverlay(line)
             }
             self.mapView.showAnnotations(mapView.annotations, animated: true)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,22 +67,20 @@ class ViewController: UIViewController, MKMapViewDelegate {
         println(__FUNCTION__)
         mapView.setCenterCoordinate(mapView.userLocation.location.coordinate, animated: true)
     }
-
+    
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         println(__FUNCTION__)
-        if overlay is MKPolyline {
-            var polyLineRenderer = MKPolylineRenderer(overlay: overlay)
-            polyLineRenderer.strokeColor = kBTColorU3
-            polyLineRenderer.lineWidth = 5.0
-            return polyLineRenderer
-        }
-        return nil
+        var polyLineRenderer = MKPolylineRenderer(overlay: overlay)
+        polyLineRenderer.strokeColor = kBTColorU3
+        polyLineRenderer.lineWidth = 5.0
+        
+        return polyLineRenderer
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         println(__FUNCTION__)
-        var point = UIImage(named: "BTMapPoint")!
-
+        let point = UIImage(named: "BTMapPoint")!.imageWithRenderingMode(.AlwaysTemplate)
+        
         let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "BTPoint")
         view.image = point
         view.tintColor = UIColor.whiteColor()
