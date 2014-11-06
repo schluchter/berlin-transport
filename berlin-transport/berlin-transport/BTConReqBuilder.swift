@@ -15,13 +15,21 @@ public struct BTConReq {
     let end:  (coordinate: CLLocationCoordinate2D, title: String)
 }
 
+public struct BTSTBReq {
+    
+}
+
 public class BTRequestBuilder {
-    class var apiKey: String? {
+    private class var apiKey: String? {
         if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
             let keys = NSDictionary(contentsOfFile: path)!
             return keys.valueForKey("VBBTestSystemAccessID") as? String
         }
         return nil
+    }
+    
+    public class func stbReq(request: BTSTBReq) -> String {
+        return ""
     }
     
     public class func conReq(request: BTConReq) -> String {
