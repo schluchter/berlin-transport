@@ -17,15 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let start = (CLLocationCoordinate2DMake(52.482357, 13.349523), "Start")
-        let end = (CLLocationCoordinate2DMake(52.515690, 13.335827), "End")
-        let req = BTConReq(date: NSDate(), start: start, end: end)
-        let reqXml = BTRequestBuilder.conReq(req)
         
         AFNetworkActivityLogger.sharedLogger().level = .AFLoggerLevelDebug
         AFNetworkActivityLogger.sharedLogger().startLogging()
-        
-        BTHafasAPIClient.send(reqXml)
         
         return true
     }

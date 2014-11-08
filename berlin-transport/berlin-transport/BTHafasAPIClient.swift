@@ -9,6 +9,7 @@
 import Foundation
 
 class BTHafasAPIClient {
+    
     class func send(xml: String) {
         let bodyData = xml.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)!
         let req = NSMutableURLRequest(URL: NSURL(string: kBTHafasServerURL)!)
@@ -21,8 +22,9 @@ class BTHafasAPIClient {
         ops.responseSerializer = AFOnoResponseSerializer.XMLResponseSerializer()
         ops.setCompletionBlockWithSuccess({ (ops: AFHTTPRequestOperation!, res: AnyObject!) -> Void in
             if let connectionXML = res as? ONOXMLDocument {
+                
                 let parser = BTConResParser(connectionXML)
-                parser.getConnections()
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "BTHafasAPIClientDidReturnResponse", object: parser))
             }
             },
             failure: { (ops: AFHTTPRequestOperation!, err: NSError!) -> Void in
