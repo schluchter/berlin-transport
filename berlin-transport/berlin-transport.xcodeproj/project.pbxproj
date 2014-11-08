@@ -13,6 +13,7 @@
 		2D36F4AB19FF243600081515 /* BTMapUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36F4AA19FF243600081515 /* BTMapUtilities.swift */; };
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
 		2D51074A19DEE9F8002AA6FC /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */; };
+		2D8A91811A0EBAC0003F7F07 /* Keys2 in Resources */ = {isa = PBXBuildFile; fileRef = 2D8A91801A0EBAC0003F7F07 /* Keys2 */; };
 		2D8D0EFB1A068E2E006C4F63 /* BTConReqBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0EFA1A068E2E006C4F63 /* BTConReqBuilderTests.swift */; };
 		2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */; };
 		2D8D0F071A0AD1E0006C4F63 /* BTConnectionPolyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0F061A0AD1E0006C4F63 /* BTConnectionPolyLine.swift */; };
@@ -117,6 +118,7 @@
 		2D4B89E919FDF99E00D5103D /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = "../../../../../Downloads/Nimble-master/Nimble.xcodeproj"; sourceTree = "<group>"; };
 		2D51072319DE061D002AA6FC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParserTests.swift; sourceTree = "<group>"; };
+		2D8A91801A0EBAC0003F7F07 /* Keys2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Keys2; sourceTree = "<group>"; };
 		2D8D0EFA1A068E2E006C4F63 /* BTConReqBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BTConReqBuilderTests.swift; path = ../BTConReqBuilderTests.swift; sourceTree = "<group>"; };
 		2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2D8D0F061A0AD1E0006C4F63 /* BTConnectionPolyLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionPolyLine.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				2DED15B719E3480700A6F193 /* Keys.plist */,
+				2D8A91801A0EBAC0003F7F07 /* Keys2 */,
 				2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */,
 				40B52A0319C7D798005CF010 /* berlin-transport */,
 				40B52A1919C7D79A005CF010 /* berlin-transportTests */,
@@ -459,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8A91811A0EBAC0003F7F07 /* Keys2 in Resources */,
 				2DED15B819E3480700A6F193 /* Keys.plist in Resources */,
 				2DDD42931A01B32A00683FA4 /* apertomove-CONCoordRes.xml in Resources */,
 				40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */,
