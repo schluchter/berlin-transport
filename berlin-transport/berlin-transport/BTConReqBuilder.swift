@@ -45,7 +45,7 @@ public class BTRequestBuilder {
         
         // TODO: Figure out how to get the date in there
         var req = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?><ReqC accessId=\"\(apiKey!)\" ver=\"1.1\" requestId=\"\" prod=\"net.schluchter.berlin-transport\" lang=\"DE\"><ConReq><ReqT date=\"\(dayTime.day)\" time=\"\(dayTime.time)\"></ReqT><RFlags b=\"0\" f=\"1\"></RFlags><Start><Coord name=\"\(startTitle)\" x=\"\(startX)\" y=\"\(startY)\" type=\"WGS84\"/><Prod  prod=\"1111000000000000\" direct=\"0\" sleeper=\"0\" couchette=\"0\" bike=\"0\"/></Start><Dest><Coord name=\"\(endTitle)\" x=\"\(endX)\" y=\"\(endY)\" type=\"WGS84\"/></Dest></ConReq></ReqC>"
-        println(req)
+        
         return req
     }
         

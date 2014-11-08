@@ -13,21 +13,18 @@ public class BTConResParser {
     var hafasRes: ONOXMLDocument
     var connections: [BTConnection] = []
     
-    public init(fileURL url: NSURL?) {
-        let error = NSErrorPointer()
-        let xmlData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
-        
-        self.hafasRes = ONOXMLDocument(data: xmlData, error: error)
-        
-        // Configure date formatter
+    public init(_ xml: ONOXMLDocument) {
+        self.hafasRes = xml
         self.hafasRes.dateFormatter.dateFormat = "yyyyMMdd"
-        self.hafasRes.dateFormatter.calendar = NSCalendar.currentCalendar()
-        self.hafasRes.dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
     }
     
     public convenience init(fileName name: String) {
-        let fileURL = NSBundle.mainBundle().URLForResource(name, withExtension: "xml")
-        self.init(fileURL: fileURL)
+        let err = NSErrorPointer()
+        let fileURL = NSBundle.mainBundle().URLForResource(name, withExtension: "xml")!
+        let fileStr = NSString(contentsOfURL: fileURL, encoding: NSISOLatin1StringEncoding, error: err)!
+        let xmlDoc = ONOXMLDocument(string: fileStr, encoding: NSISOLatin1StringEncoding, error: err)
+        
+        self.init(xmlDoc)
     }
     
     public func getConnections() -> [BTConnection] {
@@ -36,6 +33,7 @@ public class BTConResParser {
             let overViewEl = element.firstChildWithTag("Overview")
             let segmentListEl = element.firstChildWithTag("ConSectionList")
             
+            println(overViewEl.firstChildWithTag("Date"))
             let connectionBaseDate = overViewEl.firstChildWithTag("Date").dateValue()
             let startDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Departure//Time"), baseDate: connectionBaseDate)
             let endDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Arrival//Time"), baseDate: connectionBaseDate)
