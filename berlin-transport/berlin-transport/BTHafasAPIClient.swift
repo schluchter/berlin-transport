@@ -22,9 +22,7 @@ class BTHafasAPIClient {
         ops.responseSerializer = AFOnoResponseSerializer.XMLResponseSerializer()
         ops.setCompletionBlockWithSuccess({ (ops: AFHTTPRequestOperation!, res: AnyObject!) -> Void in
             if let connectionXML = res as? ONOXMLDocument {
-                
-                let parser = BTConResParser(connectionXML)
-                NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "BTHafasAPIClientDidReturnResponse", object: parser))
+                NSNotificationCenter.defaultCenter().postNotificationName("BTHafasAPIClientDidReceiveResponse", object: connectionXML)
             }
             },
             failure: { (ops: AFHTTPRequestOperation!, err: NSError!) -> Void in
