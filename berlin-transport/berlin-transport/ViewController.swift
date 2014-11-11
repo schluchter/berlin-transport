@@ -21,14 +21,18 @@ class ViewController: UIViewController, MKMapViewDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleBTHafasAPIClientResponse:", name: "BTHafasAPIClientDidReceiveResponse", object: nil)
         
         // Setting up the map
+        let locMgr = CLLocationManager()
+        locMgr.requestAlwaysAuthorization()
         self.mapView.delegate = self
+        self.mapView.showsPointsOfInterest = false
+        self.mapView.showsUserLocation = true
         let mapFrame = self.view.bounds
         self.mapView.frame = mapFrame
         self.view.addSubview(mapView)
         
         // Setting up the data from the server
-        let start = (CLLocationCoordinate2DMake(52.482300, 13.349923), "Start")
-        let end = (CLLocationCoordinate2DMake(52.597690, 13.392827), "End")
+        let start = (CLLocationCoordinate2DMake(52.5491666,13.4317231), "Start")
+        let end = (CLLocationCoordinate2DMake(52.500052,13.443949), "End")
         let req = BTConReq(date: NSDate(), start: start, end: end)
         let reqXml = BTRequestBuilder.conReq(req)
         
@@ -66,7 +70,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
                     points.append(segment.start.coordinate)
                     points.append(segment.end.coordinate)
                 }
-                let line = MKPolyline(coordinates: &points, count: points.count)
+                let line = BTConnectionPolyLine(coordinates: &points, count: points.count)
+                line.connectionData = segment
                 self.mapView.addOverlay(line)
             }
             self.mapView.showAnnotations(mapView.annotations, animated: true)
@@ -87,12 +92,88 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-        println(__FUNCTION__)
-        var polyLineRenderer = MKPolylineRenderer(overlay: overlay)
-        polyLineRenderer.strokeColor = kBTColorU3
-        polyLineRenderer.lineWidth = 5.0
+        let polyLineRenderer = MKPolylineRenderer(overlay: overlay)
+        polyLineRenderer.lineWidth = 3.5
+        
+        let polyLine = overlay as BTConnectionPolyLine
+        let data = polyLine.connectionData!
+        switch data {
+        case let journey as BTJourney:
+            polyLineRenderer.strokeColor = self.lineColorForService(journey.line)
+        case let walk as BTWalk:
+            polyLineRenderer.strokeColor = kBTColorPrimaryBg
+            polyLineRenderer.lineWidth = 2.5
+            polyLineRenderer.lineDashPattern = [0,4]
+        case let gisRoute as BTGisRoute:
+            polyLineRenderer.strokeColor = kBTColorPrimaryBg
+            polyLineRenderer.lineWidth = 2.5
+            polyLineRenderer.lineDashPattern = [0,4]
+        case let transfer as BTTransfer:
+            polyLineRenderer.strokeColor = kBTColorIconUBahn
+        default:
+            ()
+        }
         
         return polyLineRenderer
+    }
+    
+    func lineColorForService(service: BTServiceDescription) -> UIColor {
+        switch service.serviceId.serviceType {
+        case .Bus:
+            return kBTColorIconBus
+        case .MetroBus, .MetroTram:
+            return kBTColorIconMetro
+        case .UBahn:
+            switch service.serviceId.name {
+            case "1", "15":
+                return kbTColorU1_15
+            case "2":
+                return kBTColorU2
+            case "3":
+                return kBTColorU3
+            case "4":
+                return kBTColorU4
+            case "5", "55":
+                return kBTColorU5_55
+            case "6":
+                return kBTColorU6
+            case "7":
+                return kBTColorU7
+            case "8":
+                return kBTColorU8
+            case "9":
+                return kBTColorU9
+            default:
+                return UIColor.blackColor()
+            }
+        case .SBahn:
+            switch service.serviceId.name {
+            case "S1":
+                return kBTColorS1
+            case "S2", "S25":
+                return kBTColorS2_25
+            case "S3":
+                return kBTColorS3
+            case "S41":
+                return kBTColorS41
+            case "S42":
+                return kBTColorS42
+                case "S45", "S46", "S47":
+                return kBTColorS45_47
+            case "S5":
+                return kBTColorS5
+            case "S7", "S75":
+                return kBTColorS7_75
+            case "S8", "S85":
+                return kBTColorS8_85
+            case "S9":
+                return kBTColorS9
+            default:
+                return kBTColorPrimaryBg
+            }
+        default:
+            return kBTColorIconTram
+        }
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
@@ -101,16 +182,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "BTPoint")
         view.image = point
-        view.tintColor = UIColor.whiteColor()
         
         return view
     }
     
     func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
-        // Implement later
+        // TODO: Implement later
     }
     
     func mapView(mapView: MKMapView!, didAddOverlayRenderers renderers: [AnyObject]!) {
-        // Implement later
+        // TODO: Implement later
     }
 }
