@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D047F8A1A14816E004ACEFE /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D047F891A14816E004ACEFE /* stops.txt */; };
+		2D07DA081A148B3800823F66 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA071A148B3800823F66 /* Realm.framework */; };
+		2D07DA121A148B8D00823F66 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA111A148B8D00823F66 /* libc++.dylib */; };
+		2D07DA141A148BBE00823F66 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D07DA131A148BBE00823F66 /* RLMSupport.swift */; };
 		2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */; };
 		2D222A8119E798A400B63D56 /* BTPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D222A8019E798A400B63D56 /* BTPoint.swift */; };
 		2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29D6C419DDC67800A1101D /* BTConstants.swift */; };
@@ -109,6 +112,9 @@
 /* Begin PBXFileReference section */
 		082AB5B6B55064179C52E15E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2D047F891A14816E004ACEFE /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
+		2D07DA071A148B3800823F66 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		2D07DA111A148B8D00823F66 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		2D07DA131A148BBE00823F66 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
 		2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Antwort_ID_ASCI.xml; sourceTree = "<group>"; };
 		2D222A8019E798A400B63D56 /* BTPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPoint.swift; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */,
+				2D07DA121A148B8D00823F66 /* libc++.dylib in Frameworks */,
+				2D07DA081A148B3800823F66 /* Realm.framework in Frameworks */,
 				2DFF625419DA28B400AE5DFC /* MapKit.framework in Frameworks */,
 				2DFF625219DA28AA00AE5DFC /* CoreLocation.framework in Frameworks */,
 			);
@@ -226,6 +234,7 @@
 		40B529F819C7D798005CF010 = {
 			isa = PBXGroup;
 			children = (
+				2D07DA131A148BBE00823F66 /* RLMSupport.swift */,
 				2DED15B719E3480700A6F193 /* Keys.plist */,
 				2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */,
 				40B52A0319C7D798005CF010 /* berlin-transport */,
@@ -301,6 +310,8 @@
 		95A1747C400F4FC4A0815B16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D07DA111A148B8D00823F66 /* libc++.dylib */,
+				2D07DA071A148B3800823F66 /* Realm.framework */,
 				2D3B18B719E4AF9000491423 /* libPods.a */,
 				2D51072319DE061D002AA6FC /* libPods.a */,
 				2DFF625319DA28B400AE5DFC /* MapKit.framework */,
@@ -540,6 +551,7 @@
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
 				2DB9E92A1A0B12C300862A1E /* BTHafasAPIClient.swift in Sources */,
 				2D8D0F071A0AD1E0006C4F63 /* BTConnectionPolyLine.swift in Sources */,
+				2D07DA141A148BBE00823F66 /* RLMSupport.swift in Sources */,
 				2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */,
 				2DDD42961A05CB0700683FA4 /* BTConReqBuilder.swift in Sources */,
 				2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */,
@@ -677,6 +689,7 @@
 					"$(SDKROOT)/System/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/PrivateFrameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "berlin-transport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -699,6 +712,7 @@
 					"$(SDKROOT)/System/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/PrivateFrameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "berlin-transport/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
