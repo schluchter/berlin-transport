@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D047F8A1A14816E004ACEFE /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D047F891A14816E004ACEFE /* stops.txt */; };
 		2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */; };
 		2D222A8119E798A400B63D56 /* BTPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D222A8019E798A400B63D56 /* BTPoint.swift */; };
 		2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29D6C419DDC67800A1101D /* BTConstants.swift */; };
@@ -107,6 +108,7 @@
 
 /* Begin PBXFileReference section */
 		082AB5B6B55064179C52E15E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2D047F891A14816E004ACEFE /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
 		2D1AC74A19DD8315005C5E65 /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
 		2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Antwort_ID_ASCI.xml; sourceTree = "<group>"; };
 		2D222A8019E798A400B63D56 /* BTPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPoint.swift; sourceTree = "<group>"; };
@@ -169,6 +171,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D047F801A148151004ACEFE /* Resource Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D047F891A14816E004ACEFE /* stops.txt */,
+			);
+			name = "Resource Files";
+			sourceTree = "<group>";
+		};
 		2D4B89DA19FDF94700D5103D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +248,7 @@
 		40B52A0319C7D798005CF010 /* berlin-transport */ = {
 			isa = PBXGroup;
 			children = (
+				2D047F801A148151004ACEFE /* Resource Files */,
 				2DE1736A19DB13B000A8F0F6 /* XML Files */,
 				40B52A0619C7D79A005CF010 /* AppDelegate.swift */,
 				40B52A0819C7D79A005CF010 /* ViewController.swift */,
@@ -463,6 +474,7 @@
 				2DDD42931A01B32A00683FA4 /* apertomove-CONCoordRes.xml in Resources */,
 				40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */,
 				2DDD42941A01B32A00683FA4 /* apertomove-CONCoordReq.xml in Resources */,
+				2D047F8A1A14816E004ACEFE /* stops.txt in Resources */,
 				2DE1737A19DB141600A8F0F6 /* VBB-STD-LUAX-CONRes.xml in Resources */,
 				40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */,
 				2DB9E9271A0B047E00862A1E /* SampleResponse.xml in Resources */,
