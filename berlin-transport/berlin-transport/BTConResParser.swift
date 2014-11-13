@@ -42,8 +42,8 @@ public class BTConResParser {
             let departurePoint: ONOXMLElement = overViewEl.firstChildWithXPath(".//Departure")
             let arrivalPoint: ONOXMLElement = overViewEl.firstChildWithXPath(".//Arrival")
             
-            let connection = BTConnection(startDate: startDate,
-                endDate: endDate,
+            let connection = BTConnection(startDate: startDate!,
+                endDate: endDate!,
                 travelTime: travelTime,
                 numberOfTransfers: transfers,
                 start: self.pointFromElement(departurePoint)!,
@@ -106,9 +106,12 @@ public class BTConResParser {
         }
     }
     
-    func dateTimeFromElement(element: ONOXMLElement, baseDate: NSDate) -> NSDate {
-        let interval = self.timeIntervalForElement(element)
-        return baseDate.dateByAddingTimeInterval(interval)
+    func dateTimeFromElement(element: ONOXMLElement?, baseDate: NSDate) -> NSDate? {
+        if element != nil {
+            let interval = self.timeIntervalForElement(element!)
+            return baseDate.dateByAddingTimeInterval(interval)
+        }
+        return nil
     }
     
     func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {

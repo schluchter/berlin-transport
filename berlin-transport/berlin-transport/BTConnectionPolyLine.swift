@@ -11,5 +11,5 @@ import MapKit
 import CoreLocation
 
 class BTConnectionPolyLine : MKPolyline {
-    var connectionData: BTConnectionSegment?
+    var connectionData: BTConnectionSegment?    
 }

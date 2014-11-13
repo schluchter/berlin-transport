@@ -31,52 +31,81 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.view.addSubview(mapView)
         
         // Setting up the data from the server
-        let start = (CLLocationCoordinate2DMake(52.5491666,13.4317231), "Start")
-        let end = (CLLocationCoordinate2DMake(52.500052,13.443949), "End")
+        let start = (CLLocationCoordinate2DMake(51.5075419,13.4261419), "Start")
+        let end = (CLLocationCoordinate2DMake(51.5113872,13.4588226), "End")
         let req = BTConReq(date: NSDate(), start: start, end: end)
         let reqXml = BTRequestBuilder.conReq(req)
         
         BTHafasAPIClient.send(reqXml)
-        
     }
     
     func handleBTHafasAPIClientResponse(notification: NSNotification) {
         let xml = notification.object as ONOXMLDocument
         let parser = BTConResParser(xml)
-        let locMgr = CLLocationManager()
-        if !CLLocationManager.locationServicesEnabled() {
-            println("No location services enabled")
-        } else {
-            let firstConnection = parser.getConnections()[0]
-            let startCoords = firstConnection.start.coordinate
-            let endCoords = firstConnection.end.coordinate
+        println(xml)
+        
+        let firstConnection = parser.getConnections()[0]
+        let startCoords = firstConnection.start.coordinate
+        let endCoords = firstConnection.end.coordinate
+        
+        for segment in firstConnection.segments! {
+            let startMark = MKPlacemark(coordinate: segment.start.coordinate, addressDictionary: nil)
+            let endMark = MKPlacemark(coordinate: segment.end.coordinate, addressDictionary: nil)
+            var points: [CLLocationCoordinate2D] = []
             
-            for segment in firstConnection.segments! {
-                let startMark = MKPlacemark(coordinate: segment.start.coordinate, addressDictionary: nil)
-                let endMark = MKPlacemark(coordinate: segment.end.coordinate, addressDictionary: nil)
-                self.mapView.addAnnotation(startMark)
-                self.mapView.addAnnotation(endMark)
+            self.mapView.addAnnotation(startMark)
+            self.mapView.addAnnotation(endMark)
+            
+            switch segment {
+            case let journey as BTJourney:
+
+                for station in journey.passList! {
+                    let passMark = MKPlacemark(coordinate: station.coordinate, addressDictionary: nil)
+                    points.append(passMark.coordinate)
+                    self.mapView.addAnnotation(passMark)
                 
-                
-                var points: [CLLocationCoordinate2D] = []
-                // Add passList if it's a journey
-                if let journey = segment as? BTJourney {
-                    for station in journey.passList! {
-                        let passMark = MKPlacemark(coordinate: station.coordinate, addressDictionary: nil)
-                        points.append(passMark.coordinate)
-                        self.mapView.addAnnotation(passMark)
-                    }
-                } else if (segment is BTWalk) || (segment is BTGisRoute) {
-                    points.append(segment.start.coordinate)
-                    points.append(segment.end.coordinate)
                 }
                 let line = BTConnectionPolyLine(coordinates: &points, count: points.count)
                 line.connectionData = segment
+                
+                points.append(journey.end.coordinate)
                 self.mapView.addOverlay(line)
+                
+            case let walk as BTWalk:
+                let dirReq = MKDirectionsRequest()
+                dirReq.transportType = .Walking
+                dirReq.setSource(MKMapItem(placemark: startMark))
+                dirReq.setDestination(MKMapItem(placemark: endMark))
+                
+                let direction = MKDirections(request: dirReq)
+                direction.calculateDirectionsWithCompletionHandler() { (res: MKDirectionsResponse!, err: NSError!) -> Void in
+                    if let route = res.routes.first as? MKRoute {
+                        let line = route.polyline as BTConnectionPolyLine
+                        line.connectionData = segment
+                        self.mapView.addOverlay(line)
+                    }
+                }
+                
+            case let route as BTGisRoute:
+                let dirReq = MKDirectionsRequest()
+                dirReq.transportType = .Walking
+                dirReq.setSource(MKMapItem(placemark: startMark))
+                dirReq.setDestination(MKMapItem(placemark: endMark))
+                
+                let direction = MKDirections(request: dirReq)
+                
+                direction.calculateDirectionsWithCompletionHandler() { (res: MKDirectionsResponse!, err: NSError!) -> Void in
+                    if let route = res.routes.first as? MKRoute {
+                        self.mapView.addOverlay(route.polyline)
+                    }
+                }
+                
+            default:
+                ()
             }
-            self.mapView.showAnnotations(mapView.annotations, animated: true)
         }
         
+        self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,23 +124,20 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let polyLineRenderer = MKPolylineRenderer(overlay: overlay)
         polyLineRenderer.lineWidth = 3.5
         
-        let polyLine = overlay as BTConnectionPolyLine
-        let data = polyLine.connectionData!
-        switch data {
-        case let journey as BTJourney:
-            polyLineRenderer.strokeColor = self.lineColorForService(journey.line)
-        case let walk as BTWalk:
+        if let polyLine = overlay as? BTConnectionPolyLine {
+            let data = polyLine.connectionData!
+            switch data {
+            case let journey as BTJourney:
+                polyLineRenderer.strokeColor = self.lineColorForService(journey.line)
+            case let transfer as BTTransfer:
+                polyLineRenderer.strokeColor = kBTColorIconUBahn
+            default:
+                ()
+            }
+        } else {
             polyLineRenderer.strokeColor = kBTColorPrimaryBg
             polyLineRenderer.lineWidth = 2.5
-            polyLineRenderer.lineDashPattern = [0,4]
-        case let gisRoute as BTGisRoute:
-            polyLineRenderer.strokeColor = kBTColorPrimaryBg
-            polyLineRenderer.lineWidth = 2.5
-            polyLineRenderer.lineDashPattern = [0,4]
-        case let transfer as BTTransfer:
-            polyLineRenderer.strokeColor = kBTColorIconUBahn
-        default:
-            ()
+            polyLineRenderer.lineDashPattern = [0,5]
         }
         
         return polyLineRenderer
@@ -158,7 +184,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 return kBTColorS41
             case "S42":
                 return kBTColorS42
-                case "S45", "S46", "S47":
+            case "S45", "S46", "S47":
                 return kBTColorS45_47
             case "S5":
                 return kBTColorS5
@@ -177,13 +203,18 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        println(__FUNCTION__)
-        let point = UIImage(named: "BTMapPoint")!.imageWithRenderingMode(.AlwaysTemplate)
-        
         let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "BTPoint")
-        view.image = point
+        view.backgroundColor = UIColor.whiteColor()
+        view.frame = CGRectMake(-4, -4, 8, 8)
+        view.layer.cornerRadius = 4
+        view.layer.shadowOffset = CGSizeMake(1, 1)
+        view.layer.shadowOpacity = 0.08
         
         return view
+    }
+    
+    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        // TODO: Implement later
     }
     
     func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
@@ -192,5 +223,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, didAddOverlayRenderers renderers: [AnyObject]!) {
         // TODO: Implement later
+    }
+    
+    //- MARK: Internal methods
+    func routeBetweenPoints(start: MKMapPoint!, end: MKMapPoint!) {
+        
     }
 }
