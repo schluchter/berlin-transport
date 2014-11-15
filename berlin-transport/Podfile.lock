@@ -27,7 +27,6 @@ PODS:
     - AFNetworking (~> 2.2)
     - Ono (~> 1.0)
   - CHCSVParser (2.1.0)
-  - NTYCSVTable (0.3.1)
   - Ono (1.1.3)
 
 DEPENDENCIES:
@@ -35,7 +34,6 @@ DEPENDENCIES:
   - AFNetworking
   - AFOnoResponseSerializer
   - CHCSVParser (~> 2.1)
-  - NTYCSVTable
   - Ono
 
 SPEC CHECKSUMS:
@@ -43,7 +41,6 @@ SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   AFOnoResponseSerializer: 7da7ac6a1cff0eb46894602ca884e903f95087d8
   CHCSVParser: 1ebc9783114707e2b6f83b20fe0f246eb2fabae0
-  NTYCSVTable: dc65f4f84c212877b90516670bebea0b68bed7fa
   Ono: cf5cb37c76225200d6f063e4189c15b4b6c9d5fe
 
 COCOAPODS: 0.34.1

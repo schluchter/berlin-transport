@@ -13,7 +13,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworkActivityLogger/AFNetworkActivityLogger.h>
 #import <AFOnoResponseSerializer/AFOnoResponseSerializer.h>
-#import <NTYCSVTable/NTYCSVTable.h>
 #import <CHCSVParser/CHCSVParser.h>
 
 
