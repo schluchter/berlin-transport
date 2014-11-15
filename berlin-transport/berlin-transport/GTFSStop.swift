@@ -14,8 +14,8 @@ class GTFSStop: RLMObject {
     dynamic var code: String = ""
     dynamic var name: String = ""
     dynamic var desc: String = ""
-    dynamic var lat: Float = 0.0
-    dynamic var long: Float = 0.0
+    dynamic var lat: Double = 0.0
+    dynamic var long: Double = 0.0
     dynamic var zoneId: String = ""
     dynamic var stopUrl: String = ""
     dynamic var locationType: String = ""
@@ -25,5 +25,5 @@ class GTFSStop: RLMObject {
         var attributes = super.attributesForProperty("name")
         attributes |= RLMPropertyAttributes.AttributeIndexed
         return attributes
-    }   
+    }
 }

@@ -13,7 +13,7 @@
 @property (nonatomic) NSArray *headers;
 @property (nonatomic) NSArray *rows;
 @property (nonatomic) NSDictionary *columns;
-@property (nonatomic) NSString *columnSeperator;
+@property (nonatomic) NSString *columnSeparator;
 @end
 
 @implementation NTYCSVTable
@@ -21,7 +21,7 @@
 - (id)initWithContentsOfURL:(NSURL *)url columnSeparator:(NSString *)separator {
     self = [super init];
     if (self) {
-        self.columnSeperator = separator;
+        self.columnSeparator = separator;
         NSString *csvString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
         csvString = [csvString stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         NSArray *lines = [csvString componentsSeparatedByString:@"\n"];
@@ -52,7 +52,7 @@
 - (void)parseHeadersFromLines:(NSArray *)lines
 {
     NSString *headerLine = lines.firstObject;
-    self.headers = [headerLine componentsSeparatedByString:self.columnSeperator];
+    self.headers = [headerLine componentsSeparatedByString:self.columnSeparator];
 }
 
 - (void)parseRowsFromLines:(NSArray *)lines
@@ -64,7 +64,21 @@
             continue;
         }
         
-        NSArray *values = [line componentsSeparatedByString:self.columnSeperator];
+        NSMutableArray* values = [NSMutableArray new];
+        
+        if ([line containsString:@"\""]) {
+            NSArray *components = [line componentsSeparatedByString:@"\""];
+            NSMutableArray *newComps = [NSMutableArray new];
+            for (NSMutableString* string in components) {
+                NSString* tempString = [string stringByReplacingOccurrencesOfString:@", " withString:@"#"];
+                [newComps addObject:tempString];
+            }
+            NSString* cleanLine = [newComps componentsJoinedByString:@""];
+            [values addObjectsFromArray:[cleanLine componentsSeparatedByString:self.columnSeparator]];
+        } else {
+            [values addObjectsFromArray:[line componentsSeparatedByString:self.columnSeparator]];
+        }
+
         NSMutableDictionary *row = [NSMutableDictionary new];
         for (NSString *header in self.headers) {
             NSUInteger index = [self.headers indexOfObject:header];

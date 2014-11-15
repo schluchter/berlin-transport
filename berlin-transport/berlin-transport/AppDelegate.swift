@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AFNetworkActivityLogger.sharedLogger().level = .AFLoggerLevelDebug
         AFNetworkActivityLogger.sharedLogger().startLogging()
         
-        self.setUpPersistentData()
+        if GTFSStop.allObjects().count == 0 {
+            GTFSParser().populateStopDatabase()
+        }
         
         return true
     }
@@ -48,29 +50,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    func setUpPersistentData() {
-        let realm = RLMRealm.defaultRealm()
-        let path = NSBundle.mainBundle().pathForResource("stops", ofType: "txt")!
-        
-        let stop1 = GTFSStop()
-        stop1.name = "Anne-Frank-Str. (Berlin)"
-        stop1.id = "9195506"
-        stop1.lat = 52.4091540
-        stop1.long = 13.5344170
-        
-        let stop2 = GTFSStop()
-        stop2.name = "U Pankstr. (Berlin)"
-        stop2.id = "9195506"
-        stop2.lat = 52.5522550
-        stop2.long = 13.3818370
-        
-        realm.beginWriteTransaction()
-        realm.addObject(stop1)
-        realm.addObject(stop2)
-        realm.commitWriteTransaction()
-        
-    }
-    
 }
 

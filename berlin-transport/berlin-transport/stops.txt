@@ -11327,7 +11327,7 @@ stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,locatio
 9415891,,Mahdel,,51.6966470,13.1757910,,,0,
 9415902,,Malitschkendorf,,51.6943930,13.3304890,,,0,
 9415903,,"Martinskirchen, Abzweig",,51.4751720,13.2240170,,,0,
-9415904,,"Martinskirchen,Ortsausgang",,51.4694090,13.2033540,,,0,
+9415904,,"Martinskirchen, Ortsausgang",,51.4694090,13.2033540,,,0,
 9415905,,"Martinskirchen, Schloß",,51.4745070,13.2049570,,,0,
 9415916,,"Marxdorf, Beiersdorfer Str.",,51.5416580,13.2856080,,,0,
 9415917,,"Marxdorf, Liebenwerdaer Str.",,51.5408890,13.2819390,,,0,
