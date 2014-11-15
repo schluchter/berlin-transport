@@ -5,4 +5,5 @@ platform :ios, "8.0"
 pod 'AFNetworking'
 pod 'AFNetworkActivityLogger'
 pod 'AFOnoResponseSerializer'
+pod 'NTYCSVTable'
 pod 'Ono'
