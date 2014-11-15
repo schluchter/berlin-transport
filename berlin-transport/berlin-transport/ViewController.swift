@@ -31,8 +31,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.view.addSubview(mapView)
         
         // Setting up the data from the server
-        let start = (CLLocationCoordinate2DMake(51.5075419,13.4261419), "Start")
-        let end = (CLLocationCoordinate2DMake(51.5113872,13.4588226), "End")
+        let start = (CLLocationCoordinate2DMake(52.4091540,13.5344170), "Start")
+        let end = (CLLocationCoordinate2DMake(52.5522550, 13.3818370), "End")
         let req = BTConReq(date: NSDate(), start: start, end: end)
         let reqXml = BTRequestBuilder.conReq(req)
         

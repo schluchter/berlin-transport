@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import Realm
 import berlin_transport
 
 class BTConResParserTests: QuickSpec {

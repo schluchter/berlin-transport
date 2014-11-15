@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D047F8A1A14816E004ACEFE /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D047F891A14816E004ACEFE /* stops.txt */; };
-		2D07DA081A148B3800823F66 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA071A148B3800823F66 /* Realm.framework */; };
+		2D07DA081A148B3800823F66 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA071A148B3800823F66 /* Realm.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2D07DA121A148B8D00823F66 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA111A148B8D00823F66 /* libc++.dylib */; };
 		2D07DA141A148BBE00823F66 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D07DA131A148BBE00823F66 /* RLMSupport.swift */; };
 		2D222A7F19E642E000B63D56 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D222A7E19E642E000B63D56 /* Antwort_ID_ASCI.xml */; };
@@ -17,6 +17,9 @@
 		2D36F4AB19FF243600081515 /* BTMapUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36F4AA19FF243600081515 /* BTMapUtilities.swift */; };
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
 		2D51074A19DEE9F8002AA6FC /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */; };
+		2D85E6981A157665006E0456 /* GTFSStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85E6971A157665006E0456 /* GTFSStop.swift */; };
+		2D85E6991A1591EE006E0456 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA111A148B8D00823F66 /* libc++.dylib */; };
+		2D85E69B1A15923A006E0456 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D85E69A1A15923A006E0456 /* Realm.framework */; };
 		2D8D0EFB1A068E2E006C4F63 /* BTConReqBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0EFA1A068E2E006C4F63 /* BTConReqBuilderTests.swift */; };
 		2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */; };
 		2D8D0F071A0AD1E0006C4F63 /* BTConnectionPolyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8D0F061A0AD1E0006C4F63 /* BTConnectionPolyLine.swift */; };
@@ -125,6 +128,8 @@
 		2D4B89E919FDF99E00D5103D /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = "../../../../../Downloads/Nimble-master/Nimble.xcodeproj"; sourceTree = "<group>"; };
 		2D51072319DE061D002AA6FC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParserTests.swift; sourceTree = "<group>"; };
+		2D85E6971A157665006E0456 /* GTFSStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTFSStop.swift; sourceTree = "<group>"; };
+		2D85E69A1A15923A006E0456 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../../Downloads/realm-cocoa-0.87.4/ios/Realm.framework"; sourceTree = "<group>"; };
 		2D8D0EFA1A068E2E006C4F63 /* BTConReqBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BTConReqBuilderTests.swift; path = ../BTConReqBuilderTests.swift; sourceTree = "<group>"; };
 		2D8D0F041A0A931E006C4F63 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2D8D0F061A0AD1E0006C4F63 /* BTConnectionPolyLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionPolyLine.swift; sourceTree = "<group>"; };
@@ -171,6 +176,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D85E6991A1591EE006E0456 /* libc++.dylib in Frameworks */,
+				2D85E69B1A15923A006E0456 /* Realm.framework in Frameworks */,
 				2DD79B1919FDFA8B00A2B247 /* Nimble.framework in Frameworks */,
 				2DD79B1419FDFA8100A2B247 /* Quick.framework in Frameworks */,
 			);
@@ -275,6 +282,7 @@
 				2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */,
 				2DB9E9291A0B12C300862A1E /* BTHafasAPIClient.swift */,
 				2DB9E9281A0B112800862A1E /* Extensions */,
+				2D85E6971A157665006E0456 /* GTFSStop.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -310,6 +318,7 @@
 		95A1747C400F4FC4A0815B16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D85E69A1A15923A006E0456 /* Realm.framework */,
 				2D07DA111A148B8D00823F66 /* libc++.dylib */,
 				2D07DA071A148B3800823F66 /* Realm.framework */,
 				2D3B18B719E4AF9000491423 /* libPods.a */,
@@ -549,6 +558,7 @@
 				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
 				2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
+				2D85E6981A157665006E0456 /* GTFSStop.swift in Sources */,
 				2DB9E92A1A0B12C300862A1E /* BTHafasAPIClient.swift in Sources */,
 				2D8D0F071A0AD1E0006C4F63 /* BTConnectionPolyLine.swift in Sources */,
 				2D07DA141A148BBE00823F66 /* RLMSupport.swift in Sources */,
@@ -732,7 +742,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/tschluchter/Downloads/realm-cocoa-0.87.4/ios",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -762,7 +775,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/tschluchter/Downloads/realm-cocoa-0.87.4/ios",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
