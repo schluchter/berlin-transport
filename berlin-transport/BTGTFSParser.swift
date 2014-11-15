@@ -22,19 +22,19 @@ class GTFSParser: NSObject, CHCSVParserDelegate {
             let realm = RLMRealm.defaultRealm()
             let stops = NSArray(contentsOfCSVURL: url, options: CHCSVParserOptions.UsesFirstLineAsKeys|CHCSVParserOptions.SanitizesFields) as [NSDictionary]
             
+            // Write to Realm DB
             realm.beginWriteTransaction()
-            realm.deleteAllObjects()
-            
+
             for entry in stops {
                 let stop = GTFSStop()
                 stop.id = entry["stop_id"] as String
                 stop.name = entry["stop_name"] as String
                 stop.lat = self.formatter.numberFromString(entry["stop_lat"] as String)!.doubleValue
                 stop.long = self.formatter.numberFromString(entry["stop_lon"] as String)!.doubleValue
-                realm.addObject(stop)
+                realm.addOrUpdateObject(stop)
             }
             realm.commitWriteTransaction()
-            println(realm.path)
+//            println(realm.path)
         }
         
     }

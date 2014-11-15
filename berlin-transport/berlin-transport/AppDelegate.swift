@@ -11,7 +11,7 @@ import Realm
 import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
     var window: UIWindow?
     
@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AFNetworkActivityLogger.sharedLogger().level = .AFLoggerLevelDebug
         AFNetworkActivityLogger.sharedLogger().startLogging()
         
+        CLLocationManager().requestAlwaysAuthorization()
+        
         if GTFSStop.allObjects().count == 0 {
+            println("Stops database is empty, fillin' up now.")
             GTFSParser().populateStopDatabase()
         }
         

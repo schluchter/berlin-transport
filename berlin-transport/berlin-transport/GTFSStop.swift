@@ -22,8 +22,14 @@ class GTFSStop: RLMObject {
     dynamic var parentStation: String = ""
         
     override class func attributesForProperty(propertyName: String) -> RLMPropertyAttributes {
-        var attributes = super.attributesForProperty("name")
-        attributes |= RLMPropertyAttributes.AttributeIndexed
+        var attributes = super.attributesForProperty(propertyName)
+        if propertyName == "name" {
+            attributes |= RLMPropertyAttributes.AttributeIndexed
+        }
         return attributes
+    }
+    
+    override class func primaryKey() -> String {
+        return "id"
     }
 }

@@ -42,7 +42,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func handleBTHafasAPIClientResponse(notification: NSNotification) {
         let xml = notification.object as ONOXMLDocument
         let parser = BTConResParser(xml)
-        println(xml)
         
         let firstConnection = parser.getConnections()[0]
         let startCoords = firstConnection.start.coordinate
@@ -116,7 +115,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
     // MARK:- MKMapViewDelegate methods
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        println(__FUNCTION__)
         mapView.setCenterCoordinate(mapView.userLocation.location.coordinate, animated: true)
     }
     

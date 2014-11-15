@@ -33,7 +33,6 @@ public class BTConResParser {
             let overViewEl = element.firstChildWithTag("Overview")
             let segmentListEl = element.firstChildWithTag("ConSectionList")
             
-            println(overViewEl.firstChildWithTag("Date"))
             let connectionBaseDate = overViewEl.firstChildWithTag("Date").dateValue()
             let startDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Departure//Time"), baseDate: connectionBaseDate)
             let endDate = self.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Arrival//Time"), baseDate: connectionBaseDate)
@@ -56,7 +55,6 @@ public class BTConResParser {
     }
     
     func coordinatesForPoint(var point: ONOXMLElement) -> CLLocationCoordinate2D? {
-        println(__FUNCTION__)
         var lat: Double, long: Double
         
         func numberForAttribute(attr: String, inElement element: ONOXMLElement) -> CLLocationDegrees {
@@ -77,7 +75,6 @@ public class BTConResParser {
     }
     
     func pointFromElement(var element: ONOXMLElement) -> BTPoint? {
-        println(__FUNCTION__)
         var point: BTPoint?
         element = element.firstChildWithXPath("Station|Address|Poi|.//Station|.//Address|.//Poi")
         let displayName = element["name"] as String
@@ -115,14 +112,12 @@ public class BTConResParser {
     }
     
     func timeIntervalBetween(earlierDate: ONOXMLElement, _ laterDate: ONOXMLElement) -> NSTimeInterval {
-        println(__FUNCTION__)
         let earlierDiff = self.timeIntervalForElement(earlierDate)
         let laterDiff = self.timeIntervalForElement(laterDate)
         return abs(laterDiff - earlierDiff)
     }
     
     func timeIntervalForElement(element: ONOXMLElement) -> NSTimeInterval {
-        println(__FUNCTION__)
         let timeString = element.stringValue()
         var total = 0
         var components = timeString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: "d:"))
@@ -140,7 +135,6 @@ public class BTConResParser {
     }
     
     func serviceDescriptionFromElement(element: ONOXMLElement) -> BTServiceDescription {
-        println(__FUNCTION__)
         let terminus = element.firstChildWithXPath(".//Attribute[@type=\"DIRECTION\"]/AttributeVariant[@type=\"NORMAL\"]//Text").stringValue()
         let serviceType = element.firstChildWithXPath(".//Attribute[@type=\"CATEGORY\"]/AttributeVariant[@type=\"NORMAL\"]//Text").stringValue()
         let serviceName = element.firstChildWithXPath(".//Attribute[@type=\"NUMBER\"]/AttributeVariant[@type=\"NORMAL\"]/Text").stringValue()
@@ -154,8 +148,6 @@ public class BTConResParser {
             return .Bike
         case "FOOT":
             return .Foot
-        case "CAR":
-            return .Car
         case "TAXI":
             return .Taxi
         default:
@@ -209,7 +201,6 @@ public class BTConResParser {
     }
     
     func segmentsForJourney(el: ONOXMLElement?) -> [BTConnectionSegment]? {
-        println(__FUNCTION__)
         var segments: [BTConnectionSegment] = []
         
         if let conSectionList = el {
