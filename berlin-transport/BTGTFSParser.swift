@@ -34,7 +34,7 @@ class GTFSParser: NSObject, CHCSVParserDelegate {
                 realm.addOrUpdateObject(stop)
             }
             realm.commitWriteTransaction()
-//            println(realm.path)
+            println(realm.path)
         }
         
     }

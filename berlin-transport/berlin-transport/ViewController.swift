@@ -168,7 +168,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             case "9":
                 return kBTColorU9
             default:
-                return UIColor.blackColor()
+                return UIColor.purpleColor()
             }
         case .SBahn:
             switch service.serviceId.name {

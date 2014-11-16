@@ -1,25 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WMB-t9-1QK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Connection Search-->
+        <scene sceneID="xIB-iw-0pn">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="berlin_transport" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WMB-t9-1QK" customClass="BTConnectionSearch" customModule="berlin_transport" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="uhm-U8-5BP"/>
+                        <viewControllerLayoutGuide type="bottom" id="IhO-3U-pqX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="eb3-ax-Mj6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o5z-wi-f4o">
+                                <rect key="frame" x="78" y="86" width="506" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="WMB-t9-1QK" eventType="valueChanged" id="lL3-dn-XBN"/>
+                                    <outlet property="delegate" destination="WMB-t9-1QK" id="FJB-S1-Yhw"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Ab" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syx-5q-Ahi">
+                                <rect key="frame" x="16" y="51" width="42" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="An" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWc-O8-Y26">
+                                <rect key="frame" x="16" y="89" width="42" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6X7-Ok-GhR">
+                                <rect key="frame" x="78" y="48" width="506" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" updatesFrequently="YES" searchField="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="WMB-t9-1QK" eventType="valueChanged" id="M96-hj-3t3"/>
+                                    <outlet property="delegate" destination="WMB-t9-1QK" id="Uiy-qd-f7D"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="drM-5t-e97">
+                                <rect key="frame" x="0.0" y="136" width="600" height="464"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locSuggestion" id="FxO-gW-hvd">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FxO-gW-hvd" id="bjM-Qu-mnl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WMB-t9-1QK" id="Fee-1v-hWX"/>
+                                    <outlet property="delegate" destination="WMB-t9-1QK" id="Tsk-AH-ioo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o5z-wi-f4o" firstAttribute="trailing" secondItem="eb3-ax-Mj6" secondAttribute="trailingMargin" id="55a-0t-6Bc"/>
+                            <constraint firstItem="o5z-wi-f4o" firstAttribute="leading" secondItem="pWc-O8-Y26" secondAttribute="trailing" constant="20" id="5wA-Cz-ZAI"/>
+                            <constraint firstItem="6X7-Ok-GhR" firstAttribute="trailing" secondItem="eb3-ax-Mj6" secondAttribute="trailingMargin" id="Pmc-0M-n4d"/>
+                            <constraint firstItem="IhO-3U-pqX" firstAttribute="top" secondItem="drM-5t-e97" secondAttribute="bottom" id="Slo-sC-asO"/>
+                            <constraint firstItem="drM-5t-e97" firstAttribute="leading" secondItem="eb3-ax-Mj6" secondAttribute="leading" id="VRC-4D-4hs"/>
+                            <constraint firstItem="6X7-Ok-GhR" firstAttribute="leading" secondItem="syx-5q-Ahi" secondAttribute="trailing" constant="20" id="Z8c-7a-aM3"/>
+                            <constraint firstAttribute="trailing" secondItem="drM-5t-e97" secondAttribute="trailing" id="hA0-b1-0E0"/>
+                            <constraint firstItem="drM-5t-e97" firstAttribute="top" secondItem="o5z-wi-f4o" secondAttribute="bottom" constant="20" id="pUR-T8-v5k"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fromField" destination="6X7-Ok-GhR" id="tpI-ZC-rSP"/>
+                        <outlet property="tableView" destination="drM-5t-e97" id="cbH-wX-nIg"/>
+                        <outlet property="toField" destination="o5z-wi-f4o" id="c9d-EG-cMc"/>
+                        <outletCollection property="textfields" destination="6X7-Ok-GhR" collectionClass="NSMutableArray" id="T6d-8q-GFe"/>
+                        <outletCollection property="textfields" destination="o5z-wi-f4o" collectionClass="NSMutableArray" id="xCH-yq-MVs"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHd-a7-OBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-84" y="735"/>
         </scene>
     </scenes>
 </document>
