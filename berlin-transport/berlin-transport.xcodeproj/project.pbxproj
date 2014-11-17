@@ -42,7 +42,7 @@
 		2DFF625219DA28AA00AE5DFC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF625119DA28AA00AE5DFC /* CoreLocation.framework */; };
 		2DFF625419DA28B400AE5DFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF625319DA28B400AE5DFC /* MapKit.framework */; };
 		40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A0619C7D79A005CF010 /* AppDelegate.swift */; };
-		40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A0819C7D79A005CF010 /* ViewController.swift */; };
+		40B52A0919C7D79A005CF010 /* BTConnectionMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A0819C7D79A005CF010 /* BTConnectionMapVC.swift */; };
 		40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0A19C7D79A005CF010 /* Main.storyboard */; };
 		40B52A0E19C7D79A005CF010 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0D19C7D79A005CF010 /* Images.xcassets */; };
 		40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */; };
@@ -154,7 +154,7 @@
 		40B52A0119C7D798005CF010 /* berlin-transport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "berlin-transport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B52A0519C7D799005CF010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B52A0619C7D79A005CF010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40B52A0819C7D79A005CF010 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40B52A0819C7D79A005CF010 /* BTConnectionMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTConnectionMapVC.swift; sourceTree = "<group>"; };
 		40B52A0B19C7D79A005CF010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40B52A0D19C7D79A005CF010 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40B52A1019C7D79A005CF010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -196,6 +196,36 @@
 				2D047F891A14816E004ACEFE /* stops.txt */,
 			);
 			name = "Resource Files";
+			sourceTree = "<group>";
+		};
+		2D470D391A19CD7100AF970C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40B52A0819C7D79A005CF010 /* BTConnectionMapVC.swift */,
+				2D85501E1A181E07007D8A11 /* BTConnectionSearchVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2D470D3A1A19CE4800AF970C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2D8D0F061A0AD1E0006C4F63 /* BTConnectionPolyLine.swift */,
+				2DA4645519DC3FD900BA4C00 /* BTConnection.swift */,
+				2D222A8019E798A400B63D56 /* BTPoint.swift */,
+				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
+				2D85E6971A157665006E0456 /* GTFSStop.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2D470D3B1A19CE6F00AF970C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
+				2D36F4AA19FF243600081515 /* BTMapUtilities.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		2D4B89DA19FDF94700D5103D /* Products */ = {
@@ -272,23 +302,17 @@
 				2D047F801A148151004ACEFE /* Resource Files */,
 				2DE1736A19DB13B000A8F0F6 /* XML Files */,
 				40B52A0619C7D79A005CF010 /* AppDelegate.swift */,
-				40B52A0819C7D79A005CF010 /* ViewController.swift */,
-				2D8D0F061A0AD1E0006C4F63 /* BTConnectionPolyLine.swift */,
+				2D470D391A19CD7100AF970C /* Controllers */,
+				2D470D3A1A19CE4800AF970C /* Models */,
 				40B52A0A19C7D79A005CF010 /* Main.storyboard */,
 				40B52A0D19C7D79A005CF010 /* Images.xcassets */,
 				40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */,
 				40B52A0419C7D799005CF010 /* Supporting Files */,
 				2DA3A17E19DB0BDB008E72FB /* BTConResParser.swift */,
-				2DA4645519DC3FD900BA4C00 /* BTConnection.swift */,
-				2D222A8019E798A400B63D56 /* BTPoint.swift */,
-				2DA4645919DC4FCC00BA4C00 /* BTServiceDescription.swift */,
-				2D29D6C419DDC67800A1101D /* BTConstants.swift */,
-				2D36F4AA19FF243600081515 /* BTMapUtilities.swift */,
+				2D470D3B1A19CE6F00AF970C /* Utils */,
 				2DDD42951A05CB0700683FA4 /* BTConReqBuilder.swift */,
 				2DB9E9291A0B12C300862A1E /* BTHafasAPIClient.swift */,
 				2DB9E9281A0B112800862A1E /* Extensions */,
-				2D85E6971A157665006E0456 /* GTFSStop.swift */,
-				2D85501E1A181E07007D8A11 /* BTConnectionSearchVC.swift */,
 			);
 			path = "berlin-transport";
 			sourceTree = "<group>";
@@ -563,7 +587,7 @@
 				2D85501F1A181E07007D8A11 /* BTConnectionSearchVC.swift in Sources */,
 				2DA4645A19DC4FCC00BA4C00 /* BTServiceDescription.swift in Sources */,
 				2D9940101A17607800B4A680 /* BTGTFSParser.swift in Sources */,
-				40B52A0919C7D79A005CF010 /* ViewController.swift in Sources */,
+				40B52A0919C7D79A005CF010 /* BTConnectionMapVC.swift in Sources */,
 				2D8D0F051A0A931E006C4F63 /* UIColor+Hex.swift in Sources */,
 				40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */,
 				2D85E6981A157665006E0456 /* GTFSStop.swift in Sources */,

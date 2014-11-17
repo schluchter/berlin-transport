@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     
