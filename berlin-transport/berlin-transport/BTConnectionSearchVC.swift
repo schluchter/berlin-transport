@@ -66,6 +66,9 @@ extension BTConnectionSearch: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let stop = self.stops[UInt(indexPath.row)] as GTFSStop
+        if self.currentTextField == nil {
+            self.currentTextField = self.textfields.first!
+        }
         self.currentTextField!.text = stop.name
         switch currentTextField!.tag {
         case 1:
@@ -74,6 +77,12 @@ extension BTConnectionSearch: UITableViewDelegate {
             self.arrivalCoord = CLLocationCoordinate2D(latitude: stop.lat, longitude: stop.long)
         default:
             ()
+        }
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        for textfield in self.textfields {
+            textfield.resignFirstResponder()
         }
     }
 }

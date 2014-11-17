@@ -16,7 +16,7 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.mapView.region = self.mapView.regionThatFits(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 52.516275, longitude: 13.377704), span: MKCoordinateSpanMake(0.1, 0.1)))
         // Listen for completion notification from API client
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleBTHafasAPIClientResponse:", name: "BTHafasAPIClientDidReceiveResponse", object: nil)
         
@@ -25,7 +25,7 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
         locMgr.requestAlwaysAuthorization()
         self.mapView.delegate = self
         self.mapView.showsPointsOfInterest = false
-        self.mapView.showsUserLocation = true
+        self.mapView.showsUserLocation = false
     }
     
     func requestConnectionBetween(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D) {
@@ -76,10 +76,13 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
                 
                 let direction = MKDirections(request: dirReq)
                 direction.calculateDirectionsWithCompletionHandler() { (res: MKDirectionsResponse!, err: NSError!) -> Void in
-                    if let route = res.routes.first as? MKRoute {
-                        let line = route.polyline as BTConnectionPolyLine
-                        line.connectionData = segment
-                        self.mapView.addOverlay(line)
+                    if err == nil {
+                        if let route = res.routes.first as? MKRoute {
+                            if let line = route.polyline as? BTConnectionPolyLine {
+                                line.connectionData = segment
+                                self.mapView.addOverlay(line)
+                            }
+                        }
                     }
                 }
                 
@@ -92,8 +95,13 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
                 let direction = MKDirections(request: dirReq)
                 
                 direction.calculateDirectionsWithCompletionHandler() { (res: MKDirectionsResponse!, err: NSError!) -> Void in
-                    if let route = res.routes.first as? MKRoute {
-                        self.mapView.addOverlay(route.polyline)
+                    if res != nil {
+                        if let route = res.routes.first as? MKRoute {
+                            self.mapView.addOverlay(route.polyline)
+                        }
+                    } else {
+                        //TODO: Proper error handling
+                        println(err.userInfo?.debugDescription)
                     }
                 }
                 
