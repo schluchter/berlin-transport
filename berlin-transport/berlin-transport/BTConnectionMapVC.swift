@@ -26,17 +26,15 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         self.mapView.showsPointsOfInterest = false
         self.mapView.showsUserLocation = true
-//        let mapFrame = self.view.bounds
-//        self.mapView.frame = mapFrame
-//        self.view.addSubview(mapView)
-        
+    }
+    
+    func requestConnectionBetween(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D) {
         // Setting up the data from the server
-        let start = (CLLocationCoordinate2DMake(52.4091540,13.5344170), "Start")
-        let end = (CLLocationCoordinate2DMake(52.5522550, 13.3818370), "End")
-        let req = BTConReq(date: NSDate(), start: start, end: end)
+        let req = BTConReq(date: NSDate(), start: (departure, ""), end: (arrival, ""))
         let reqXml = BTRequestBuilder.conReq(req)
         
         BTHafasAPIClient.send(reqXml)
+
     }
     
     func handleBTHafasAPIClientResponse(notification: NSNotification) {

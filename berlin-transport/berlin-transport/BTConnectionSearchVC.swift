@@ -19,7 +19,11 @@ class BTConnectionSearch: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var textfields: [UITextField]!
     
-    var stops = GTFSStop.allObjects().sortedResultsUsingProperty("name", ascending: true)
+    var stops = GTFSStop.allObjects().sortedResultsUsingProperty("distanceFromHere", ascending: true)
+    var departureCoord: CLLocationCoordinate2D?
+    var arrivalCoord: CLLocationCoordinate2D?
+    var currentTextField: UITextField?
+    
     
     override func viewDidLoad() {
         for field in self.textfields {
@@ -50,12 +54,28 @@ class BTConnectionSearch: UIViewController {
         self.stops = GTFSStop.objectsWithPredicate(pred!).sortedResultsUsingProperty("distanceFromHere", ascending: true)
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "searchConnection" {
+            (segue.destinationViewController as BTConnectionMapVC).requestConnectionBetween(self.departureCoord!, arrival: self.arrivalCoord!)
+
+        }
+    }
 }
 
 extension BTConnectionSearch: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        ()
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let stop = self.stops[UInt(indexPath.row)] as GTFSStop
+        self.currentTextField!.text = stop.name
+        switch currentTextField!.tag {
+        case 1:
+            self.departureCoord = CLLocationCoordinate2D(latitude: stop.lat, longitude: stop.long)
+        case 2:
+            self.arrivalCoord = CLLocationCoordinate2D(latitude: stop.lat, longitude: stop.long)
+        default:
+            ()
+        }
     }
 }
 
@@ -65,6 +85,7 @@ extension BTConnectionSearch: UITableViewDataSource {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("locSuggestion", forIndexPath: indexPath) as UITableViewCell
         let stop = self.stops.objectAtIndex(UInt(indexPath.row)) as GTFSStop
         cell.textLabel.text = stop.name
+        cell.detailTextLabel!.text = "\(stop.distanceFromHere)m"
         
         return cell
     }
@@ -78,6 +99,7 @@ extension BTConnectionSearch: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.placeholder = "Schreib ma wat, Keule"
         textField.becomeFirstResponder()
+        self.currentTextField = textField
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
