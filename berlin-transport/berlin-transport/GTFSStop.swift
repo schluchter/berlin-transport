@@ -36,7 +36,8 @@ class GTFSStop: RLMObject {
     }
     
     class func updateWithDistanceFromLocation(location: CLLocationCoordinate2D) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        let queue = dispatch_queue_create("Update queue", nil)
+        dispatch_async(queue, { () -> Void in
             RLMRealm.defaultRealm().beginWriteTransaction()
             
             for stop in self.allObjects() {

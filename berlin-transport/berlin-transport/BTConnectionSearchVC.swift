@@ -58,7 +58,6 @@ class BTConnectionSearch: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "searchConnection" {
             (segue.destinationViewController as BTConnectionMapVC).requestConnectionBetween(self.departureCoord!, arrival: self.arrivalCoord!)
-
         }
     }
 }

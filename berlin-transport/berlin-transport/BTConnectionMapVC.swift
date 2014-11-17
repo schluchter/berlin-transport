@@ -34,11 +34,13 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
         let reqXml = BTRequestBuilder.conReq(req)
         
         BTHafasAPIClient.send(reqXml)
-
+        
     }
     
     func handleBTHafasAPIClientResponse(notification: NSNotification) {
         let xml = notification.object as ONOXMLDocument
+        println("########## Response from \(__FUNCTION__)")
+        println(xml)
         let parser = BTConResParser(xml)
         
         let firstConnection = parser.getConnections()[0]
@@ -55,17 +57,15 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
             
             switch segment {
             case let journey as BTJourney:
-
+                
                 for station in journey.passList! {
                     let passMark = MKPlacemark(coordinate: station.coordinate, addressDictionary: nil)
                     points.append(passMark.coordinate)
-                    self.mapView.addAnnotation(passMark)
-                
                 }
+                
                 let line = BTConnectionPolyLine(coordinates: &points, count: points.count)
                 line.connectionData = segment
                 
-                points.append(journey.end.coordinate)
                 self.mapView.addOverlay(line)
                 
             case let walk as BTWalk:
@@ -147,26 +147,26 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
             return kBTColorIconMetro
         case .UBahn:
             switch service.serviceId.name {
-            case "1", "15":
+            case "1", "15", "U1", "U15":
                 return kbTColorU1_15
-            case "2":
+            case "2", "U2":
                 return kBTColorU2
-            case "3":
+            case "3", "U3":
                 return kBTColorU3
-            case "4":
+            case "4", "U4":
                 return kBTColorU4
-            case "5", "55":
+            case "5", "55", "U5", "U55":
                 return kBTColorU5_55
-            case "6":
+            case "6", "U6":
                 return kBTColorU6
-            case "7":
+            case "7", "U7":
                 return kBTColorU7
-            case "8":
+            case "8", "U8":
                 return kBTColorU8
-            case "9":
+            case "9", "U9":
                 return kBTColorU9
             default:
-                return UIColor.purpleColor()
+                return UIColor.whiteColor()
             }
         case .SBahn:
             switch service.serviceId.name {
