@@ -12,7 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate {
     
-    private let mapView = MKMapView()
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         self.mapView.showsPointsOfInterest = false
         self.mapView.showsUserLocation = true
-        let mapFrame = self.view.bounds
-        self.mapView.frame = mapFrame
-        self.view.addSubview(mapView)
+//        let mapFrame = self.view.bounds
+//        self.mapView.frame = mapFrame
+//        self.view.addSubview(mapView)
         
         // Setting up the data from the server
         let start = (CLLocationCoordinate2DMake(52.4091540,13.5344170), "Start")

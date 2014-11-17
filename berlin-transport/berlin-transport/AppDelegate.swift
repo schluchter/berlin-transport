@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             println("Stops database is empty, fillin' up now.")
             GTFSParser().populateStopDatabase()
         }
-        
+       
+//       GTFSStop.updateWithDistanceFromLocation(CLLocationCoordinate2D(latitude: 52.521918, longitude: 13.413215))
+        println("App delegate reports: \(RLMRealm.defaultRealm().path)")
         return true
     }
     

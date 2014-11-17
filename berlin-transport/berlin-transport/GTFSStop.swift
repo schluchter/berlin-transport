@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import Realm
 
 class GTFSStop: RLMObject {
@@ -20,7 +21,8 @@ class GTFSStop: RLMObject {
     dynamic var stopUrl: String = ""
     dynamic var locationType: String = ""
     dynamic var parentStation: String = ""
-        
+    dynamic var distanceFromHere: Int = 0
+    
     override class func attributesForProperty(propertyName: String) -> RLMPropertyAttributes {
         var attributes = super.attributesForProperty(propertyName)
         if propertyName == "name" {
@@ -31,5 +33,22 @@ class GTFSStop: RLMObject {
     
     override class func primaryKey() -> String {
         return "id"
+    }
+    
+    class func updateWithDistanceFromLocation(location: CLLocationCoordinate2D) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            RLMRealm.defaultRealm().beginWriteTransaction()
+            
+            for stop in self.allObjects() {
+                let theStop = stop as GTFSStop
+                let hereLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+                let stopLocation = CLLocation(latitude: theStop.lat, longitude: theStop.long)
+                let distance = stopLocation.distanceFromLocation(hereLocation)
+                theStop.distanceFromHere = Int(distance)
+                GTFSStop.createOrUpdateInDefaultRealmWithObject(theStop)
+            }
+            
+            RLMRealm.defaultRealm().commitWriteTransaction()
+        })
     }
 }

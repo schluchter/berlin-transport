@@ -14,12 +14,6 @@ import MapKit
 
 class BTConnectionSearch: UIViewController {
     
-    func updateTextField(textField: UITextField) {
-        let pred = NSPredicate(format: "name CONTAINS[c] %@", textField.text)
-        self.stops = GTFSStop.objectsWithPredicate(pred!).sortedResultsUsingProperty("name", ascending: true)
-        tableView.reloadData()
-    }
-    
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -53,8 +47,8 @@ class BTConnectionSearch: UIViewController {
     
     func updateTextField(field: UITextField!) {
         let pred = NSPredicate(format: "name CONTAINS[c] %@", field.text)
-        self.stops = GTFSStop.objectsWithPredicate(pred!).sortedResultsUsingProperty("name", ascending: true)
-        tableView.reloadData()
+        self.stops = GTFSStop.objectsWithPredicate(pred!).sortedResultsUsingProperty("distanceFromHere", ascending: true)
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
     }
 }
 

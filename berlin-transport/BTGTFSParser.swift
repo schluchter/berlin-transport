@@ -15,6 +15,14 @@ class GTFSParser: NSObject, CHCSVParserDelegate {
     func populateStopDatabase() {
         formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         
+        RLMRealm.setSchemaVersion(1, withMigrationBlock: { (migration: RLMMigration!, oldSchemaVersion: UInt) -> Void in
+            if oldSchemaVersion > 1 {
+                migration.enumerateObjects(GTFSStop.className(), block: { (oldObject: RLMObject!, newObject: RLMObject!) -> Void in
+                    newObject["distanceFromHere"] = (newObject["name"] as String).lengthOfBytesUsingEncoding(NSISOLatin1StringEncoding)
+                })
+            }
+        })
+        
         // Create and configure CHCSVParser
         let path = NSBundle.mainBundle().pathForResource("stops", ofType: "txt")!
         let url = NSURL.fileURLWithPath(path)!
