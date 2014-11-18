@@ -19,22 +19,28 @@ class BTConnectionSearch: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var textfields: [UITextField]!
     
+    @IBAction func requestConnections(sender: UIBarButtonItem) {
+        self.requestConnectionBetween(self.departureCoord!, arrival: self.arrivalCoord!)
+    }
     var stops = GTFSStop.allObjects().sortedResultsUsingProperty("distanceFromHere", ascending: true)
     var departureCoord: CLLocationCoordinate2D?
     var arrivalCoord: CLLocationCoordinate2D?
     var currentTextField: UITextField?
-    
+    var connectionResults: [BTConnection]?
     
     override func viewDidLoad() {
         for field in self.textfields {
             field.clearsOnBeginEditing = true
             field.clearButtonMode = UITextFieldViewMode.Always
             field.addTarget(self, action: "updateTextField:", forControlEvents: UIControlEvents.EditingChanged)
+            
+            self.view.backgroundColor = kBTColorPrimaryBg
         }
     }
     
     override func viewWillAppear(animated: Bool) {
-        ()
+        // Listen for completion notification from API client
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleBTHafasAPIClientResponse:", name: "BTHafasAPIClientDidReceiveResponse", object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -49,6 +55,23 @@ class BTConnectionSearch: UIViewController {
         ()
     }
     
+    func requestConnectionBetween(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D) {
+        // Setting up the data from the server
+        let req = BTConReq(date: NSDate(), start: (departure, ""), end: (arrival, ""))
+        let reqXml = BTRequestBuilder.conReq(req)
+        BTHafasAPIClient.send(reqXml)
+    }
+    
+    func handleBTHafasAPIClientResponse(notification: NSNotification) {
+        let xml = notification.object as ONOXMLDocument
+        println("########## Response from \(__FUNCTION__)")
+        println(xml)
+        let parser = BTConResParser(xml)
+        self.connectionResults = parser.getConnections()
+        
+        self.performSegueWithIdentifier("displayConnections", sender: self)
+    }
+    
     func updateTextField(field: UITextField!) {
         let pred = NSPredicate(format: "name CONTAINS[c] %@", field.text)
         self.stops = GTFSStop.objectsWithPredicate(pred!).sortedResultsUsingProperty("distanceFromHere", ascending: true)
@@ -56,8 +79,9 @@ class BTConnectionSearch: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "searchConnection" {
-            (segue.destinationViewController as BTConnectionMapVC).requestConnectionBetween(self.departureCoord!, arrival: self.arrivalCoord!)
+        if segue.identifier == "displayConnections" {
+            let connectionListVC = segue.destinationViewController as BTConnectionResultListViewController
+            connectionListVC.connections = self.connectionResults
         }
     }
 }

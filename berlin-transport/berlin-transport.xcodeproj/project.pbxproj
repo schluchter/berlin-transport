@@ -17,6 +17,7 @@
 		2D36F4AB19FF243600081515 /* BTMapUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36F4AA19FF243600081515 /* BTMapUtilities.swift */; };
 		2D3B18B819E4AF9000491423 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3B18B719E4AF9000491423 /* libPods.a */; };
 		2D51074A19DEE9F8002AA6FC /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */; };
+		2D6156CD1A1AB99F007212A5 /* BTConnectionResultListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156CC1A1AB99F007212A5 /* BTConnectionResultListVC.swift */; };
 		2D85501F1A181E07007D8A11 /* BTConnectionSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85501E1A181E07007D8A11 /* BTConnectionSearchVC.swift */; };
 		2D85E6981A157665006E0456 /* GTFSStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D85E6971A157665006E0456 /* GTFSStop.swift */; };
 		2D85E6991A1591EE006E0456 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D07DA111A148B8D00823F66 /* libc++.dylib */; };
@@ -130,6 +131,7 @@
 		2D4B89E919FDF99E00D5103D /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = "../../../../../Downloads/Nimble-master/Nimble.xcodeproj"; sourceTree = "<group>"; };
 		2D51072319DE061D002AA6FC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		2D51074919DEE9F8002AA6FC /* BTConResParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParserTests.swift; sourceTree = "<group>"; };
+		2D6156CC1A1AB99F007212A5 /* BTConnectionResultListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BTConnectionResultListVC.swift; path = ../BTConnectionResultListVC.swift; sourceTree = "<group>"; };
 		2D85501E1A181E07007D8A11 /* BTConnectionSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionSearchVC.swift; sourceTree = "<group>"; };
 		2D85E6971A157665006E0456 /* GTFSStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTFSStop.swift; sourceTree = "<group>"; };
 		2D85E69A1A15923A006E0456 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../../Downloads/realm-cocoa-0.87.4/ios/Realm.framework"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		2D470D391A19CD7100AF970C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D6156CC1A1AB99F007212A5 /* BTConnectionResultListVC.swift */,
 				40B52A0819C7D79A005CF010 /* BTConnectionMapVC.swift */,
 				2D85501E1A181E07007D8A11 /* BTConnectionSearchVC.swift */,
 			);
@@ -594,6 +597,7 @@
 				2DB9E92A1A0B12C300862A1E /* BTHafasAPIClient.swift in Sources */,
 				2D8D0F071A0AD1E0006C4F63 /* BTConnectionPolyLine.swift in Sources */,
 				2D07DA141A148BBE00823F66 /* RLMSupport.swift in Sources */,
+				2D6156CD1A1AB99F007212A5 /* BTConnectionResultListVC.swift in Sources */,
 				2DA3A17F19DB0BDB008E72FB /* BTConResParser.swift in Sources */,
 				2DDD42961A05CB0700683FA4 /* BTConReqBuilder.swift in Sources */,
 				2D29D6C519DDC67800A1101D /* BTConstants.swift in Sources */,

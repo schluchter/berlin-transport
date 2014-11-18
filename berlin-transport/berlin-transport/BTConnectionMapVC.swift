@@ -13,12 +13,12 @@ import CoreLocation
 class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
+    var connection: BTConnection!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mapView.region = self.mapView.regionThatFits(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 52.516275, longitude: 13.377704), span: MKCoordinateSpanMake(0.1, 0.1)))
-        // Listen for completion notification from API client
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleBTHafasAPIClientResponse:", name: "BTHafasAPIClientDidReceiveResponse", object: nil)
+        
+        self.mapView.regionThatFits(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 52.516275, longitude: 13.377704), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
         
         // Setting up the map
         let locMgr = CLLocationManager()
@@ -26,28 +26,21 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         self.mapView.showsPointsOfInterest = false
         self.mapView.showsUserLocation = false
+        
+        if self.connection != nil {
+            self.displayConnection(self.connection)
+        } else {
+            let exception = NSException(name: "No connection to display", reason: nil, userInfo: nil)
+            exception.raise()
+        }
     }
     
-    func requestConnectionBetween(departure: CLLocationCoordinate2D, arrival: CLLocationCoordinate2D) {
-        // Setting up the data from the server
-        let req = BTConReq(date: NSDate(), start: (departure, ""), end: (arrival, ""))
-        let reqXml = BTRequestBuilder.conReq(req)
+    func displayConnection(connection: BTConnection!) {
         
-        BTHafasAPIClient.send(reqXml)
+        let startCoords = connection.start.coordinate
+        let endCoords = connection.end.coordinate
         
-    }
-    
-    func handleBTHafasAPIClientResponse(notification: NSNotification) {
-        let xml = notification.object as ONOXMLDocument
-        println("########## Response from \(__FUNCTION__)")
-        println(xml)
-        let parser = BTConResParser(xml)
-        
-        let firstConnection = parser.getConnections()[0]
-        let startCoords = firstConnection.start.coordinate
-        let endCoords = firstConnection.end.coordinate
-        
-        for segment in firstConnection.segments! {
+        for segment in connection.segments! {
             let startMark = MKPlacemark(coordinate: segment.start.coordinate, addressDictionary: nil)
             let endMark = MKPlacemark(coordinate: segment.end.coordinate, addressDictionary: nil)
             var points: [CLLocationCoordinate2D] = []
@@ -110,7 +103,7 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
             }
         }
         
-        self.mapView.showAnnotations(mapView.annotations, animated: true)
+        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
