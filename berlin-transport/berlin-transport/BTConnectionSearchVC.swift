@@ -12,16 +12,17 @@ import Realm
 import CoreLocation
 import MapKit
 
-class BTConnectionSearch: UIViewController {
+class BTConnectionSearch: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var textfields: [UITextField]!
-    
+
     @IBAction func requestConnections(sender: UIBarButtonItem) {
         self.requestConnectionBetween(self.departureCoord!, arrival: self.arrivalCoord!)
     }
+    
     var stops = GTFSStop.allObjects().sortedResultsUsingProperty("distanceFromHere", ascending: true)
     var departureCoord: CLLocationCoordinate2D?
     var arrivalCoord: CLLocationCoordinate2D?
@@ -29,6 +30,13 @@ class BTConnectionSearch: UIViewController {
     var connectionResults: [BTConnection]?
     
     override func viewDidLoad() {
+        let locMgr = CLLocationManager()
+        locMgr.delegate = self
+        println(CLLocationManager.authorizationStatus().rawValue)
+        locMgr.requestAlwaysAuthorization()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleBTHafasAPIClientResponse:", name: "BTHafasAPIClientDidReceiveResponse", object: nil)
+        
         for field in self.textfields {
             field.clearsOnBeginEditing = true
             field.clearButtonMode = UITextFieldViewMode.Always
@@ -39,8 +47,6 @@ class BTConnectionSearch: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        // Listen for completion notification from API client
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleBTHafasAPIClientResponse:", name: "BTHafasAPIClientDidReceiveResponse", object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,12 +69,12 @@ class BTConnectionSearch: UIViewController {
     }
     
     func handleBTHafasAPIClientResponse(notification: NSNotification) {
+        println(__FUNCTION__)
+        print(NSDate())
         let xml = notification.object as ONOXMLDocument
-        println("########## Response from \(__FUNCTION__)")
         println(xml)
         let parser = BTConResParser(xml)
         self.connectionResults = parser.getConnections()
-        
         self.performSegueWithIdentifier("displayConnections", sender: self)
     }
     
@@ -112,7 +118,6 @@ extension BTConnectionSearch: UITableViewDelegate {
 }
 
 extension BTConnectionSearch: UITableViewDataSource {
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("locSuggestion", forIndexPath: indexPath) as UITableViewCell
         let stop = self.stops.objectAtIndex(UInt(indexPath.row)) as GTFSStop
@@ -129,7 +134,6 @@ extension BTConnectionSearch: UITableViewDataSource {
 
 extension BTConnectionSearch: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.placeholder = "Schreib ma wat, Keule"
         textField.becomeFirstResponder()
         self.currentTextField = textField
     }

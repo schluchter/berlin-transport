@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         AFNetworkActivityLogger.sharedLogger().level = .AFLoggerLevelDebug
         AFNetworkActivityLogger.sharedLogger().startLogging()
         
-        CLLocationManager().requestAlwaysAuthorization()
-        
         if GTFSStop.allObjects().count == 0 {
             println("Stops database is empty, fillin' up now.")
             GTFSParser().populateStopDatabase()

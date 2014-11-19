@@ -10,23 +10,19 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
+class BTConnectionMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
     var connection: BTConnection!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.mapView.regionThatFits(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 52.516275, longitude: 13.377704), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
-        
-        // Setting up the map
-        let locMgr = CLLocationManager()
-        locMgr.requestAlwaysAuthorization()
+        // Setting up the map        
         self.mapView.delegate = self
         self.mapView.showsPointsOfInterest = false
-        self.mapView.showsUserLocation = false
-        
+        self.mapView.showsUserLocation = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         if self.connection != nil {
             self.displayConnection(self.connection)
         } else {
@@ -103,7 +99,9 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
             }
         }
         
-        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+        self.mapView.showAnnotations(mapView.annotations, animated: true)
+        self.mapView.camera.altitude *= 1.5;
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -208,6 +206,11 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate {
         view.layer.shadowOpacity = 0.08
         
         return view
+    }
+    
+    func mapView(mapView: MKMapView!, regionWillChangeAnimated animated: Bool) {
+        println("\(__FUNCTION__) is totally happening!")
+        println(mapView.frame)
     }
     
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
