@@ -43,7 +43,7 @@ extension BTConnectionResultListViewController: UITableViewDataSource {
         var cell = tableView.dequeueReusableCellWithIdentifier("IndividualConnection", forIndexPath: indexPath) as UITableViewCell
         let connection = connections![indexPath.row]
         
-        cell.textLabel.text = "\(connection.startDate)"
+        cell.textLabel?.text = "\(connection.startDate)"
         cell.detailTextLabel?.text = "\(connection.travelTime)s"
         return cell
     }
