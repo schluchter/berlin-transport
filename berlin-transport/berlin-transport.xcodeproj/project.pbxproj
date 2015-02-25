@@ -39,11 +39,13 @@
 		2DED15B819E3480700A6F193 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DED15B719E3480700A6F193 /* Keys.plist */; };
 		2DFF625219DA28AA00AE5DFC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF625119DA28AA00AE5DFC /* CoreLocation.framework */; };
 		2DFF625419DA28B400AE5DFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFF625319DA28B400AE5DFC /* MapKit.framework */; };
+		2E4A2912CC0794796BB374FF /* Pods_berlin_transportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45AA8D661C9F1B0D1F209B8 /* Pods_berlin_transportTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		40B52A0719C7D79A005CF010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A0619C7D79A005CF010 /* AppDelegate.swift */; };
 		40B52A0919C7D79A005CF010 /* BTConnectionMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B52A0819C7D79A005CF010 /* BTConnectionMapVC.swift */; };
 		40B52A0C19C7D79A005CF010 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0A19C7D79A005CF010 /* Main.storyboard */; };
 		40B52A0E19C7D79A005CF010 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0D19C7D79A005CF010 /* Images.xcassets */; };
 		40B52A1119C7D79A005CF010 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B52A0F19C7D79A005CF010 /* LaunchScreen.xib */; };
+		4B80421E807A249E59EC41EC /* Pods_berlin_transport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA4DD66A1A2BA84BD4EB626 /* Pods_berlin_transport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AC76CF08FA137D2B66EF0A8 /* Pods-berlin-transport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-transport.release.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-transport/Pods-berlin-transport.release.xcconfig"; sourceTree = "<group>"; };
+		2BA4DD66A1A2BA84BD4EB626 /* Pods_berlin_transport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berlin_transport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D047F891A14816E004ACEFE /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
 		2D07DA111A148B8D00823F66 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		2D07DA131A148BBE00823F66 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
@@ -154,6 +158,10 @@
 		40B52A1019C7D79A005CF010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		40B52A1619C7D79A005CF010 /* berlin-transportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "berlin-transportTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B52A1B19C7D79A005CF010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		570C14A46050F0CB3425492E /* Pods-berlin-transport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-transport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-transport/Pods-berlin-transport.debug.xcconfig"; sourceTree = "<group>"; };
+		A45AA8D661C9F1B0D1F209B8 /* Pods_berlin_transportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berlin_transportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C730D16C5AAF394A098D6C6A /* Pods-berlin-transportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-transportTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-transportTests/Pods-berlin-transportTests.release.xcconfig"; sourceTree = "<group>"; };
+		F61D4530DDFAF521A940A076 /* Pods-berlin-transportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-transportTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-transportTests/Pods-berlin-transportTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +172,7 @@
 				2D07DA121A148B8D00823F66 /* libc++.dylib in Frameworks */,
 				2DFF625419DA28B400AE5DFC /* MapKit.framework in Frameworks */,
 				2DFF625219DA28AA00AE5DFC /* CoreLocation.framework in Frameworks */,
+				4B80421E807A249E59EC41EC /* Pods_berlin_transport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +183,7 @@
 				2D85E6991A1591EE006E0456 /* libc++.dylib in Frameworks */,
 				2DD79B1919FDFA8B00A2B247 /* Nimble.framework in Frameworks */,
 				2DD79B1419FDFA8100A2B247 /* Quick.framework in Frameworks */,
+				2E4A2912CC0794796BB374FF /* Pods_berlin_transportTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +284,7 @@
 				40B52A1919C7D79A005CF010 /* berlin-transportTests */,
 				40B52A0219C7D798005CF010 /* Products */,
 				95A1747C400F4FC4A0815B16 /* Frameworks */,
+				4821F2B0D852DFD4EF2E02E0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,12 +346,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4821F2B0D852DFD4EF2E02E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				570C14A46050F0CB3425492E /* Pods-berlin-transport.debug.xcconfig */,
+				2AC76CF08FA137D2B66EF0A8 /* Pods-berlin-transport.release.xcconfig */,
+				F61D4530DDFAF521A940A076 /* Pods-berlin-transportTests.debug.xcconfig */,
+				C730D16C5AAF394A098D6C6A /* Pods-berlin-transportTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		95A1747C400F4FC4A0815B16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				2D07DA111A148B8D00823F66 /* libc++.dylib */,
 				2DFF625319DA28B400AE5DFC /* MapKit.framework */,
 				2DFF625119DA28AA00AE5DFC /* CoreLocation.framework */,
+				2BA4DD66A1A2BA84BD4EB626 /* Pods_berlin_transport.framework */,
+				A45AA8D661C9F1B0D1F209B8 /* Pods_berlin_transportTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -357,6 +381,7 @@
 				40B529FE19C7D798005CF010 /* Frameworks */,
 				40B529FF19C7D798005CF010 /* Resources */,
 				09F1A8065FF14FB798DBF2C2 /* Copy Pods Resources */,
+				57297D1F5BEDC6D95F957C11 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -376,6 +401,7 @@
 				40B52A1319C7D79A005CF010 /* Frameworks */,
 				40B52A1419C7D79A005CF010 /* Resources */,
 				D17E88022D0DBEA91B08A131 /* Copy Pods Resources */,
+				13297BC6365E3C0CC8A27146 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -535,7 +561,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-transport/Pods-berlin-transport-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		13297BC6365E3C0CC8A27146 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-transportTests/Pods-berlin-transportTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57297D1F5BEDC6D95F957C11 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-transport/Pods-berlin-transport-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B7B3B77118A367F6F3C44FD /* Check Pods Manifest.lock */ = {
@@ -580,7 +636,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-transportTests/Pods-berlin-transportTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -731,10 +787,12 @@
 		};
 		40B52A2119C7D79A005CF010 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 570C14A46050F0CB3425492E /* Pods-berlin-transport.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/System/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/PrivateFrameworks",
@@ -754,10 +812,12 @@
 		};
 		40B52A2219C7D79A005CF010 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AC76CF08FA137D2B66EF0A8 /* Pods-berlin-transport.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/System/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/PrivateFrameworks",
@@ -777,6 +837,7 @@
 		};
 		40B52A2419C7D79A005CF010 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61D4530DDFAF521A940A076 /* Pods-berlin-transportTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -803,6 +864,7 @@
 		};
 		40B52A2519C7D79A005CF010 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C730D16C5AAF394A098D6C6A /* Pods-berlin-transportTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";

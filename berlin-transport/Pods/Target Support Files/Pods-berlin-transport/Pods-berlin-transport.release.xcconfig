@@ -1,0 +1,8 @@
+FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFNetworkActivityLogger.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFNetworking.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFOnoResponseSerializer.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/CHCSVParser.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/Ono.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "AFNetworkActivityLogger" -framework "AFNetworking" -framework "AFOnoResponseSerializer" -framework "CHCSVParser" -framework "Ono"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-berlin-transport
+PODS_ROOT = ${SRCROOT}/Pods

@@ -1,0 +1,52 @@
+PODS:
+  - AFNetworkActivityLogger (2.0.4):
+    - AFNetworking/NSURLConnection (~> 2.0)
+    - AFNetworking/NSURLSession (~> 2.0)
+  - AFNetworking (2.5.1):
+    - AFNetworking/NSURLConnection (= 2.5.1)
+    - AFNetworking/NSURLSession (= 2.5.1)
+    - AFNetworking/Reachability (= 2.5.1)
+    - AFNetworking/Security (= 2.5.1)
+    - AFNetworking/Serialization (= 2.5.1)
+    - AFNetworking/UIKit (= 2.5.1)
+  - AFNetworking/NSURLConnection (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.1)
+  - AFNetworking/Security (2.5.1)
+  - AFNetworking/Serialization (2.5.1)
+  - AFNetworking/UIKit (2.5.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AFOnoResponseSerializer (1.0.0):
+    - AFNetworking (~> 2.2)
+    - Ono (~> 1.0)
+  - CHCSVParser (2.1.0)
+  - Nimble (0.4.0)
+  - Ono (1.2.0)
+  - Quick (0.2.2)
+
+DEPENDENCIES:
+  - AFNetworkActivityLogger
+  - AFNetworking
+  - AFOnoResponseSerializer
+  - CHCSVParser (~> 2.1)
+  - Nimble
+  - Ono
+  - Quick
+
+SPEC CHECKSUMS:
+  AFNetworkActivityLogger: cdaa92ea0d544835babe0ba097e7806182d8f837
+  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  AFOnoResponseSerializer: 7da7ac6a1cff0eb46894602ca884e903f95087d8
+  CHCSVParser: 1ebc9783114707e2b6f83b20fe0f246eb2fabae0
+  Nimble: 9c3e917791790aa54ca6bebcc022a282d3d5eb39
+  Ono: 2c9f6c8c50af1b40e988ff85a3f200574ee445cd
+  Quick: 7b89ff625e72ef931c2a9ef2f25ac3a9d2457763
+
+COCOAPODS: 0.36.0.rc.1
