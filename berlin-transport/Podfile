@@ -1,11 +1,17 @@
+
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "8.1"
 
-platform :ios, "8.0"
+target 'berlin-transport' do
+	pod 'AFNetworking'
+	pod 'AFNetworkActivityLogger'
+	pod 'AFOnoResponseSerializer'
+	pod 'Ono'
+	pod 'CHCSVParser', '~> 2.1'
+end
 
-link_with 'berlin-transport', 'berlin-transportTests'
+target 'berlin-transportTests' do
+	pod 'Quick'
+	pod 'Nimble'
+end
 
-pod 'AFNetworking'
-pod 'AFNetworkActivityLogger'
-pod 'AFOnoResponseSerializer'
-pod 'Ono'
-pod 'CHCSVParser', '~> 2.1'
