@@ -1,0 +1,6 @@
+framework module Pods_berlin_trnsprt {
+  umbrella header "Pods-berlin-trnsprt-umbrella.h"
+
+  export *
+  module * { export * }
+}

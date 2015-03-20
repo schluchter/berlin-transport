@@ -9,9 +9,11 @@
 #ifndef berlin_transport_BerlinTransportBridgingHeader_h
 #define berlin_transport_BerlinTransportBridgingHeader_h
 
+#import <Foundation/Foundation.h>
 #import <Ono/Ono.h>
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworkActivityLogger/AFNetworkActivityLogger.h>
+#import <AFOnoResponseSerializer/AFOnoResponseSerializer.h>
 #import <CHCSVParser/CHCSVParser.h>
 
 #endif

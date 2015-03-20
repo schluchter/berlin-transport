@@ -2,16 +2,23 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, "8.1"
 use_frameworks!
 
-target 'berlin-transport' do
+target 'berlin-trnsprt' do
 	pod 'AFNetworking'
 	pod 'AFNetworkActivityLogger'
 	pod 'AFOnoResponseSerializer'
+	pod 'CHCSVParser'
 	pod 'Ono'
-	pod 'CHCSVParser', '~> 2.1'
+	pod 'Realm'
 end
 
-target 'berlin-transportTests' do
+target 'berlin-trnsprtTests', :exclusive => true do
 	pod 'Quick'
 	pod 'Nimble'
+    pod 'AFNetworking'
+    pod 'AFNetworkActivityLogger'
+    pod 'AFOnoResponseSerializer'
+    pod 'CHCSVParser'
+    pod 'Ono'
+    pod 'Realm/Headers'
 end
 

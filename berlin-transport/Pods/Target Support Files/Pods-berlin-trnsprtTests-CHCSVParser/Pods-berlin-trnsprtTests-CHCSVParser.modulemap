@@ -1,0 +1,6 @@
+framework module CHCSVParser {
+  umbrella header "Pods-berlin-trnsprtTests-CHCSVParser-umbrella.h"
+
+  export *
+  module * { export * }
+}

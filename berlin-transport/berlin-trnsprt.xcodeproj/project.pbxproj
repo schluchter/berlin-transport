@@ -1,0 +1,691 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4076495B1A9E7A8A0019D424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076495A1A9E7A8A0019D424 /* AppDelegate.swift */; };
+		40AE399D1ABB5A6600F2832F /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE399C1ABB5A6600F2832F /* RLMSupport.swift */; };
+		40AE399F1ABBF4F100F2832F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40AE399E1ABBF4F100F2832F /* Keys.plist */; };
+		40BB5DBA1ABB50F4005D398A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BB5DB91ABB50F4005D398A /* MapKit.framework */; };
+		40C7E41E1A9E7412004401E4 /* Antwort_ID_ASCI.xml in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E4091A9E7412004401E4 /* Antwort_ID_ASCI.xml */; };
+		40C7E41F1A9E7412004401E4 /* apertomove-CONCoordReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E40A1A9E7412004401E4 /* apertomove-CONCoordReq.xml */; };
+		40C7E4201A9E7412004401E4 /* apertomove-CONCoordRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E40B1A9E7412004401E4 /* apertomove-CONCoordRes.xml */; };
+		40C7E4211A9E7412004401E4 /* BTConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E40D1A9E7412004401E4 /* BTConnection.swift */; };
+		40C7E4221A9E7412004401E4 /* BTConnectionMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E40E1A9E7412004401E4 /* BTConnectionMapVC.swift */; };
+		40C7E4231A9E7412004401E4 /* BTConnectionPolyLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E40F1A9E7412004401E4 /* BTConnectionPolyLine.swift */; };
+		40C7E4241A9E7412004401E4 /* BTConnectionSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4101A9E7412004401E4 /* BTConnectionSearchVC.swift */; };
+		40C7E4251A9E7412004401E4 /* BTConReqBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4111A9E7412004401E4 /* BTConReqBuilder.swift */; };
+		40C7E4261A9E7412004401E4 /* BTConResParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4121A9E7412004401E4 /* BTConResParser.swift */; };
+		40C7E4271A9E7412004401E4 /* BTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4131A9E7412004401E4 /* BTConstants.swift */; };
+		40C7E4281A9E7412004401E4 /* BTHafasAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4141A9E7412004401E4 /* BTHafasAPIClient.swift */; };
+		40C7E4291A9E7412004401E4 /* BTMapUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4151A9E7412004401E4 /* BTMapUtilities.swift */; };
+		40C7E42A1A9E7412004401E4 /* BTPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4161A9E7412004401E4 /* BTPoint.swift */; };
+		40C7E42B1A9E7412004401E4 /* BTServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4171A9E7412004401E4 /* BTServiceDescription.swift */; };
+		40C7E42C1A9E7412004401E4 /* GTFSStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4181A9E7412004401E4 /* GTFSStop.swift */; };
+		40C7E42D1A9E7412004401E4 /* SampleResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E4191A9E7412004401E4 /* SampleResponse.xml */; };
+		40C7E42E1A9E7412004401E4 /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E41A1A9E7412004401E4 /* stops.txt */; };
+		40C7E42F1A9E7412004401E4 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E41B1A9E7412004401E4 /* UIColor+Hex.swift */; };
+		40C7E4301A9E7412004401E4 /* VBB-STD-LUAX-CONReq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E41C1A9E7412004401E4 /* VBB-STD-LUAX-CONReq.xml */; };
+		40C7E4311A9E7412004401E4 /* VBB-STD-LUAX-CONRes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E41D1A9E7412004401E4 /* VBB-STD-LUAX-CONRes.xml */; };
+		40C7E4371A9E74D1004401E4 /* BTConResParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4351A9E74D1004401E4 /* BTConResParserTests.swift */; };
+		40C7E43B1A9E7536004401E4 /* BTGTFSParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4391A9E7536004401E4 /* BTGTFSParser.swift */; };
+		40C7E43C1A9E7536004401E4 /* CLLocationDegrees+WGS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E43A1A9E7536004401E4 /* CLLocationDegrees+WGS.swift */; };
+		40C7E43E1A9E7570004401E4 /* BTConnectionResultListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E43D1A9E7570004401E4 /* BTConnectionResultListVC.swift */; };
+		40C7E4401A9E7596004401E4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C7E43F1A9E7596004401E4 /* Default-568h@2x.png */; };
+		40C7E4441A9E773D004401E4 /* BTConReqBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7E4431A9E773D004401E4 /* BTConReqBuilderTests.swift */; };
+		40E941921A9E846C00376463 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40E9418E1A9E846C00376463 /* LaunchScreen.xib */; };
+		40E941931A9E846C00376463 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40E941901A9E846C00376463 /* Main.storyboard */; };
+		7DEA7A3BFD163F2522A98DBA /* Pods_berlin_trnsprtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890DA06E5FDD9E18438096D6 /* Pods_berlin_trnsprtTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F89507B59D53953A34353CC3 /* Pods_berlin_trnsprt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5F5F3B1078E3C1284A5A1A /* Pods_berlin_trnsprt.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40C7E3FA1A9E73A0004401E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C7E3DC1A9E73A0004401E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40C7E3E31A9E73A0004401E4;
+			remoteInfo = "berlin-trnsprt";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D5F5F3B1078E3C1284A5A1A /* Pods_berlin_trnsprt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berlin_trnsprt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CC6EAB60DDF9C138D78805F /* Pods-berlin-trnsprt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-trnsprt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-trnsprt/Pods-berlin-trnsprt.debug.xcconfig"; sourceTree = "<group>"; };
+		36C7256DD3D1B296EEEA0CB7 /* Pods-berlin-trnsprtTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-trnsprtTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-trnsprtTests/Pods-berlin-trnsprtTests.debug.xcconfig"; sourceTree = "<group>"; };
+		401F046E1AB7196200653AA0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4076495A1A9E7A8A0019D424 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		408A99B01A9E836400416DAD /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
+		40AE399C1ABB5A6600F2832F /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		40AE399E1ABBF4F100F2832F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		40BB5DB91ABB50F4005D398A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		40C7E3E41A9E73A0004401E4 /* berlin-trnsprt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "berlin-trnsprt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C7E3F91A9E73A0004401E4 /* berlin-trnsprtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "berlin-trnsprtTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C7E4091A9E7412004401E4 /* Antwort_ID_ASCI.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Antwort_ID_ASCI.xml; sourceTree = "<group>"; };
+		40C7E40A1A9E7412004401E4 /* apertomove-CONCoordReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordReq.xml"; sourceTree = "<group>"; };
+		40C7E40B1A9E7412004401E4 /* apertomove-CONCoordRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "apertomove-CONCoordRes.xml"; sourceTree = "<group>"; };
+		40C7E40D1A9E7412004401E4 /* BTConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnection.swift; sourceTree = "<group>"; };
+		40C7E40E1A9E7412004401E4 /* BTConnectionMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionMapVC.swift; sourceTree = "<group>"; };
+		40C7E40F1A9E7412004401E4 /* BTConnectionPolyLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionPolyLine.swift; sourceTree = "<group>"; };
+		40C7E4101A9E7412004401E4 /* BTConnectionSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionSearchVC.swift; sourceTree = "<group>"; };
+		40C7E4111A9E7412004401E4 /* BTConReqBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConReqBuilder.swift; sourceTree = "<group>"; };
+		40C7E4121A9E7412004401E4 /* BTConResParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParser.swift; sourceTree = "<group>"; };
+		40C7E4131A9E7412004401E4 /* BTConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConstants.swift; sourceTree = "<group>"; };
+		40C7E4141A9E7412004401E4 /* BTHafasAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTHafasAPIClient.swift; sourceTree = "<group>"; };
+		40C7E4151A9E7412004401E4 /* BTMapUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTMapUtilities.swift; sourceTree = "<group>"; };
+		40C7E4161A9E7412004401E4 /* BTPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPoint.swift; sourceTree = "<group>"; };
+		40C7E4171A9E7412004401E4 /* BTServiceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTServiceDescription.swift; sourceTree = "<group>"; };
+		40C7E4181A9E7412004401E4 /* GTFSStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTFSStop.swift; sourceTree = "<group>"; };
+		40C7E4191A9E7412004401E4 /* SampleResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SampleResponse.xml; sourceTree = "<group>"; };
+		40C7E41A1A9E7412004401E4 /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stops.txt; sourceTree = "<group>"; };
+		40C7E41B1A9E7412004401E4 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		40C7E41C1A9E7412004401E4 /* VBB-STD-LUAX-CONReq.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONReq.xml"; sourceTree = "<group>"; };
+		40C7E41D1A9E7412004401E4 /* VBB-STD-LUAX-CONRes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "VBB-STD-LUAX-CONRes.xml"; sourceTree = "<group>"; };
+		40C7E4351A9E74D1004401E4 /* BTConResParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConResParserTests.swift; sourceTree = "<group>"; };
+		40C7E4361A9E74D1004401E4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C7E4391A9E7536004401E4 /* BTGTFSParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTGTFSParser.swift; sourceTree = "<group>"; };
+		40C7E43A1A9E7536004401E4 /* CLLocationDegrees+WGS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationDegrees+WGS.swift"; sourceTree = "<group>"; };
+		40C7E43D1A9E7570004401E4 /* BTConnectionResultListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConnectionResultListVC.swift; sourceTree = "<group>"; };
+		40C7E43F1A9E7596004401E4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		40C7E4431A9E773D004401E4 /* BTConReqBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTConReqBuilderTests.swift; sourceTree = "<group>"; };
+		40E9418F1A9E846C00376463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		40E941911A9E846C00376463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		890DA06E5FDD9E18438096D6 /* Pods_berlin_trnsprtTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berlin_trnsprtTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A759D17047C9AB5DBDDA63 /* Pods-berlin-trnsprtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-trnsprtTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-trnsprtTests/Pods-berlin-trnsprtTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC65E06F1CDC46669BD144AF /* Pods-berlin-trnsprt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berlin-trnsprt.release.xcconfig"; path = "Pods/Target Support Files/Pods-berlin-trnsprt/Pods-berlin-trnsprt.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40C7E3E11A9E73A0004401E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40BB5DBA1ABB50F4005D398A /* MapKit.framework in Frameworks */,
+				F89507B59D53953A34353CC3 /* Pods_berlin_trnsprt.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C7E3F61A9E73A0004401E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DEA7A3BFD163F2522A98DBA /* Pods_berlin_trnsprtTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2751D2B6A643956DDEA9641C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CC6EAB60DDF9C138D78805F /* Pods-berlin-trnsprt.debug.xcconfig */,
+				BC65E06F1CDC46669BD144AF /* Pods-berlin-trnsprt.release.xcconfig */,
+				36C7256DD3D1B296EEEA0CB7 /* Pods-berlin-trnsprtTests.debug.xcconfig */,
+				97A759D17047C9AB5DBDDA63 /* Pods-berlin-trnsprtTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		40C7E3DB1A9E73A0004401E4 = {
+			isa = PBXGroup;
+			children = (
+				40AE399E1ABBF4F100F2832F /* Keys.plist */,
+				40AE399C1ABB5A6600F2832F /* RLMSupport.swift */,
+				408A99B01A9E836400416DAD /* BerlinTransportBridgingHeader.h */,
+				4076495A1A9E7A8A0019D424 /* AppDelegate.swift */,
+				40C7E43F1A9E7596004401E4 /* Default-568h@2x.png */,
+				40C7E3E61A9E73A0004401E4 /* berlin-trnsprt */,
+				40C7E3FC1A9E73A0004401E4 /* berlin-trnsprtTests */,
+				40C7E3E51A9E73A0004401E4 /* Products */,
+				2751D2B6A643956DDEA9641C /* Pods */,
+				7701717189C7326FA1079558 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		40C7E3E51A9E73A0004401E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40C7E3E41A9E73A0004401E4 /* berlin-trnsprt.app */,
+				40C7E3F91A9E73A0004401E4 /* berlin-trnsprtTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40C7E3E61A9E73A0004401E4 /* berlin-trnsprt */ = {
+			isa = PBXGroup;
+			children = (
+				401F046E1AB7196200653AA0 /* Info.plist */,
+				40C7E4321A9E7424004401E4 /* XML */,
+				40C7E40C1A9E7412004401E4 /* Base.lproj */,
+				40C7E4331A9E7473004401E4 /* Model */,
+				40C7E4341A9E7481004401E4 /* View Controllers */,
+				40C7E4111A9E7412004401E4 /* BTConReqBuilder.swift */,
+				40C7E4121A9E7412004401E4 /* BTConResParser.swift */,
+				40C7E4131A9E7412004401E4 /* BTConstants.swift */,
+				40C7E4141A9E7412004401E4 /* BTHafasAPIClient.swift */,
+				40C7E4151A9E7412004401E4 /* BTMapUtilities.swift */,
+				40C7E41A1A9E7412004401E4 /* stops.txt */,
+			);
+			path = "berlin-trnsprt";
+			sourceTree = "<group>";
+		};
+		40C7E3FC1A9E73A0004401E4 /* berlin-trnsprtTests */ = {
+			isa = PBXGroup;
+			children = (
+				40C7E4431A9E773D004401E4 /* BTConReqBuilderTests.swift */,
+				40C7E4351A9E74D1004401E4 /* BTConResParserTests.swift */,
+				40C7E4361A9E74D1004401E4 /* Info.plist */,
+			);
+			path = "berlin-trnsprtTests";
+			sourceTree = "<group>";
+		};
+		40C7E40C1A9E7412004401E4 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				40E9418E1A9E846C00376463 /* LaunchScreen.xib */,
+				40E941901A9E846C00376463 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		40C7E4321A9E7424004401E4 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				40C7E4091A9E7412004401E4 /* Antwort_ID_ASCI.xml */,
+				40C7E40A1A9E7412004401E4 /* apertomove-CONCoordReq.xml */,
+				40C7E40B1A9E7412004401E4 /* apertomove-CONCoordRes.xml */,
+				40C7E4191A9E7412004401E4 /* SampleResponse.xml */,
+				40C7E41C1A9E7412004401E4 /* VBB-STD-LUAX-CONReq.xml */,
+				40C7E41D1A9E7412004401E4 /* VBB-STD-LUAX-CONRes.xml */,
+			);
+			name = XML;
+			sourceTree = "<group>";
+		};
+		40C7E4331A9E7473004401E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				40C7E41B1A9E7412004401E4 /* UIColor+Hex.swift */,
+				40C7E4391A9E7536004401E4 /* BTGTFSParser.swift */,
+				40C7E43A1A9E7536004401E4 /* CLLocationDegrees+WGS.swift */,
+				40C7E40F1A9E7412004401E4 /* BTConnectionPolyLine.swift */,
+				40C7E40D1A9E7412004401E4 /* BTConnection.swift */,
+				40C7E4161A9E7412004401E4 /* BTPoint.swift */,
+				40C7E4171A9E7412004401E4 /* BTServiceDescription.swift */,
+				40C7E4181A9E7412004401E4 /* GTFSStop.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		40C7E4341A9E7481004401E4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40C7E43D1A9E7570004401E4 /* BTConnectionResultListVC.swift */,
+				40C7E40E1A9E7412004401E4 /* BTConnectionMapVC.swift */,
+				40C7E4101A9E7412004401E4 /* BTConnectionSearchVC.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7701717189C7326FA1079558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40BB5DB91ABB50F4005D398A /* MapKit.framework */,
+				0D5F5F3B1078E3C1284A5A1A /* Pods_berlin_trnsprt.framework */,
+				890DA06E5FDD9E18438096D6 /* Pods_berlin_trnsprtTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40C7E3E31A9E73A0004401E4 /* berlin-trnsprt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C7E4031A9E73A0004401E4 /* Build configuration list for PBXNativeTarget "berlin-trnsprt" */;
+			buildPhases = (
+				CFE44C04D2449FF5327FAC0B /* Check Pods Manifest.lock */,
+				40C7E3E01A9E73A0004401E4 /* Sources */,
+				40C7E3E11A9E73A0004401E4 /* Frameworks */,
+				40C7E3E21A9E73A0004401E4 /* Resources */,
+				64F11000E5CA754D8C04F930 /* Embed Pods Frameworks */,
+				6168F9BA93F24F24FEED24CA /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "berlin-trnsprt";
+			productName = "berlin-trnsprt";
+			productReference = 40C7E3E41A9E73A0004401E4 /* berlin-trnsprt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40C7E3F81A9E73A0004401E4 /* berlin-trnsprtTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C7E4061A9E73A0004401E4 /* Build configuration list for PBXNativeTarget "berlin-trnsprtTests" */;
+			buildPhases = (
+				87C7F67EABDB78A2148EE5FD /* Check Pods Manifest.lock */,
+				40C7E3F51A9E73A0004401E4 /* Sources */,
+				40C7E3F61A9E73A0004401E4 /* Frameworks */,
+				40C7E3F71A9E73A0004401E4 /* Resources */,
+				DAF67799C1AE184E3F1E7188 /* Embed Pods Frameworks */,
+				28A74DAD7E05D283EDAA14A1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40C7E3FB1A9E73A0004401E4 /* PBXTargetDependency */,
+			);
+			name = "berlin-trnsprtTests";
+			productName = "berlin-trnsprtTests";
+			productReference = 40C7E3F91A9E73A0004401E4 /* berlin-trnsprtTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40C7E3DC1A9E73A0004401E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Thomas Schluchter";
+				TargetAttributes = {
+					40C7E3E31A9E73A0004401E4 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FPA5698AJQ;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					40C7E3F81A9E73A0004401E4 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 40C7E3E31A9E73A0004401E4;
+					};
+				};
+			};
+			buildConfigurationList = 40C7E3DF1A9E73A0004401E4 /* Build configuration list for PBXProject "berlin-trnsprt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40C7E3DB1A9E73A0004401E4;
+			productRefGroup = 40C7E3E51A9E73A0004401E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40C7E3E31A9E73A0004401E4 /* berlin-trnsprt */,
+				40C7E3F81A9E73A0004401E4 /* berlin-trnsprtTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40C7E3E21A9E73A0004401E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40E941921A9E846C00376463 /* LaunchScreen.xib in Resources */,
+				40C7E41E1A9E7412004401E4 /* Antwort_ID_ASCI.xml in Resources */,
+				40AE399F1ABBF4F100F2832F /* Keys.plist in Resources */,
+				40C7E4311A9E7412004401E4 /* VBB-STD-LUAX-CONRes.xml in Resources */,
+				40C7E42E1A9E7412004401E4 /* stops.txt in Resources */,
+				40C7E4201A9E7412004401E4 /* apertomove-CONCoordRes.xml in Resources */,
+				40E941931A9E846C00376463 /* Main.storyboard in Resources */,
+				40C7E42D1A9E7412004401E4 /* SampleResponse.xml in Resources */,
+				40C7E4401A9E7596004401E4 /* Default-568h@2x.png in Resources */,
+				40C7E4301A9E7412004401E4 /* VBB-STD-LUAX-CONReq.xml in Resources */,
+				40C7E41F1A9E7412004401E4 /* apertomove-CONCoordReq.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C7E3F71A9E73A0004401E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28A74DAD7E05D283EDAA14A1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-trnsprtTests/Pods-berlin-trnsprtTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6168F9BA93F24F24FEED24CA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-trnsprt/Pods-berlin-trnsprt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64F11000E5CA754D8C04F930 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-trnsprt/Pods-berlin-trnsprt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87C7F67EABDB78A2148EE5FD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFE44C04D2449FF5327FAC0B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF67799C1AE184E3F1E7188 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-berlin-trnsprtTests/Pods-berlin-trnsprtTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40C7E3E01A9E73A0004401E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C7E43C1A9E7536004401E4 /* CLLocationDegrees+WGS.swift in Sources */,
+				40AE399D1ABB5A6600F2832F /* RLMSupport.swift in Sources */,
+				40C7E42A1A9E7412004401E4 /* BTPoint.swift in Sources */,
+				40C7E4211A9E7412004401E4 /* BTConnection.swift in Sources */,
+				40C7E43E1A9E7570004401E4 /* BTConnectionResultListVC.swift in Sources */,
+				40C7E4291A9E7412004401E4 /* BTMapUtilities.swift in Sources */,
+				40C7E4231A9E7412004401E4 /* BTConnectionPolyLine.swift in Sources */,
+				40C7E4261A9E7412004401E4 /* BTConResParser.swift in Sources */,
+				40C7E42B1A9E7412004401E4 /* BTServiceDescription.swift in Sources */,
+				40C7E4281A9E7412004401E4 /* BTHafasAPIClient.swift in Sources */,
+				40C7E42C1A9E7412004401E4 /* GTFSStop.swift in Sources */,
+				40C7E43B1A9E7536004401E4 /* BTGTFSParser.swift in Sources */,
+				40C7E4251A9E7412004401E4 /* BTConReqBuilder.swift in Sources */,
+				4076495B1A9E7A8A0019D424 /* AppDelegate.swift in Sources */,
+				40C7E42F1A9E7412004401E4 /* UIColor+Hex.swift in Sources */,
+				40C7E4241A9E7412004401E4 /* BTConnectionSearchVC.swift in Sources */,
+				40C7E4271A9E7412004401E4 /* BTConstants.swift in Sources */,
+				40C7E4221A9E7412004401E4 /* BTConnectionMapVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C7E3F51A9E73A0004401E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C7E4371A9E74D1004401E4 /* BTConResParserTests.swift in Sources */,
+				40C7E4441A9E773D004401E4 /* BTConReqBuilderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40C7E3FB1A9E73A0004401E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40C7E3E31A9E73A0004401E4 /* berlin-trnsprt */;
+			targetProxy = 40C7E3FA1A9E73A0004401E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		40E9418E1A9E846C00376463 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40E9418F1A9E846C00376463 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		40E941901A9E846C00376463 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40E941911A9E846C00376463 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		40C7E4011A9E73A0004401E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40C7E4021A9E73A0004401E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40C7E4041A9E73A0004401E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CC6EAB60DDF9C138D78805F /* Pods-berlin-trnsprt.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "berlin-trnsprt/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/BerlinTransportBridgingHeader.h";
+			};
+			name = Debug;
+		};
+		40C7E4051A9E73A0004401E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC65E06F1CDC46669BD144AF /* Pods-berlin-trnsprt.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "berlin-trnsprt/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/BerlinTransportBridgingHeader.h";
+			};
+			name = Release;
+		};
+		40C7E4071A9E73A0004401E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36C7256DD3D1B296EEEA0CB7 /* Pods-berlin-trnsprtTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "berlin-trnsprtTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-trnsprt.app/berlin-trnsprt";
+			};
+			name = Debug;
+		};
+		40C7E4081A9E73A0004401E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97A759D17047C9AB5DBDDA63 /* Pods-berlin-trnsprtTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "berlin-trnsprtTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/berlin-trnsprt.app/berlin-trnsprt";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40C7E3DF1A9E73A0004401E4 /* Build configuration list for PBXProject "berlin-trnsprt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C7E4011A9E73A0004401E4 /* Debug */,
+				40C7E4021A9E73A0004401E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C7E4031A9E73A0004401E4 /* Build configuration list for PBXNativeTarget "berlin-trnsprt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C7E4041A9E73A0004401E4 /* Debug */,
+				40C7E4051A9E73A0004401E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C7E4061A9E73A0004401E4 /* Build configuration list for PBXNativeTarget "berlin-trnsprtTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C7E4071A9E73A0004401E4 /* Debug */,
+				40C7E4081A9E73A0004401E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 40C7E3DC1A9E73A0004401E4 /* Project object */;
+}
