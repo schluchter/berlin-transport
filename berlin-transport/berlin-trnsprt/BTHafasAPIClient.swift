@@ -21,7 +21,7 @@ class BTHafasAPIClient {
         req.HTTPBody = bodyData
         
         let ops = AFHTTPRequestOperation(request: req)
-
+        
         ops.responseSerializer = AFOnoResponseSerializer.XMLResponseSerializer()
         ops.setCompletionBlockWithSuccess({ (ops: AFHTTPRequestOperation!, res: AnyObject!) -> Void in
             if let connectionXML = res as? ONOXMLDocument {
@@ -29,6 +29,7 @@ class BTHafasAPIClient {
             }
             },
             failure: { (ops: AFHTTPRequestOperation!, err: NSError!) -> Void in
+                NSNotificationCenter.defaultCenter().postNotificationName("BTHafasAPIClientDidNotReceiveValidResponse", object: err)
         })
         ops.start()
     }
