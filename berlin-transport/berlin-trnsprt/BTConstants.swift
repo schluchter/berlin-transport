@@ -21,7 +21,7 @@ public let kBTSecondsPerHour = kBTMinutesPerHour * kBTSecondsPerMinute
 public let kBTSecondsPerDay = kBTHoursPerDay * kBTMinutesPerHour * kBTSecondsPerMinute
 
 // Color constants
-public let kBTColorPrimaryBg = UIColor(hue: 0.5277, saturation: 0.3, brightness: 0.26, alpha: 1)
+public let kBTColorPrimaryBg = UIColor(rgba: "#546381")
 public let kbTColorU1_15 =  UIColor(rgba: "#7DAD4C")
 public let kBTColorU2 =     UIColor(rgba: "#DA421E")
 public let kBTColorU3 =     UIColor(rgba: "#007A5B")
