@@ -21,4 +21,20 @@ public class BTMapUtils {
         
         return CLLocationCoordinate2DMake(latNew, longNew)
     }
+    
+    public class func formatDistance(distance: Int) -> String {
+        
+        let formatter = MKDistanceFormatter()
+        formatter.units = MKDistanceFormatterUnits.Metric
+        formatter.unitStyle = MKDistanceFormatterUnitStyle.Abbreviated
+        
+        return formatter.stringFromDistance(CLLocationDistance(distance))
+        
+        
+        
+//        switch distance {
+//        case 1..500:
+//            
+//        }
+    }
 }

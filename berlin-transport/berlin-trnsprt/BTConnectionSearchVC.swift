@@ -124,7 +124,7 @@ extension BTConnectionSearchVC: UITableViewDataSource {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("locSuggestion", forIndexPath: indexPath) as UITableViewCell
         let stop = self.stops.objectAtIndex(UInt(indexPath.row)) as GTFSStop
         cell.textLabel!.text = stop.name
-        cell.detailTextLabel!.text = "\(stop.distanceFromHere)m"
+        cell.detailTextLabel!.text = "\(BTMapUtils.formatDistance(stop.distanceFromHere))"
         
         return cell
     }
