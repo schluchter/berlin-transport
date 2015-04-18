@@ -86,7 +86,6 @@
 		31E367B934072E8834522B24 /* NMBExceptionCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF30147DE120F1581BE8F41 /* NMBExceptionCapture.m */; };
 		325C5AD8B2E9F9DDA78DC06A /* bind_ptr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D841827B7AB2E1181A73BF63 /* bind_ptr.hpp */; };
 		329C918C5EB37999006A4ACB /* RLMRealm_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B76AE71ACCDC09721523DC1 /* RLMRealm_Private.h */; };
-		336E43E2E9D550E86A97E75B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DC2CDE94C9670B15769AC5 /* AFNetworking.framework */; };
 		344E857CB6767CDED4CDF8B0 /* RLMRealm.h in Headers */ = {isa = PBXBuildFile; fileRef = 96E537C1471CA02F61C8268A /* RLMRealm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35437E9D218B5F68C8CB6133 /* ObjCMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42C1DF777F50F712DEAC93 /* ObjCMatcher.swift */; };
 		35917F2577F483E5D0DA3291 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E903B8FB03489CCA757365 /* QuickSpec.m */; };
@@ -213,7 +212,6 @@
 		7C2F4C1AF4598F39437B7786 /* column_linkbase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CEF8A67D8DBB42005D12F875 /* column_linkbase.hpp */; };
 		7CAFA16BF7DE7F27A55C432B /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D798D148BA7B3AF3749D40 /* UIAlertView+AFNetworking.m */; };
 		7D9C66ED12BC05C8D0524CC9 /* RLMObjectSchema_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB0F9F3A51A073347E09350 /* RLMObjectSchema_Private.h */; };
-		7DD8BCAA28810D9BD331F9B0 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DC2CDE94C9670B15769AC5 /* AFNetworking.framework */; };
 		7E037F7E027BFE5A8E537EBC /* descriptor.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D567E90755C5887966B8B7EA /* descriptor.hpp */; };
 		806325CD2C40D3FE092510C6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3AAB2D939FAE2CF66DD980 /* Security.framework */; };
 		81CECB6AA1DB489517067D12 /* RLMSchema_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F8B0FF5C947368D742DCC07A /* RLMSchema_Private.h */; };
@@ -1022,7 +1020,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DEEE174BA34F894A682C64C /* AFNetworking.framework in Frameworks */,
-				336E43E2E9D550E86A97E75B /* AFNetworking.framework in Frameworks */,
 				F2429369A341DF1C072BD6ED /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1049,7 +1046,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F7AE3151EC381749EBCFD82 /* AFNetworking.framework in Frameworks */,
-				7DD8BCAA28810D9BD331F9B0 /* AFNetworking.framework in Frameworks */,
 				1FC09ED5193C4BE3BB938EA7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2497,7 +2493,7 @@
 		07563C13C7BBC14E90DF83FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 4F1C473E9C9F214FF0A8405E /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";

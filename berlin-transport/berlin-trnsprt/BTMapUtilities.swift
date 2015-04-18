@@ -29,12 +29,5 @@ public class BTMapUtils {
         formatter.unitStyle = MKDistanceFormatterUnitStyle.Abbreviated
         
         return formatter.stringFromDistance(CLLocationDistance(distance))
-        
-        
-        
-//        switch distance {
-//        case 1..500:
-//            
-//        }
     }
 }
