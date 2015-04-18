@@ -61,7 +61,7 @@ extension NMBObjCMatcher {
                 return contain(expected).matches(expr, failureMessage: failureMessage)
             } else if let value = actualValue as? NSString {
                 let expr = Expression(expression: ({ value as String }), location: location)
-                return contain(expected as String).matches(expr, failureMessage: failureMessage)
+                return contain(expected as! String).matches(expr, failureMessage: failureMessage)
             } else if actualValue != nil {
                 failureMessage.postfixMessage = "contain <\(stringify(expected))> (only works for NSArrays, NSSets, NSHashTables, and NSStrings)"
             } else {
