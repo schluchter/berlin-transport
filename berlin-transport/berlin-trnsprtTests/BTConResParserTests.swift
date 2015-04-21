@@ -31,7 +31,7 @@ class BTConResParserTests: QuickSpec {
             }
             
             context("and within it, the first segment") {
-                let segment = connection.segments?.first! as BTJourney
+                let segment = connection.segments?.first! as! BTJourney
                 
                 it("should have the correct values set") {
                     expect(segment.duration).to(equal(4*60))

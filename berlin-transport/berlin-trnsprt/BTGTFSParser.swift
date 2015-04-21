@@ -36,10 +36,10 @@ class GTFSParser: NSObject, CHCSVParserDelegate {
 
             for entry in stops {
                 let stop = GTFSStop()
-                stop.id = entry["stop_id"] as String
-                stop.name = entry["stop_name"] as String
-                stop.lat = self.formatter.numberFromString(entry["stop_lat"] as String)!.doubleValue
-                stop.long = self.formatter.numberFromString(entry["stop_lon"] as String)!.doubleValue
+                stop.id = entry["stop_id"] as! String
+                stop.name = entry["stop_name"] as! String
+                stop.lat = self.formatter.numberFromString(entry["stop_lat"] as! String)!.doubleValue
+                stop.long = self.formatter.numberFromString(entry["stop_lon"] as! String)!.doubleValue
                 realm.addOrUpdateObject(stop)
             }
             realm.commitWriteTransaction()

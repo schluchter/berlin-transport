@@ -89,8 +89,8 @@ public class BTConResParser {
             case "Station":
                 point = BTStation(coordinate: coordinate,
                     title: displayName,
-                    externalId: element["externalId"] as String,
-                    externalStationNr: element["externalStationNr"] as String,
+                    externalId: element["externalId"] as! String,
+                    externalStationNr: element["externalStationNr"] as! String,
                     services: nil)
             default: ()
             println("Element with tag \(element.tag) is not a recognized point")
