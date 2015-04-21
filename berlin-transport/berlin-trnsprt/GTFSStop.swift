@@ -41,7 +41,7 @@ class GTFSStop: RLMObject {
             RLMRealm.defaultRealm().beginWriteTransaction()
             
             for stop in self.allObjects() {
-                let theStop = stop as GTFSStop
+                let theStop = stop as! GTFSStop
                 let hereLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
                 let stopLocation = CLLocation(latitude: theStop.lat, longitude: theStop.long)
                 let distance = stopLocation.distanceFromLocation(hereLocation)

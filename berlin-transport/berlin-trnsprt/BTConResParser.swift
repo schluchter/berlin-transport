@@ -23,7 +23,7 @@ public class BTConResParser {
         let err = NSErrorPointer()
         let fileURL = NSBundle.mainBundle().URLForResource(name, withExtension: "xml")!
         let fileStr = NSString(contentsOfURL: fileURL, encoding: NSISOLatin1StringEncoding, error: err)!
-        let xmlDoc = ONOXMLDocument(string: fileStr, encoding: NSISOLatin1StringEncoding, error: err)
+        let xmlDoc = ONOXMLDocument(string: fileStr as String, encoding: NSISOLatin1StringEncoding, error: err)
         
         self.init(xmlDoc)
     }
@@ -59,7 +59,7 @@ public class BTConResParser {
         var lat: Double, long: Double
         
         func numberForAttribute(attr: String, inElement element: ONOXMLElement) -> CLLocationDegrees {
-            return CLLocationDegrees((element[attr] as String).toInt()!) / kBTCoordinateDegreeDivisor
+            return CLLocationDegrees((element[attr] as! String).toInt()!) / kBTCoordinateDegreeDivisor
         }
         
         switch point.tag {
@@ -78,7 +78,7 @@ public class BTConResParser {
     func pointFromElement(var element: ONOXMLElement) -> BTPoint? {
         var point: BTPoint?
         element = element.firstChildWithXPath("Station|Address|Poi|.//Station|.//Address|.//Poi")
-        let displayName = element["name"] as String
+        let displayName = element["name"] as! String
         
         if let coordinate = self.coordinatesForPoint(element) {
             switch element.tag {
@@ -129,7 +129,7 @@ public class BTConResParser {
         
         total = hours * kBTSecondsPerHour + minutes * kBTSecondsPerMinute + seconds
         
-        if let days: Int = (components.removeLast() as String).toInt()? {
+        if let days: Int = (components.removeLast() as String).toInt() {
             total += days * kBTSecondsPerDay
         }
         return NSTimeInterval(total)
@@ -143,7 +143,7 @@ public class BTConResParser {
     }
     
     func trafficTypeFromGisRoute(gisRouteEl: ONOXMLElement) -> BTGisRoute.IndividualTrafficType {
-        let type = gisRouteEl["type"] as String
+        let type = gisRouteEl["type"] as! String
         switch type {
         case "BIKE":
             return .Bike
@@ -192,7 +192,7 @@ public class BTConResParser {
         if element != nil {
             var passList: [BTStation] = []
             element!.enumerateElementsWithXPath(".//BasicStop", usingBlock: { (el, idx, stop) -> Void in
-                let station = self.pointFromElement(el) as BTStation
+                let station = self.pointFromElement(el) as! BTStation
                 passList.append(station)
             })
             return passList

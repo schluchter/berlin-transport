@@ -18,7 +18,7 @@ class BTConnectionResultListViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showConnectionMap" {
-            let destVC = segue.destinationViewController as BTConnectionMapVC
+            let destVC = segue.destinationViewController as! BTConnectionMapVC
             destVC.connection = self.selectedConnection
         }
     }
@@ -41,7 +41,7 @@ extension BTConnectionResultListViewController: UITableViewDataSource {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("IndividualConnection", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("IndividualConnection", forIndexPath: indexPath) as! UITableViewCell
         let connection = connections![indexPath.row]
         
         cell.textLabel?.text = "\(connection.startDate)"

@@ -73,7 +73,7 @@ class BTConnectionSearchVC: UIViewController, CLLocationManagerDelegate {
     func handleBTHafasAPIClientResponse(notification: NSNotification) {
         println(__FUNCTION__)
         print(NSDate())
-        let xml = notification.object as ONOXMLDocument
+        let xml = notification.object as! ONOXMLDocument
         println(xml)
         let parser = BTConResParser(xml)
         self.connectionResults = parser.getConnections()
@@ -82,13 +82,13 @@ class BTConnectionSearchVC: UIViewController, CLLocationManagerDelegate {
     
     func updateTextField(field: UITextField!) {
         let pred = NSPredicate(format: "name CONTAINS[c] %@", field.text)
-        self.stops = GTFSStop.objectsWithPredicate(pred!).sortedResultsUsingProperty("distanceFromHere", ascending: true)
+        self.stops = GTFSStop.objectsWithPredicate(pred).sortedResultsUsingProperty("distanceFromHere", ascending: true)
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "displayConnections" {
-            let connectionListVC = segue.destinationViewController as BTConnectionResultListViewController
+            let connectionListVC = segue.destinationViewController as! BTConnectionResultListViewController
             connectionListVC.connections = self.connectionResults
         }
     }
@@ -97,7 +97,7 @@ class BTConnectionSearchVC: UIViewController, CLLocationManagerDelegate {
 extension BTConnectionSearchVC: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let stop = self.stops[UInt(indexPath.row)] as GTFSStop
+        let stop = self.stops[UInt(indexPath.row)] as! GTFSStop
         if self.currentTextField == nil {
             self.currentTextField = self.textfields.first!
         }
@@ -121,8 +121,8 @@ extension BTConnectionSearchVC: UITableViewDelegate {
 
 extension BTConnectionSearchVC: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("locSuggestion", forIndexPath: indexPath) as UITableViewCell
-        let stop = self.stops.objectAtIndex(UInt(indexPath.row)) as GTFSStop
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("locSuggestion", forIndexPath: indexPath) as! UITableViewCell
+        let stop = self.stops.objectAtIndex(UInt(indexPath.row)) as! GTFSStop
         cell.textLabel!.text = stop.name
         cell.detailTextLabel!.text = "\(BTMapUtils.formatDistance(stop.distanceFromHere))"
         

@@ -29,7 +29,7 @@ class GTFSParser: NSObject, CHCSVParserDelegate {
         let url = NSURL.fileURLWithPath(path)!
         dispatch_async(dispatch_get_main_queue()) {
             let realm = RLMRealm.defaultRealm()
-            let stops = NSArray(contentsOfCSVURL: url, options: CHCSVParserOptions.UsesFirstLineAsKeys|CHCSVParserOptions.SanitizesFields) as [NSDictionary]
+            let stops = NSArray(contentsOfCSVURL: url, options: CHCSVParserOptions.UsesFirstLineAsKeys|CHCSVParserOptions.SanitizesFields) as! [NSDictionary]
             
             // Write to Realm DB
             realm.beginWriteTransaction()
