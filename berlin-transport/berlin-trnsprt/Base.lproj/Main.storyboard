@@ -256,7 +256,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hYt-ld-IOu">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hYt-ld-IOu">
                                 <rect key="frame" x="16" y="64" width="568" height="536"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="2ci-ZV-1Qw"/>
@@ -282,28 +282,30 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="PPo-Ia-cCR" secondAttribute="bottom" id="9xy-3l-Iek"/>
+                            <constraint firstItem="hYt-ld-IOu" firstAttribute="trailing" secondItem="nc3-ay-Utx" secondAttribute="trailingMargin" id="CmP-zg-meV"/>
                             <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="nc3-ay-Utx" secondAttribute="top" id="LL3-sI-R5L">
                                 <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                             </constraint>
+                            <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="PPo-Ia-cCR" secondAttribute="bottom" id="LX4-AP-n1p"/>
+                            <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leadingMargin" id="Prg-Js-J4d"/>
                             <constraint firstItem="S59-kU-lgF" firstAttribute="top" secondItem="hYt-ld-IOu" secondAttribute="bottom" id="RCA-xW-uP8"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leadingMargin" id="Spu-8d-oOa"/>
                             <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leadingMargin" id="Trc-wg-fWt"/>
                             <constraint firstAttribute="trailing" secondItem="hYt-ld-IOu" secondAttribute="trailing" id="UVI-Sw-B9f"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="PPo-Ia-cCR" secondAttribute="bottom" id="WcH-HJ-hBA"/>
+                            <constraint firstAttribute="bottom" secondItem="hYt-ld-IOu" secondAttribute="bottom" id="hmb-FL-dDV"/>
                             <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leading" id="imw-MH-RHQ"/>
-                            <constraint firstItem="S59-kU-lgF" firstAttribute="top" secondItem="hYt-ld-IOu" secondAttribute="bottom" constant="-44" id="kew-ZK-i0c"/>
                             <constraint firstItem="hYt-ld-IOu" firstAttribute="trailing" secondItem="nc3-ay-Utx" secondAttribute="trailing" id="oOn-Ha-aHB"/>
-                            <constraint firstItem="S59-kU-lgF" firstAttribute="top" secondItem="hYt-ld-IOu" secondAttribute="bottom" constant="-44" id="pJW-r5-2vp"/>
                             <constraint firstAttribute="centerX" secondItem="hYt-ld-IOu" secondAttribute="centerX" id="zbS-0l-qvc">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9xy-3l-Iek"/>
                                 <exclude reference="LL3-sI-R5L"/>
                                 <exclude reference="Trc-wg-fWt"/>
                                 <exclude reference="UVI-Sw-B9f"/>
                                 <exclude reference="imw-MH-RHQ"/>
+                                <exclude reference="oOn-Ha-aHB"/>
                                 <exclude reference="zbS-0l-qvc"/>
                                 <exclude reference="RCA-xW-uP8"/>
                             </mask>
@@ -312,15 +314,11 @@
                             <mask key="constraints">
                                 <include reference="9xy-3l-Iek"/>
                                 <exclude reference="LL3-sI-R5L"/>
-                                <exclude reference="Spu-8d-oOa"/>
                                 <exclude reference="UVI-Sw-B9f"/>
-                                <exclude reference="WcH-HJ-hBA"/>
                                 <include reference="imw-MH-RHQ"/>
                                 <include reference="oOn-Ha-aHB"/>
                                 <exclude reference="zbS-0l-qvc"/>
                                 <include reference="RCA-xW-uP8"/>
-                                <exclude reference="kew-ZK-i0c"/>
-                                <exclude reference="pJW-r5-2vp"/>
                             </mask>
                         </variation>
                     </view>
