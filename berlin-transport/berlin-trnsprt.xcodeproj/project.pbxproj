@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4076495B1A9E7A8A0019D424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076495A1A9E7A8A0019D424 /* AppDelegate.swift */; };
+		409DE4281AEA52990002FFF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409DE4271AEA52990002FFF6 /* Images.xcassets */; };
 		40AE399D1ABB5A6600F2832F /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE399C1ABB5A6600F2832F /* RLMSupport.swift */; };
 		40AE399F1ABBF4F100F2832F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40AE399E1ABBF4F100F2832F /* Keys.plist */; };
 		40BB5DBA1ABB50F4005D398A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BB5DB91ABB50F4005D398A /* MapKit.framework */; };
@@ -60,6 +61,7 @@
 		401F046E1AB7196200653AA0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4076495A1A9E7A8A0019D424 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		408A99B01A9E836400416DAD /* BerlinTransportBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BerlinTransportBridgingHeader.h; sourceTree = "<group>"; };
+		409DE4271AEA52990002FFF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40AE399C1ABB5A6600F2832F /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		40AE399E1ABBF4F100F2832F /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		40BB5DB91ABB50F4005D398A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -170,6 +172,7 @@
 				40C7E4141A9E7412004401E4 /* BTHafasAPIClient.swift */,
 				40C7E4151A9E7412004401E4 /* BTMapUtilities.swift */,
 				40C7E41A1A9E7412004401E4 /* stops.txt */,
+				409DE4271AEA52990002FFF6 /* Images.xcassets */,
 			);
 			path = "berlin-trnsprt";
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				40E941931A9E846C00376463 /* Main.storyboard in Resources */,
 				40C7E42D1A9E7412004401E4 /* SampleResponse.xml in Resources */,
 				40C7E4401A9E7596004401E4 /* Default-568h@2x.png in Resources */,
+				409DE4281AEA52990002FFF6 /* Images.xcassets in Resources */,
 				40C7E4301A9E7412004401E4 /* VBB-STD-LUAX-CONReq.xml in Resources */,
 				40C7E41F1A9E7412004401E4 /* apertomove-CONCoordReq.xml in Resources */,
 			);
@@ -598,6 +602,7 @@
 			baseConfigurationReference = 1CC6EAB60DDF9C138D78805F /* Pods-berlin-trnsprt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "berlin-trnsprt/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -612,6 +617,7 @@
 			baseConfigurationReference = BC65E06F1CDC46669BD144AF /* Pods-berlin-trnsprt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "berlin-trnsprt/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
