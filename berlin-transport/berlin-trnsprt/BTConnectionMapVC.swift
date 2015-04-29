@@ -100,7 +100,6 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
         self.mapView.showAnnotations(mapView.annotations, animated: true)
-        self.mapView.camera.altitude *= 1.5;
 
     }
     
@@ -199,11 +198,12 @@ class BTConnectionMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "BTPoint")
-        view.backgroundColor = UIColor.whiteColor()
-        view.frame = CGRectMake(-4, -4, 8, 8)
-        view.layer.cornerRadius = 4
-        view.layer.shadowOffset = CGSizeMake(1, 1)
-        view.layer.shadowOpacity = 0.08
+//        view.backgroundColor = UIColor.whiteColor()
+        view.image = UIImage(named: "map_point")
+//        view.frame = CGRectMake(-4, -4, 8, 8)
+//        view.layer.cornerRadius = 4
+//        view.layer.shadowOffset = CGSizeMake(1, 1)
+//        view.layer.shadowOpacity = 0.08
         
         return view
     }
