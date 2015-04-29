@@ -30,9 +30,9 @@ PODS:
   - Nimble (0.4.2)
   - Ono (1.2.1)
   - Quick (0.3.1)
-  - Realm (0.91.3):
-    - Realm/Headers (= 0.91.3)
-  - Realm/Headers (0.91.3)
+  - Realm (0.91.5):
+    - Realm/Headers (= 0.91.5)
+  - Realm/Headers (0.91.5)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger
@@ -53,6 +53,6 @@ SPEC CHECKSUMS:
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Ono: 1122212de602280cc7af19d7ab12ee98a3fc0339
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  Realm: 4bfdac6f0f3170a3947c7196e2e9a2e49c943719
+  Realm: 670059efdb212ab939c1745a60aff27820c0a9c4
 
 COCOAPODS: 0.36.1
