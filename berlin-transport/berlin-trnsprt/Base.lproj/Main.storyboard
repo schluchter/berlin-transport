@@ -121,7 +121,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m9D-OV-w4D">
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="9g2-2E-aUs">
+                        <barButtonItem key="rightBarButtonItem" title="Search" style="plain" id="9g2-2E-aUs">
+                            <color key="tintColor" red="0.32941176470588235" green="0.38823529411764707" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="requestConnections:" destination="WMB-t9-1QK" id="C8w-go-QP6"/>
                             </connections>
@@ -207,23 +208,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hYt-ld-IOu">
-                                <rect key="frame" x="16" y="64" width="568" height="536"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="2ci-ZV-1Qw"/>
-                                    <constraint firstAttribute="height" id="oXa-bR-YIV"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2ci-ZV-1Qw"/>
-                                        <exclude reference="oXa-bR-YIV"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="2ci-ZV-1Qw"/>
-                                        <exclude reference="oXa-bR-YIV"/>
-                                    </mask>
-                                </variation>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <connections>
                                     <outlet property="delegate" destination="yoT-y5-qfP" id="Di1-yt-lRr"/>
                                 </connections>
@@ -231,46 +216,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="PPo-Ia-cCR" secondAttribute="bottom" id="9xy-3l-Iek"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="trailing" secondItem="nc3-ay-Utx" secondAttribute="trailingMargin" id="CmP-zg-meV"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="nc3-ay-Utx" secondAttribute="top" id="LL3-sI-R5L">
-                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
-                            </constraint>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="top" secondItem="PPo-Ia-cCR" secondAttribute="bottom" id="LX4-AP-n1p"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leadingMargin" id="Prg-Js-J4d"/>
-                            <constraint firstItem="S59-kU-lgF" firstAttribute="top" secondItem="hYt-ld-IOu" secondAttribute="bottom" id="RCA-xW-uP8"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leadingMargin" id="Trc-wg-fWt"/>
-                            <constraint firstAttribute="trailing" secondItem="hYt-ld-IOu" secondAttribute="trailing" id="UVI-Sw-B9f"/>
+                            <constraint firstItem="hYt-ld-IOu" firstAttribute="trailing" secondItem="nc3-ay-Utx" secondAttribute="trailing" id="CmP-zg-meV"/>
+                            <constraint firstItem="PPo-Ia-cCR" firstAttribute="bottom" secondItem="hYt-ld-IOu" secondAttribute="top" id="LX4-AP-n1p"/>
+                            <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leading" id="Prg-Js-J4d"/>
                             <constraint firstAttribute="bottom" secondItem="hYt-ld-IOu" secondAttribute="bottom" id="hmb-FL-dDV"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="leading" secondItem="nc3-ay-Utx" secondAttribute="leading" id="imw-MH-RHQ"/>
-                            <constraint firstItem="hYt-ld-IOu" firstAttribute="trailing" secondItem="nc3-ay-Utx" secondAttribute="trailing" id="oOn-Ha-aHB"/>
-                            <constraint firstAttribute="centerX" secondItem="hYt-ld-IOu" secondAttribute="centerX" id="zbS-0l-qvc">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9xy-3l-Iek"/>
-                                <exclude reference="LL3-sI-R5L"/>
-                                <exclude reference="Trc-wg-fWt"/>
-                                <exclude reference="UVI-Sw-B9f"/>
-                                <exclude reference="imw-MH-RHQ"/>
-                                <exclude reference="oOn-Ha-aHB"/>
-                                <exclude reference="zbS-0l-qvc"/>
-                                <exclude reference="RCA-xW-uP8"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="9xy-3l-Iek"/>
-                                <exclude reference="LL3-sI-R5L"/>
-                                <exclude reference="UVI-Sw-B9f"/>
-                                <include reference="imw-MH-RHQ"/>
-                                <include reference="oOn-Ha-aHB"/>
-                                <exclude reference="zbS-0l-qvc"/>
-                                <include reference="RCA-xW-uP8"/>
-                            </mask>
-                        </variation>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
