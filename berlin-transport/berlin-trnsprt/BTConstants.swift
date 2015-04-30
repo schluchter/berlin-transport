@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 public let kBTCoordinateDegreeDivisor: Double = 1000000.0
-public let kBTHafasServerURL: String = "http://demo.hafas.de/bin/pub/vbb/extxml.exe"
+//public let kBTHafasServerURL: String = "http://demo.hafas.de/bin/pub/vbb/extxml.exe"
+public let kBTHafasServerURL: String = "http://demo.hafas.de/bin/pub/vbb/541/extxml.exe"
 
 // Date and Time-related constants
 public let kBTHoursPerDay = 24
