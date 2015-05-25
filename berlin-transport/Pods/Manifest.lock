@@ -2,25 +2,25 @@ PODS:
   - AFNetworkActivityLogger (2.0.4):
     - AFNetworking/NSURLConnection (~> 2.0)
     - AFNetworking/NSURLSession (~> 2.0)
-  - AFNetworking (2.5.3):
-    - AFNetworking/NSURLConnection (= 2.5.3)
-    - AFNetworking/NSURLSession (= 2.5.3)
-    - AFNetworking/Reachability (= 2.5.3)
-    - AFNetworking/Security (= 2.5.3)
-    - AFNetworking/Serialization (= 2.5.3)
-    - AFNetworking/UIKit (= 2.5.3)
-  - AFNetworking/NSURLConnection (2.5.3):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.3):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.3)
-  - AFNetworking/Security (2.5.3)
-  - AFNetworking/Serialization (2.5.3)
-  - AFNetworking/UIKit (2.5.3):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AFOnoResponseSerializer (1.0.0):
@@ -28,11 +28,11 @@ PODS:
     - Ono (~> 1.0)
   - CHCSVParser (2.1.0)
   - Nimble (0.4.2)
-  - Ono (1.2.1)
+  - Ono (1.2.2)
   - Quick (0.3.1)
-  - Realm (0.91.5):
-    - Realm/Headers (= 0.91.5)
-  - Realm/Headers (0.91.5)
+  - Realm (0.92.3):
+    - Realm/Headers (= 0.92.3)
+  - Realm/Headers (0.92.3)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger
@@ -47,12 +47,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
-  AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   AFOnoResponseSerializer: c02c8bef1d6742ac68f33ecaed41826c9657bc33
   CHCSVParser: 3bcc7bdb72111a31222e95d57eacceefe4e537e8
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
-  Ono: 1122212de602280cc7af19d7ab12ee98a3fc0339
+  Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  Realm: 670059efdb212ab939c1745a60aff27820c0a9c4
+  Realm: bf604805d5e897850da488260f93889f510924b3
 
 COCOAPODS: 0.36.1
