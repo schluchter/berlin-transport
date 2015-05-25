@@ -8,12 +8,13 @@
 
 import Foundation
 import CoreLocation
+import Ono
 
 public typealias Meters = UInt
 
 public protocol BTConnectionSegment {
-    var start: BTPoint { get }
-    var end: BTPoint { get }
+    var start: BTPoint {get}
+    var end: BTPoint {get}
     var duration: NSTimeInterval? {get}
 }
 
@@ -63,4 +64,18 @@ public struct BTConnection {
     public var start: BTPoint
     public var end: BTPoint
     public var segments: [BTConnectionSegment]?
+    
+    init(xml: ONOXMLElement) {
+        let overViewEl = xml.firstChildWithTag("Overview")
+        let segmentListEl = xml.firstChildWithTag("ConSectionList")
+        let connectionBaseDate = overViewEl.firstChildWithTag("Date").dateValue()
+        
+        self.startDate = BTConResParser.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Departure//Time"), baseDate: connectionBaseDate)!
+        self.endDate = BTConResParser.dateTimeFromElement(overViewEl.firstChildWithXPath(".//Arrival//Time"), baseDate: connectionBaseDate)!
+        self.travelTime = BTConResParser.timeIntervalForElement(xml.firstChildWithXPath(".//Duration/Time"))
+        self.numberOfTransfers = xml.firstChildWithXPath("//Transfers").numberValue().unsignedLongValue
+        self.start = BTConResParser.pointFromElement(overViewEl.firstChildWithTag("Departure"))!
+        self.end = BTConResParser.pointFromElement(overViewEl.firstChildWithTag("Arrival"))!
+        self.segments = BTConResParser.segmentsForJourney(segmentListEl)
+    }
 }
